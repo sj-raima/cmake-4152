@@ -1,0 +1,36 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$COMPILE_CPP_API_LC_E="
+    dev_db
+    test01
+    test02
+    test03
+";
+
+$COMPILE_CPP_API_LC_E_U="
+    rec
+";
+
+$DDLP_CPP_API_LC_C="
+    family
+";
+
+$DDLP_CPP_LC_C="
+    family1
+    family2
+    family3
+";
+
+$EMBED_CPP="
+    test.sdl
+    test2.cat
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+    cppapi
+    cpp$TFS
+    cpp$ENC
+";

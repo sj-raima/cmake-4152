@@ -1,0 +1,155 @@
+-source/disable_rdm_client
+-source/tfs_inmem
+-source/tfs_embed
+-source/tfs_client
+-source/tfs_server
+-source/tfs_full
+-source/tfs
+-source/enc_simple
+-source/xml
+-source/rsql
+-source/jdbc
+-source/ado.net
+-source/ocfg
+-source/cppapi
+-source/cppexport
+-source/cppenc_simple
+-source/cppenc
+-source/cpptfs_client
+
+# Last this I ran the 14infor test this is what we excluded from base:
+# +source/base/align.cpp
+# #source/base/all_sourcex.cpp
+# #source/base/array.cpp
+# +source/base/base64.cpp
+# +source/base/bcd.cpp
+# +source/base/bcd_from_double.cpp
+# #source/base/berror_legacy.cpp
+# #source/base/bit.cpp
+# +source/base/buffer.cpp
+# +source/base/bufferedstream.cpp
+# #source/base/cache.cpp
+# #source/base/cache_ptr.cpp
+# #source/base/chunk_compact.cpp
+# +source/base/chunk.cpp
+# #source/base/chunk_expanded.cpp
+# #source/base/chunk_ptr.cpp
+# +source/base/cmdline.cpp
+# +source/base/connection.cpp
+# +source/base/convert.cpp
+# +source/base/ctype.cpp
+# #source/base/currency.cpp
+# +source/base/datetime.cpp
+# +source/base/decoder.cpp
+# #source/base/docroot.cpp
+# #source/base/embed.cpp
+# +source/base/encoder.cpp
+# +source/base/error.cpp
+# #source/base/fft.cpp
+# +source/base/input_buffer.cpp
+# +source/base/input_file.cpp
+# +source/base/input_memory.cpp
+# +source/base/filecache.cpp
+# +source/base/file_cached_autosar.cpp
+# +source/base/file_cached.cpp
+# +source/base/file_cached_ignore.cpp
+# +source/base/file_cached_psp.cpp
+# +source/base/file_cached_stdio.cpp
+# +source/base/file_cached_poll.cpp
+# #source/base/iz_compact.cpp
+# +source/base/iz.cpp
+# #source/base/iz_expanded.cpp
+# +source/base/json.cpp
+# +source/base/keyvalue.cpp
+# +source/base/lex.cpp
+# #source/base/ll.cpp
+# +source/base/log.cpp
+# #source/base/log_no.cpp
+# #source/base/lz2.cpp
+# #source/base/lz.cpp
+# +source/base/misc.cpp
+# +source/base/node_compact.cpp
+# +source/base/node.cpp
+# #source/base/node_expanded.cpp
+# #source/base/numeric.cpp
+# +source/base/options.cpp
+# +source/base/output_utf8.cpp
+# +source/base/parse.cpp
+# +source/base/path.cpp
+# +source/base/pool.cpp
+# #source/base/queue.cpp
+# +source/base/rand.cpp
+# #source/base/resize.cpp
+# #source/base/row_compact.cpp
+# +source/base/row.cpp
+# #source/base/row_expanded.cpp
+# #source/base/rtree_compact.cpp
+# +source/base/rtree.cpp
+# #source/base/rtree_expanded.cpp
+# +source/base/schema.cpp
+# +source/base/schema_fcns.cpp
+# +source/base/schema_key_compare.cpp
+# +source/base/schema_load.cpp
+# +source/base/schema_load_file.cpp
+# #source/base/schema_reload.cpp
+# #source/base/sort.cpp
+# #source/base/stack.cpp
+# +source/base/string.cpp
+# +source/base/swap.cpp
+# +source/base/tag_master_malloc.cpp
+# +source/base/tag_master_psp.cpp
+# +source/base/tag_stack.cpp
+# +source/base/tag_stack_malloc.cpp
+# +source/base/tag_stack_psp.cpp
+# +source/base/tag_sub_bitmap.cpp
+# +source/base/tag_sub.cpp
+# +source/base/tag_sub_fail.cpp
+# +source/base/tag_sub_list.cpp
+# +source/base/tag_sub_list_of_lists.cpp
+# +source/base/tag_sub_malloc.cpp
+# +source/base/tag_sub_profile.cpp
+# +source/base/tag_sub_trackex.cpp
+# #source/base/thrpool.cpp
+# #source/base/tokenize.cpp
+# +source/base/tree_header_compact.cpp
+# #source/base/tree_header_expanded.cpp
+# +source/base/type.cpp
+# +source/base/utf8.cpp
+# +source/base/uuid.cpp
+# +source/base/value.cpp
+# +source/base/varint.cpp
+# +source/base/vsnprintf.cpp
+
+-source/rdm_check
+-source/rdm_convert
+-source/rdm_copy
+-source/rdm_create
+-source/rdm_crypt
+-source/rdm_drop
+-source/rdm_export
+-source/rdm_import
+-source/rdm_info
+-source/rdm_initialize
+-source/rdm_repair
+-source/enable_replication
+-source/rdm_replicate
+-source/rdm_sql
+-source/rdm_vacuum
+-source/rdm_regodbc
+-admin-gui
+
+-GettingStarted/cpp
+-GettingStarted/cs
+-GettingStarted/mini
+
+-GettingStarted/c-core/core36Example
+-GettingStarted/c-core/core38Example
+-GettingStarted/c-core/core40Example
+-GettingStarted/c-core/core18Example
+
+-test/14tfs
+-test/tfs/sqls
+-test/noqaframe
+-test/qaframe_test
+-test/tfs/rdm/12suite2
+-test/tfs/rdm/14pack

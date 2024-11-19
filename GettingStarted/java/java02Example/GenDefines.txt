@@ -1,0 +1,9 @@
+$DESCRIPTION="Primary and Foreign-key reference. Two table types, second referencing the first";
+
+$PLATFORM_INC="
+    JAVA
+";
+
+$LINKLIBRARIES="
+  jdbc
+";

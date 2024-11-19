@@ -1,0 +1,10 @@
+$DESCRIPTION="Simple example which creates/inserts and reads a single record type with two fields which are referenced in a non-unique compound key";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core16Example
+";

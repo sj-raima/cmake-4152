@@ -1,0 +1,10 @@
+$DESCRIPTION="R-Tree example (see R-Tree CPP Example)";
+
+$LINKLIBRARIES="
+    cpp$TFS
+    cppapi
+";
+
+$COMPILE_CPP_API_LC="
+    cpp35Example
+";

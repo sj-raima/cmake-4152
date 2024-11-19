@@ -1,0 +1,23 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$COMPILE_CPP_API_LC="
+    audi_ref_btree
+    audi_ref_avl
+    audi_btree
+    audi_avl
+    audi_rowid_btree
+    audi_rowid_avl
+";
+
+$COMPILE_CPP_API="
+    EHRDB
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+    cppapi
+    cpp$TFS
+    cpp$ENC
+";

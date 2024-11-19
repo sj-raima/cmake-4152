@@ -1,0 +1,17 @@
+$LIBRARY="qaframe_rsql";
+
+$INCLUDES="
+    ../../source/rsql
+    ../../source/psp
+    ../../source/base
+";
+
+$LINKLIBRARIES="
+    $PSP
+    $BASE
+    $RDM
+    rsql
+    $TFS
+    qaframe
+    $ENC
+";

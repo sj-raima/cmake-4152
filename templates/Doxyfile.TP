@@ -1,0 +1,14 @@
+if ($DIRPATH eq "include" ||
+    (${DIRPATH} =~ m/source/ && ($RELEASE_SRC || ! $RELEASE))) {
+    ${outputDoxyFileDirectoriesCMake}.=" \\\n                         \@PROJECT_SOURCE_DIR\@/$DIRPATH";
+    ${outputDoxyFileDirectoriesConfigure}.=" \\\n                         \@top_srcdir\@/$DIRPATH";
+    ${outputDoxyFileDirectories}.=" \\\n                         $DIRPATH";
+}
+
+if ($#INCLUDES >= 0 && (${DIRPATH} =~ m/source/ && ($RELEASE_SRC || ! $RELEASE))) {
+    foreach $include (@INCLUDES) {
+        my $path = "$DIRPATH/$include";
+        while ( $path =~ s#/[^/]+?/\.\./#/# ) {;}
+        $outputDoxyFileIncludePath{"$path"}= "t";
+    }
+} 

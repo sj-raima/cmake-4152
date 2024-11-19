@@ -1,0 +1,50 @@
+#!/usr/bin/perl -w
+
+sub usage {
+    print "java.pl
+    Compile Java.
+    This script should be run in the top level directory of RDM
+";
+}
+
+sub error {
+    print "ERROR - (compileJava.pl): $_[0]\n";
+    exit 1;
+}
+
+print "Running compileJava.pl...\n";
+parse_options: while (@ARGV) {
+    $ARG=$ARGV[0];
+    if ($ARG eq '-h' || $ARG eq '--help') {
+        usage; exit;
+    }
+    else {
+        error "Illegal option or argument ($1)";
+    }
+    shift @ARGV;
+}
+
+print "Compiling for JDK version(s): @@PRODUCT_VERSION_JDKS@@\n";
+if (exists $ENV{'RDM_JACOCO_DIR'}) {
+    $JACOCO_DEF = "-Djacoco_dir=$ENV{'RDM_JACOCO_DIR'}";
+}
+else {
+    $JACOCO_DEF = "";
+}
+
+if ("@@PRODUCT_VERSION_JDKS@@" eq "") {
+    system "ant -q ${JACOCO_DEF}" and error "ant failed";
+}
+else {
+    @jdks= split (',', "@@PRODUCT_VERSION_JDKS@@");
+    foreach $jdk (@jdks) {
+        if (not exists $ENV{"${jdk}_HOME"}) {
+            error "Environment variable ${jdk}_HOME is required to build for JDK: ${jdk}";
+        }
+        print "${jdk}_HOME found with value:" . $ENV{"${jdk}_HOME"} . "\n";
+        $ENV{"JAVA_HOME"}=$ENV{"${jdk}_HOME"};
+        print "JAVA_HOME set to:" . $ENV{"JAVA_HOME"} . "\n";
+        print "Running ant -q -Djdk=$jdk\n";
+        system "ant -q ${JACOCO_DEF} -Djdk=$jdk" and error "ant failed";
+    }
+}

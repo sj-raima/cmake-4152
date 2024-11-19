@@ -1,0 +1,14 @@
+$LIBRARY="rdm_export";
+
+$LINKLIBRARIES="
+    $TFS
+    $DDL
+    $RDM
+    export
+    $ENC
+    $SQL
+";
+
+$DEFINES="
+    $SQL_ENABLED
+";

@@ -1,0 +1,7 @@
+$DEPENDENCIES="
+  rdm-regodbc
+";
+
+$PLATFORM_INC="
+    WINDOWS
+";

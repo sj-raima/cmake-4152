@@ -1,0 +1,12 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$COMPILE_CPP_LC_S_E="
+    coreblob
+    clob
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+";

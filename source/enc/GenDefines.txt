@@ -1,0 +1,25 @@
+$LIBRARY="enc";
+$COMB="1";
+
+$COPY_FILES="
+    ../enc_simple/encdec.cpp
+    ../enc_simple/encryption.cpp
+    ../enc_simple/enc_enter.cpp
+    ../enc_simple/enc_enter_legacy.cpp
+    ../enc_simple/sha.cpp
+    
+    ../enc_simple/enc_api.h
+    ../enc_simple/enc_int.h
+    ../enc_simple/encpriv_types.h
+    ../enc_simple/sha_types_int.h
+    ../enc_simple/sha_api_int.h
+
+    ../tfs_local/tfs_enter.cpp
+    ../tfs_local/tfs_enter_api_int.h
+";
+
+$LINKLIBRARIES="
+    psp
+    base
+    tx
+";

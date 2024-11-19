@@ -1,0 +1,10 @@
+$DESCRIPTION="CLOB example in C language";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core37Example
+";

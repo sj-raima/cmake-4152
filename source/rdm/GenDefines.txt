@@ -1,0 +1,51 @@
+$LIBRARY="rdm";
+$COMB="1";
+
+$COPY_FILES="
+    ../tfs_local/tfs_enter.cpp
+    ../tfs_local/tfs_enter_api_int.h
+";
+
+$DEFINES="
+    $REPLICATION_ENABLED
+    RDM_PUBLIC_CLASS=RDM_EXPORT
+";
+
+$LINKLIBRARIES="
+    $TX
+    $BASE
+    $PSP
+    $DDL
+";
+
+$PUBLIC_HEADERS="
+    rdm.h
+    rdm_version.h
+    rdmapi.h
+    rdmcursorapi.h
+    rdmdbapi.h
+    rdmencryptapi.h
+    rdmretcodeapi.h
+    rdmrdmapi.h
+    rdmrowidapi.h
+    rdmtransapi.h
+    rdmtypes.h
+    rdm_time_series.h
+    rdm_time_series_collect.h
+    rdm_time_series_custom.h
+    rdm_time_series_dead_end.h
+    rdm_time_series_downsample.h
+    rdm_time_series_fft.h
+    rdm_time_series_mean.h
+    rdm_time_series_restore_aggregate.h
+    rdm_time_series_scale.h
+    rdm_time_series_split.h
+    rdm_time_series_stats.h
+    rdm_db.h
+    rdm_db_transaction.h
+    rdm_db_query.h
+    rdm_db_insert_row.h
+    rdm_db_read_row.h
+    rdmdbreplicationeapi.h
+";
+

@@ -1,0 +1,19 @@
+$DEPENDENCIES="
+  rdm-tfs
+  rdm-info
+  rdm-initialize
+  rdm-create
+  rdm-drop
+  rdm-crypt
+  rdm-export
+  rdm-import
+  rdm-repair
+  rdm-vacuum
+  rdm-crypt
+  rdm-sql
+";
+
+$EXTRA_DIST="
+  db.sdl
+  db.sql
+";

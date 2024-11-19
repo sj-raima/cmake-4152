@@ -1,0 +1,25 @@
+if ($LIBRARY ne "" and ($LANGUAGE eq "c" or $LANGUAGE eq "c/cpp")) {
+    $output= "#if defined(" . uc(${LIBRARY}) . "_ALL_SOURCE)\n";
+    $output.= "#define PSP_PRIVATE static\n\n";
+    if (${DIRPATH} =~ m/noos/ ) {
+    }
+    elsif (${DIRPATH} =~ m/source/ ) {
+        $output.= "#include \"../psp/features_types.h\"\n";
+    }
+    foreach $srcfile (@SRCFILES) {
+        if ($srcfile =~ m/\.c$/)
+        {
+            $output.= "#include \"$srcfile\"\n";
+        }
+    }
+    foreach $gen_macro (keys (%GEN_MACRO_RULES)) {
+        foreach $macro (@{$gen_macro}) {
+            foreach $argument (@{$GEN_MACRO_RULES{$gen_macro}{outputC}}) {
+                my ${arg}= "${argument}";
+                ${arg}=~ s/\$\{base\}/${macro}/;
+                $output.= "#include \"${arg}\"\n";
+            }
+        }
+    }
+    $output.= "#endif\n";
+}

@@ -1,0 +1,16 @@
+$LIBRARY="rdm_compile";
+$COMB=1;
+
+$LINKLIBRARIES="
+    $DDL
+";
+
+$INCLUDES="
+    ../ddl
+";
+
+$COPY_FILES="
+    ../enc_simple/sha.cpp
+    ../enc_simple/sha_api_int.h
+    ../enc_simple/sha_types_int.h
+";

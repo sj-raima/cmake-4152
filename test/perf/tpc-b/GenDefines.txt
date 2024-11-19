@@ -1,0 +1,8 @@
+$SUBDIRS="
+    cursor
+    pgsql
+#    mysql
+    sqlite
+    sqliteNoSync
+    sqliteDurable
+";

@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultVariableSet>
+  <Variable
+    Comment=""
+    Name="CompanyName">Raima Inc.</Variable>
+  <Variable
+    Name="ShortCompanyName"
+    Comment=""
+    Definition="Some text">Raima</Variable>
+  <Variable
+    Name="LibraryVersion"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition="-@@PRODUCT_VERSION_MAJOR@@">-@@PRODUCT_VERSION_MAJOR@@</Variable>
+  <Variable
+    Name="MajorVersion"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition="@@PRODUCT_VERSION_MAJOR@@">@@PRODUCT_VERSION_MAJOR@@</Variable>
+  <Variable
+    Name="MinorVersion"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition="@@PRODUCT_VERSION_MINOR@@">@@PRODUCT_VERSION_MINOR@@</Variable>
+  <Variable
+    Name="CopyrightYear"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition="@@PRODUCT_COPYRIGHT_YEAR@@">@@PRODUCT_COPYRIGHT_YEAR@@</Variable>
+  <Variable
+    Name="ReleaseVersion"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition="@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@.@@PRODUCT_VERSION_PATCH@@">@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@.@@PRODUCT_VERSION_PATCH@@</Variable>
+  <Variable
+    Name="CommandLineVersion"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition="@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@.@@PRODUCT_VERSION_PATCH@@ Build @@PRODUCT_VERSION_BUILD@@ [@@PRODUCT_INFO_DATE_MONTH@@-@@PRODUCT_INFO_DATE_DAY@@-@@PRODUCT_INFO_DATE_YEAR@@]">@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@.@@PRODUCT_VERSION_PATCH@@ Build @@PRODUCT_VERSION_BUILD@@ [@@PRODUCT_INFO_DATE_MONTH@@-@@PRODUCT_INFO_DATE_DAY@@-@@PRODUCT_INFO_DATE_YEAR@@]</Variable>
+  <Variable
+    Name="ProductVersion"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition="@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@">@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@</Variable>
+  <Variable
+    Name="DefaultPort"
+    Comment="We have been assigned tcp port 21553 by IANA for use by the tfs."
+    Definition="Some text">21553</Variable>
+  <Variable
+    Name="Patch"
+    Comment=""
+    Definition="Some text">@@PRODUCT_VERSION_PATCH@@</Variable>
+  <Variable
+    Name="Build"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition="@@PRODUCT_VERSION_BUILD@@">@@PRODUCT_VERSION_BUILD@@</Variable>
+  <Variable
+    Name="Copyright"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition="Copyright © @@PRODUCT_COPYRIGHT_YEAR@@, @@PRODUCT_COPYRIGHT_HOLDER@@ @@PRODUCT_COPYRIGHT_TEXT@@">Copyright © @@PRODUCT_COPYRIGHT_YEAR@@, @@PRODUCT_COPYRIGHT_HOLDER@@ @@PRODUCT_COPYRIGHT_TEXT@@</Variable>
+  <Variable
+    Name="ProductName"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition=">@@PRODUCT_NAME_LONG@@">@@PRODUCT_NAME_LONG@@</Variable>
+  <Variable
+    Name="ProductShortName"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition=">@@PRODUCT_NAME_SHORT@@">@@PRODUCT_NAME_SHORT@@</Variable>
+  <Variable
+    Name="ProductPackageName"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition=">@@PRODUCT_VERSION_PACKAGE@@">@@PRODUCT_VERSION_PACKAGE@@</Variable>
+  <Variable
+    Name="InstallHome"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition="/opt/Raima/rdm_&lt;package&gt;-@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_INOR@@/">/opt/Raima/rdm-&lt;package&gt;-@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@/</Variable>
+  <Variable
+    Name="InstallHomeW"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition="C:\Raima\rdm_&lt;package&gt;-@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@\">C:\Raima\rdm-&lt;package&gt;-@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@\</Variable>
+  <Variable
+    Name="InstallRoot"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition="&lt;RaimaDB Install Root&gt;/">&lt;RaimaDB Install Root&gt;/</Variable>
+  <Variable
+    Name="VxWorksVersion"
+    Comment="">23.03</Variable>  
+  <Variable
+    Name="URLHome"
+    Comment=""
+    Definition="Some text">@@PRODUCT_WEBSITE@@</Variable>
+  <Variable
+    Name="URLDocHome"
+    Comment=""
+    Definition="Some text">@@PRODUCT_DOCUMENTATION_URL@@</Variable>
+  <Variable
+    Name="DefaultSHM"
+    Comment="">21553</Variable>
+  <Variable
+    Name="DefaultTCP"
+    Comment="">localhost:21553</Variable>
+  <Variable
+    Name="TFSS"
+    Comment=""
+    OriginalName="TFSS">Standalone</Variable>
+  <Variable
+    Name="TFST"
+    Comment=""
+    OriginalName="TFST">Direct-Link</Variable>
+  <Variable
+    Name="TFSR"
+    Comment=""
+    OriginalName="TFSR">Client/Server</Variable>
+  <Variable
+    Name="VersionDate"
+    Comment=""
+    Type="DateTime"
+    EvaluatedDefinition="@@PRODUCT_INFO_DATE_MONTH@@/@@PRODUCT_INFO_DATE_DAY@@/@@PRODUCT_INFO_DATE_YEAR@@">@@PRODUCT_INFO_DATE_MONTH@@/@@PRODUCT_INFO_DATE_DAY@@/@@PRODUCT_INFO_DATE_YEAR@@</Variable>
+  <Variable
+    Name="rdmdocs_sql"
+    Comment=""
+    EvaluatedDefinition="./ug/sql">./ug/sql</Variable>
+  <Variable
+    Name="rdmdocs_learn"
+    Comment=""
+    EvaluatedDefinition="./ug/learn">./ug/learn</Variable>
+  <Variable
+    Name="rdmdocs_basics"
+    Comment=""
+    EvaluatedDefinition="./ug/basics">./ug/basics</Variable>
+  <Variable
+    Name="rdmdocs_dev"
+    Comment=""
+    EvaluatedDefinition="./ug/dev">./ug/dev</Variable>
+  <Variable
+    Name="rdmdocs_c"
+    Comment=""
+    EvaluatedDefinition="./ug/c">./ug/c</Variable>
+  <Variable
+    Name="rdmdocs_jdbc"
+    Comment=""
+    EvaluatedDefinition="./ug/jdbc">./ug/jdbc</Variable>
+  <Variable
+    Name="rdmdocs_ado"
+    Comment=""
+    EvaluatedDefinition="./ug/ado">./ug/ado</Variable>
+  <Variable
+    Name="rdmdocs"
+    Comment=""
+    EvaluatedDefinition="./ug">./ug</Variable>
+  <Variable
+    Name="rdmdocs_rest"
+    Comment=""
+    EvaluatedDefinition="./ug/rest">./ug/rest</Variable>
+  <Variable
+    Name="rdmdocs_replication"
+    Comment=""
+    EvaluatedDefinition="./ug/replication">./ug/replication</Variable>
+</CatapultVariableSet>

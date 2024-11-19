@@ -1,0 +1,16 @@
+$LIBRARY= "cpptfs_client";
+
+$COPY_FILES="
+    $ALL_TFS_CPP_FILES
+";
+
+$LINKLIBRARIES="
+    $PSP
+    $RDM
+    $TFS_CLIENT
+    cppapi
+";
+
+$DEFINES="
+    RDM_PUBLIC_CLASS=RDM_EXPORT
+";

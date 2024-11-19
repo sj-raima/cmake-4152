@@ -1,0 +1,7 @@
+if ($RDM_CLIENT_ENABLED and $EXISTLIBRARY{'rdm_client'}) {
+    $TFS="";
+    $RDM_CLIENT='rdm_client' unless ($RDM_CLIENT ne '');
+    $RDM="$RDM_CLIENT";
+    $SQL='';
+    $SQL_ENABLED='';
+}

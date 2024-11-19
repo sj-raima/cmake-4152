@@ -1,0 +1,11 @@
+$DESCRIPTION="Hello World example with encryption in C language";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+    enc
+";
+
+$COMPILE_LC_S_C="
+    core36Example
+";

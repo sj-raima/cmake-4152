@@ -1,0 +1,68 @@
+if ($LIBRARY ne "" and $LANGUAGE ne "java") {
+    $output = "# Raima Database Manager\n";
+    $output.= "#\n";
+    $output.= "# Copyright (c) 1990-@@PRODUCT_COPYRIGHT_YEAR@@ Raima Inc.,  All rights reserved.\n";
+    $output.= "#\n";
+    $output.= "# Use of this software, whether in source code format, or in executable,\n";
+    $output.= "# binary object code form, is governed by the Raima LICENSE which\n";
+    $output.= "# is fully described in the LICENSE.TXT file, included within this\n";
+    $output.= "# distribution of files.\n";
+    $output.= "\n";
+    $output.= "# NB! This file is not complete with respect to platform dependent\n";
+    $output.= "#     defines and libraries\n";
+    $output.= "\n";
+
+    if ($LIBRARY eq "rdmxml") {
+        $output.= "# Copyright (c) 1998, 1999, 2000 Thai Open Source Software Center Ltd\n";
+        $output.= "# See the file EXPAT_LICENSE.txt for copying permission.\n";
+        $output.= "\n";
+    }
+
+    $output.= "prefix=\${pcfiledir}/../..\n";
+    $output.= "exec_prefix=\${prefix}\n";
+    $output.= "includedir=\${pcfiledir}/../../\@DOT_DOT_SLASH_IF_CROSS_COMPILE\@include\n";
+    $output.= "libdir=\${exec_prefix}/lib\n";
+    $output.= "\n";
+    $output.= "Name: ${LIBRARY}\n";
+    $output.= "Description: The ${LIBRARY} library from @@PRODUCT_COPYRIGHT_HOLDERSHORT@@\n";
+    $output.= "Version: @@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@.@@PRODUCT_VERSION_PATCH@@\n";
+    $output.= "URL: @@PRODUCT_DOCUMENTATION_URL@@\n";
+    $output.= "Cflags: -I\${includedir}\n";
+    $output.= "Libs: -L\${libdir} -l${LIBRARY} \@${LIBRARY}_LIBRARY\@\n";
+    my $first = '1';
+    foreach $linklibrary (@LINKLIBRARIES) {
+        if ($first) {
+            $first = '0';
+            $output.= "\nRequires.private: ";
+        }
+        else {
+            $output.= ', ';
+        }
+        
+        $output.= "$linklibrary = @@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@.@@PRODUCT_VERSION_PATCH@@";
+    }
+    if (substr ($LIBRARY, 0, 6) eq "rdmtfs") {
+        $output.= "\nConflicts:";
+        my $first = '1';
+        foreach my $conflictlibrary (("rdmtfs", "rdmtfs_inmem", "rdmtfs_embed", "rdmtfs_client", "rdmtfs_rdm", "rdmtfs_server", "rdmtfs_full")) {
+            if ($LIBRARY ne $conflictlibrary) {
+                if ($first) {
+                    $first = '0';
+                }
+                else {
+                    $output.= ',';
+                }
+                $output.= " $conflictlibrary";
+            }
+        }
+    }
+    if ($LIBRARY eq "rdmtx") {
+        $output.= "\nConflicts: rdmrdm_client";
+    }
+    if ($LIBRARY eq "rdmrdm_client") {
+        $output.= "\nConflicts: rdmtx, rdmrdm";
+    }
+    if ($LIBRARY eq "rdmrdm") {
+        $output.= "\nConflicts: rdmrdm_client";
+    }
+}

@@ -1,0 +1,12 @@
+
+$SUBDIRS="
+   mini
+   c-core
+   c-odbc
+   cpp
+   cs
+   java
+   rest
+   sql
+   rdm-hot-backup
+";

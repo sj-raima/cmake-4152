@@ -1,0 +1,9 @@
+$DESCRIPTION="Transaction. Insert rows in a transaction. Commit then select and print them";
+
+$PLATFORM_INC="
+    JAVA
+";
+
+$LINKLIBRARIES="
+  jdbc
+";

@@ -1,0 +1,11 @@
+$LIBRARY= "cppexport";
+
+$LINKLIBRARIES="
+    $RDM
+    export
+    cppapi
+";
+
+$DEFINES="
+    RDM_PUBLIC_CLASS=RDM_EXPORT
+";

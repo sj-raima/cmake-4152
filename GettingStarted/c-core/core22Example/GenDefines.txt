@@ -1,0 +1,10 @@
+$DESCRIPTION="In-memory. Simple record type, integer field, one key. Time creation of 50,000 records. Scan through the key, verify ascending order. Time. Time deletion of all records";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core22
+";

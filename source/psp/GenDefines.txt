@@ -1,0 +1,25 @@
+$LIBRARY="psp";
+$COMB="1";
+
+$DEFINES="
+    PSP_EXPORT=RDM_EXPORT
+";
+
+$LINKLIBRARIES="
+";
+
+$SYSLIBS="
+    os_psp_syslibs
+";
+
+$PUBLIC_HEADERS="
+    pspplatdetect.h
+    pspplatcpu.h
+    pspplatos.h
+    pspplatpackage.h
+    psptypes.h
+    psptypes-lint.h
+    rdmstartupapi.h
+    rdmstartuptypes.h
+    rdmretcodetypes.h
+";

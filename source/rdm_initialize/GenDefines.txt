@@ -1,0 +1,11 @@
+$LIBRARY="rdm_initialize";
+
+$LINKLIBRARIES="
+    $RDM
+    $TFS
+    $ENC
+";
+
+$INCLUDES="
+    ../tx
+";

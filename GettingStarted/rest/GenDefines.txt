@@ -1,0 +1,9 @@
+$DESCRIPTION="RESTful API Demo";
+
+$DEPENDENCIES="
+  rdm-sql
+";
+
+$SUBDIRS="
+    RESTExample
+";

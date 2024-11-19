@@ -1,0 +1,13 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$COMPILE_CPP_API_LC_E="
+    tapsAndMaintenanceData
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+    cppapi
+    cpp$TFS
+";

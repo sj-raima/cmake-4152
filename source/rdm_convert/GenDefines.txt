@@ -1,0 +1,10 @@
+$LIBRARY="rdm_convert";
+
+$LINKLIBRARIES="
+    $BASE
+    $PSP
+";
+
+$RDMYACC_CPP="
+    ddlp
+";

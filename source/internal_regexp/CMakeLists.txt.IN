@@ -1,0 +1,94 @@
+project(@@PRODUCT_NAME_SHORT@@)
+set (@@PRODUCT_NAME_SHORT@@_VERSION_MAJOR @@PRODUCT_VERSION_MAJOR@@)
+set (@@PRODUCT_NAME_SHORT@@_VERSION_MINOR @@PRODUCT_VERSION_MINOR@@)
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+
+ADD_DEFINITIONS (-DHAVE_CONFIG_H)
+
+set(ISO_9899 ON)
+
+  set(PLATFORM "posix")
+
+  include(CheckCXXCompilerFlag)
+  CHECK_CXX_COMPILER_FLAG (-fno-rtti SUPPORTS_FNO_RTTI)
+  if (SUPPORTS_FNO_RTTI)
+    ADD_DEFINITIONS (-fno-rtti)
+  endif (SUPPORTS_FNO_RTTI)
+
+  CHECK_CXX_COMPILER_FLAG (-fno-exceptions SUPPORTS_FNO_EXCEPTIONS)
+  if (SUPPORTS_FNO_EXCEPTIONS)
+    ADD_DEFINITIONS (-fno-exceptions)
+  endif (SUPPORTS_FNO_EXCEPTIONS)
+
+  CHECK_CXX_COMPILER_FLAG (-fcheck-new SUPPORTS_FCHECK_NEW)
+  if (SUPPORTS_FCHECK_NEW)
+    ADD_DEFINITIONS (-fcheck-new)
+  endif (SUPPORTS_FCHECK_NEW)
+
+  set (USE_PROCESS_SYNCRONIZATION ON CACHE BOOL "Enable process synchronization")
+  if (USE_PROCESS_SYNCRONIZATION)
+    ADD_DEFINITIONS (-DHAVE_PROCESS_SYNCRONIZATION)
+  endif (USE_PROCESS_SYNCRONIZATION)
+
+  set (USE_SELECT_ONLY_FOR_SOCKETS OFF CACHE BOOL "select can only be used on sockets")
+  if (USE_SELECT_ONLY_FOR_SOCKETS)
+    ADD_DEFINITIONS (-DHAVE_SELECT_ONLY_FOR_SOCKETS)
+  endif (USE_SELECT_ONLY_FOR_SOCKETS)
+
+  set (USE_MAIN_ARGS_FROM_STDIN OFF CACHE BOOL "Enable arguments from standard input")
+  if (USE_MAIN_ARGS_FROM_STDIN)
+    ADD_DEFINITIONS (-DHAVE_MAIN_ARGS_FROM_STDIN)
+  endif (USE_MAIN_ARGS_FROM_STDIN)
+
+  set (USE_FORK_FOR_TESTING ON CACHE BOOL "Enable tests that require fork")
+  if (USE_FORK_FOR_TESTING)
+    ADD_DEFINITIONS (-DHAVE_FORK_FOR_TESTING)
+  endif (USE_FORK_FOR_TESTING)
+
+  # Do we need pthread
+  include(CheckLibraryExists)
+  CHECK_LIBRARY_EXISTS (pthread pthread_mutex_init /usr/lib REQUIRE_PTHREAD)
+  if (REQUIRE_PTHREAD)
+     set(PLATFORM_LIB "pthread")
+  endif (REQUIRE_PTHREAD)
+
+  # Do we need rt
+  if (CMAKE_CROSSCOMPILING)
+    CHECK_LIBRARY_EXISTS (rt shm_open ${CMAKE_FIND_ROOT_PATH}/lib REQUIRE_RT)
+  else (CMAKE_CROSSCOMPILING)
+    CHECK_LIBRARY_EXISTS (rt shm_open /usr/lib REQUIRE_RT)
+  endif (CMAKE_CROSSCOMPILING)
+  if (REQUIRE_RT)
+    set(CMAKE_REQUIRED_LIBRARIES "-lrt ${CMAKE_REQUIRED_LIBRARIES}")
+    set(PLATFORM_LIB ${PLATFORM_LIB} rt)
+  endif (REQUIRE_RT)
+
+  # Do we need socket
+  CHECK_LIBRARY_EXISTS (socket gethostbyname /usr/lib REQUIRE_SOCKET)
+  if (REQUIRE_SOCKET)
+    set(PLATFORM_LIB ${PLATFORM_LIB} socket)
+  endif (REQUIRE_SOCKET)
+  
+
+  ADD_DEFINITIONS (-D_REENTRANT)
+
+include_directories (
+  osif/include
+  ${PROJECT_BINARY_DIR}/osif/${PLATFORM}
+  osif/${PLATFORM}
+  rtl/include
+  rtl/nls/include
+  regexp/include
+)
+
+link_directories (
+  rtl/nls
+  regexp
+)
+
+
+ENABLE_TESTING()
+
+add_subdirectory(rtl)
+add_subdirectory(regexp)

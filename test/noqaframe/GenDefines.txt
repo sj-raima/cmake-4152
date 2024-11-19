@@ -1,0 +1,10 @@
+$SUBDIRS="
+    cpp
+    jdbc
+    rdbc
+    1364
+    1365
+    4787
+#    killUser
+#    objcapi
+";

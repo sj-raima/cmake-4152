@@ -1,0 +1,10 @@
+$DESCRIPTION="Multiple databases. Create and initialize two databases. Populate them. Incrementally open them in the same task. Use 'database number' to demonstrate usage of both databases from same task";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core08
+";

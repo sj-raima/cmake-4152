@@ -1,0 +1,11 @@
+$LIBRARY="qaframe";
+
+$DEFINES="
+    $REPLICATION_ENABLED
+";
+
+$LINKLIBRARIES="
+    $RDM
+    $BASE
+    $PSP
+";

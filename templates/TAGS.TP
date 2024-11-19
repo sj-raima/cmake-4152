@@ -1,0 +1,48 @@
+if (projectInclude ("LINUX", "OSX", "IOS", "ANDROID", "QNX", "INTEGRITY", "VXWORKS", "VXWORKS_RTP", "WINDOWS") and -e "/usr/bin/etags") {
+    if ($#SUBDIRS >= 0 or $#SRCFILES >= 0 or $#HDRFILES >= 0 or $EXECUTABLE ne "" or $#TESTS >= 0) {
+        my @files= ();
+	my $file;
+        if ($EXECUTABLE ne "") {
+           $file= $EXECUTABLE . "_main." . $LANGUAGE{"$EXECUTABLE"};
+           if (-e "$file.IN") {
+	       push (@files, "$file.IN");
+	   }
+	   else {
+	       push (@files, "$file");
+	   }
+        }
+        foreach $file (@SRCFILES) {
+            if (-e "$file.IN") {
+                push (@files, "$file.IN");
+            }
+            else {
+                push (@files, "$file");
+            }
+        }
+        foreach $file (@HDRFILES) {
+            if (-e "$file.IN") {
+                push (@files, "$file.IN");
+            }
+            else {
+                push (@files, "$file");
+            }
+        }
+        foreach $file (@TESTS) {
+            if ($file =~ m/.*\.(sh|bat|pl)$/) {
+                if (-e "$file.IN") {
+                    push (@files, "$file.IN");
+                }
+                else {
+                    push (@files, "$file");
+                }
+            }
+        }
+        my $dirs="";
+        if ($#SUBDIRS >= 0) {
+            $dirs= "--include=";
+            $dirs.= join (" --include=", @SUBDIRS);
+        }
+
+        $output= `/usr/bin/etags @files $dirs --output=- 2>/dev/null`;
+    }
+}

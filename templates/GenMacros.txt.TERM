@@ -1,0 +1,67 @@
+my $GenMacrosOutput= "";
+    foreach $gen_macro (keys(%GEN_MACRO_RULES)) {
+        my $argument;
+        $GenMacrosOutput.= "\nmacro (" . lc(${gen_macro}) . ")\n" .
+                  "  make_directory (\${CMAKE_CURRENT_BINARY_DIR}\/\${CMAKE_CFG_INTDIR})\n" .
+          	  "  foreach (NAME \${ARGV})\n" .
+		  "    add_custom_command (\n";
+        $GenMacrosOutput.= "      OUTPUT\n";
+        foreach $argument ((@{$GEN_MACRO_RULES{$gen_macro}{outputH}}, @{$GEN_MACRO_RULES{$gen_macro}{outputC}})) {
+	    my ${arg}= "${argument}";
+            ${arg} =~ s/\$\{base\}/\$\{NAME\}/;
+	    $GenMacrosOutput.= "        \${CMAKE_CURRENT_BINARY_DIR}/${arg}\n";
+        }
+        foreach $argument (@{$GEN_MACRO_RULES{$gen_macro}{command}}) {
+	    my ${arg}= "${argument}";
+            ${arg} =~ s/[-a-z_]*\///g;
+            ${arg} =~ s/\$\{base\}/\$\{NAME\}/;
+            ${arg} =~ s/\$\{input_base\}/\$\{CMAKE_CURRENT_SOURCE_DIR\}\/\$\{NAME\}/;
+            ${arg} =~ s/\$\{output_base\}/\$\{CMAKE_CURRENT_BINARY_DIR\}\/\$\{NAME\}/;
+            ${arg} =~ s/\$\{include_dir\}/\$\{CMAKE_SOURCE_DIR\}\/include/;
+            ${arg} =~ s/\$\{docroot\}/\$\{CMAKE_CURRENT_BINARY_DIR\}\/\$\{CMAKE_CFG_INTDIR\}/;
+            if ($RELEASE_OBJ) {
+                $GenMacrosOutput.= "      COMMAND \$\{CMAKE_SOURCE_DIR\}\/bin/${arg}\n";
+            }
+            else {
+                $GenMacrosOutput.= "      COMMAND ${arg}\n";
+            }
+        }
+        $GenMacrosOutput.= "      DEPENDS \n";
+        foreach $argument (@{$GEN_MACRO_RULES{$gen_macro}{input}}) {
+	    my ${arg}= "${argument}";
+            ${arg} =~ s/\$\{base\}/\$\{NAME\}/;
+            $GenMacrosOutput.= "        \${CMAKE_CURRENT_SOURCE_DIR}/${arg}\n";
+        }
+        if ($RELEASE_SRC || !$RELEASE) {
+            foreach $argument (@{$GEN_MACRO_RULES{$gen_macro}{tool}}) {
+	        my ${arg}= "${argument}";
+                ${arg} =~ s/\$\{base\}/\$\{NAME\}/;
+                $GenMacrosOutput.= "        ${arg}\n";
+            }
+        }
+        my $myDESCRIPTION= "$GEN_MACRO_RULES{$gen_macro}{description}";
+        $myDESCRIPTION =~ s/\$\{base\}/\$\{NAME\}/;
+        $GenMacrosOutput.= "      COMMENT \"$myDESCRIPTION\"\n    )\n";
+
+        $GenMacrosOutput.= "    set (SOURCE_FILES \${SOURCE_FILES}\n";
+        foreach $argument (@{$GEN_MACRO_RULES{$gen_macro}{outputH}}) {
+	    my ${arg}= "${argument}";
+            ${arg} =~ s/\$\{base\}/\$\{NAME\}/;
+            $GenMacrosOutput.= "        \${CMAKE_CURRENT_BINARY_DIR}/${arg}\n";
+        }
+        $GenMacrosOutput.= "    )\n";
+
+        $GenMacrosOutput.= "    if (NOT ALL_SOURCE)\n";
+        $GenMacrosOutput.= "        set (SOURCE_FILES \${SOURCE_FILES}\n";
+        foreach $argument (@{$GEN_MACRO_RULES{$gen_macro}{outputC}}) {
+	    my ${arg}= "${argument}";
+            ${arg} =~ s/\$\{base\}/\$\{NAME\}/;
+            $GenMacrosOutput.= "            \${CMAKE_CURRENT_BINARY_DIR}/${arg}\n";
+        }
+        $GenMacrosOutput.= "        )\n";
+        $GenMacrosOutput.= "    endif ()\n";
+
+        $GenMacrosOutput.= "  endforeach (NAME)\n" .
+		  "endmacro (" . lc(${gen_macro}) . ")\n";
+    }
+print_file("CMake/GenMacros.txt", $GenMacrosOutput);

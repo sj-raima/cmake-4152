@@ -1,0 +1,5 @@
+$LINKLIBRARIES="
+    rdm_import
+";
+
+$TOOL="rdm-import";

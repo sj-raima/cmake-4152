@@ -1,0 +1,9 @@
+$SUBDIRS="
+    static
+    templates
+";
+
+$EXTRA_DIST="
+    __init__.py
+    views.py
+";

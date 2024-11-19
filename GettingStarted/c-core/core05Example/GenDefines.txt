@@ -1,0 +1,10 @@
+$DESCRIPTION="Indexing. Add 5 new records with random index values. Scan through index & print records in order. Each run adds 5 more records in the database";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core05
+";

@@ -1,0 +1,15 @@
+$DESCRIPTION="Example TFS accepting only connections using SSL encryption";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core40Example
+";
+
+$EXTRA_DIST="
+  certificate.pem
+  privatekey.pem
+";

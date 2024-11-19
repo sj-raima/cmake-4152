@@ -1,0 +1,9 @@
+$COMPILE_CPP_API="
+    EHRDB
+";
+
+$LINKLIBRARIES="
+    cppapi
+    cpp$TFS
+    cpp$ENC
+";

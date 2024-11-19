@@ -1,0 +1,9 @@
+$SUBDIRS="
+    sql_bicycle
+    sql_bookshop
+";
+
+$PLATFORM_EXCL= "
+    VXWORKS
+    VXWORKS_RTP
+";

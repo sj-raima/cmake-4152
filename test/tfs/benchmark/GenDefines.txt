@@ -1,0 +1,16 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+    cppapi
+    cpp$TFS
+    rdbc
+    $PSP
+    $BASE
+";
+
+$COMPILE_CPP_API_LC_E="
+    benchmark
+";

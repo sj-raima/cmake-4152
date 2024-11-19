@@ -1,0 +1,362 @@
+{
+  "version": 6,
+  "include": [
+    "linux.json"
+  ],
+  "configurePresets": [
+    {
+      "name": "linux-dev",
+      "generator": "Ninja Multi-Config",
+      "inherits": ["linux-library-pthread-math"],
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "FALSE",
+        "COMPILE_ALL_SOURCE": "FALSE"
+       },
+      "binaryDir": "b-${presetName}",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      },
+      "hidden": true
+    },
+    {
+      "name": "shared",
+      "description": "Dev: Linux with a default debug build with shared libraries",
+      "inherits": ["linux-dev", "linux-library-ssl"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX",
+        "BUILD_SHARED_LIBS": "TRUE"
+      }
+    },
+    {
+      "name": "qbperf",
+      "description": "Linux with a static non-debug build",
+      "inherits": "linux-dev"
+    },
+    {
+      "name": "devel",
+      "description": "Dev: Linux with a default debug build",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX"
+      }
+    },
+    {
+      "name": "dev-lnx-x86_32",
+      "description": "Dev: Linux for i386",
+      "inherits": ["linux-dev", "lnx-x86_32"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX",
+        "NATIVE_DIR": "${sourceDir}/b-devel"
+      }
+    },
+    {
+      "name": "gdb",
+      "description": "Dev: Linux where GDB may be launched in the debugger",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_GDB_SERVER"
+      }
+    },
+    {
+      "name": "transport-ssl",
+      "description": "Dev: Linux where the TRANSPORT_SSL implementation is enabled (under development)",
+      "inherits": ["linux-dev", "linux-library-ssl"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TRANSPORT_HAVE_SSL"
+      }
+    },
+    {
+      "name": "transport-tcp-ssl",
+      "description": "Dev: Linux where the TRANSPORT_TCP_SSL implementation is enabled",
+      "inherits": ["linux-dev", "linux-library-ssl"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TRANSPORT_HAVE_TCP_SSL"
+      }
+    },
+    {
+      "name": "tag-bitmap",
+      "description": "Dev: Linux where we use the bitmap allocator",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TAG_SUB_BITMAP"
+      }
+    },
+    {
+      "name": "tag-list-of-lists",
+      "description": "Dev: Linux where we use the list-of-lists allocator",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TAG_SUB_LIST_OF_LISTS"
+      }
+    },
+    {
+      "name": "tag-fail",
+      "description": "Dev: Linux where we use the failure-simulation allocator",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TAG_FAIL"
+      }
+    },
+    {
+      "name": "tag-profile",
+      "description": "Dev: Linux where we use the profile allocator",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TAG_PROFILE"
+      }
+    },
+    {
+      "name": "tag-malloc",
+      "description": "Dev: Linux where we use the malloc allocator",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TAG_MALLOC"
+      }
+    },
+    {
+      "name": "tag-trackex",
+      "description": "Dev: Linux where we use the trackex allocator",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TAG_TRACKEX"
+      }
+    },
+    {
+      "name": "memcheck",
+      "description": "Dev: Linux intended for use with Valgrind's memcheck tool",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TAG_MALLOC -DRDM_INIT"
+      }
+    },
+    {
+      "name": "verify-in-use",
+      "description": "Dev: Linux where we verify the in-use in the database pack",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DENABLE_PACK_VERIFY_INUSE_MAIN -DPACK_VERIFY_OLDEST_PACK_ID -DENABLE_PACK_VERIFY_DRAWER_LOCATIONS"
+      }
+    },
+    {
+      "name": "no-os",
+      "description": "Dev: Linux with the NO_OS implementation",
+      "generator": "Ninja Multi-Config",
+      "inherits": ["linux-library-math"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_NO_OS -static -no-pie",
+        "BUILD_SHARED_LIBS": "FALSE",
+        "COMPILE_ALL_SOURCE": "FALSE"
+       },
+      "binaryDir": "b-${presetName}",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "rdm-console-trace-no-os",
+      "description": "Dev: Linux with a file cached implementation for tracing a no-os process. Use rdm-console to get stdout from that process",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_FILE_POLL_STATIC_BUFFER_CMD -DRDM_NO_OS"
+      }
+    },
+    {
+      "name": "all-source",
+      "description": "Dev: Linux where we compile all source together",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX ",
+        "COMPILE_ALL_SOURCE": "TRUE"
+      }
+    },
+    {
+      "name": "poll",
+      "description": "Dev: Linux where whe have enabled the poll transport",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TRANSPORT_SHM_POLL_NUM_USERS=10 -DRDM_TRANSPORT_HAVE_SHM_POLL"
+      }
+    },
+    {
+      "name": "poll-tag-malloc",
+      "description": "Dev: Linux where whe have enabled the poll transport and the malloc allocator",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TRANSPORT_SHM_POLL_NUM_USERS=10 -DRDM_TRANSPORT_HAVE_SHM_POLL -DRDM_TAG_MALLOC"
+      }
+    },
+    {
+      "name": "easy-profiler",
+      "description": "Dev: Linux where whe have enabled the easy profiler",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX",
+        "RDM_EASY_PROFILER": "TRUE"
+      }
+    },
+    {
+      "name": "link-time-opt",
+      "description": "Dev: Linux where we use Link Time Optimization",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -flto",
+        "CMAKE_C_FLAGS": "-DRDM_ASSERT_RDM_UNIX -flto",
+        "CMAKE_EXE_LINKER_FLAGS": "-flto"
+      }
+    },
+    {
+      "name": "clang",
+      "description": "Dev: Linux where we use clang instead of gcc",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++"
+      }
+    },
+    {
+      "name": "clang-12",
+      "description": "Dev: Linux where we use clang-12 instead of gcc",
+      "inherits": ["linux-dev", "linux-library-ssl"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TRANSPORT_HAVE_SSL",
+        "CMAKE_C_COMPILER": "clang-12",
+        "CMAKE_CXX_COMPILER": "clang++-12"
+      }
+    },
+    {
+      "name": "clang-12-shared",
+      "description": "Dev: Linux where we use clang-12 instead of gcc",
+      "inherits": ["shared"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TRANSPORT_HAVE_SSL",
+        "CMAKE_C_COMPILER": "clang-12",
+        "CMAKE_CXX_COMPILER": "clang++-12",
+        "CMAKE_LIBRARY_OUTPUT_DIRECTORY": "${sourceDir}/b-${presetName}/lib",
+        "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/b-${presetName}/bin"
+      }
+    },
+    {
+      "name": "clang-12-no-ssl",
+      "description": "Dev: Linux where we use clang-12 instead of gcc (without SSL)",
+      "inherits": ["linux-dev"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX",
+        "CMAKE_C_COMPILER": "clang-12",
+        "CMAKE_CXX_COMPILER": "clang++-12"
+      }
+    },
+    {
+      "name": "gcc-7",
+      "description": "Dev: Linux where we use gcc-7 instead of gcc",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX",
+        "CMAKE_C_COMPILER": "gcc-7",
+        "CMAKE_CXX_COMPILER": "g++-7"
+      }
+    },
+    {
+      "name": "gcc-8",
+      "description": "Dev: Linux where we use gcc-8 instead of gcc",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX",
+        "CMAKE_C_COMPILER": "gcc-8",
+        "CMAKE_CXX_COMPILER": "g++-8"
+      }
+    },
+    {
+      "name": "gcc-9",
+      "description": "Dev: Linux where we use gcc-9 instead of gcc",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX",
+        "CMAKE_C_COMPILER": "gcc-9",
+        "CMAKE_CXX_COMPILER": "g++-9"
+      }
+    },
+    {
+      "name": "gcc-9-shared",
+      "description": "Dev: Linux where we use gcc-9 instead of gcc",
+      "inherits": ["shared"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TRANSPORT_HAVE_SSL",
+        "CMAKE_C_COMPILER": "gcc-9",
+        "CMAKE_CXX_COMPILER": "g++-9",
+        "CMAKE_LIBRARY_OUTPUT_DIRECTORY": "${sourceDir}/b-${presetName}/lib",
+        "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/b-${presetName}/bin"
+      }
+    },
+    {
+      "name": "gcc-10",
+      "description": "Dev: Linux where we use gcc-10 instead of gcc",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX",
+        "CMAKE_C_COMPILER": "gcc-10",
+        "CMAKE_CXX_COMPILER": "g++-10"
+      }
+    },
+    {
+      "name": "gcc-12",
+      "description": "Dev: Linux where we use gcc-12 instead of gcc",
+      "inherits": ["linux-dev", "linux-library-ssl"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_ASSERT_RDM_UNIX -DRDM_TRANSPORT_HAVE_SSL",
+        "CMAKE_C_COMPILER": "gcc-12",
+        "CMAKE_CXX_COMPILER": "g++-12"
+      }
+    },
+    {
+      "name": "m32",
+      "description": "Dev: Linux where we compile for 32-bit instead of 64-bit",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_C_FLAGS": "-m32",
+        "CMAKE_CXX_FLAGS": "-m32 -DRDM_ASSERT_RDM_UNIX"
+      }
+    },
+    {
+      "name": "dev-cummins-aarch64-poky-linux",
+      "description": "Cross compile for Linux on SCM board provided by Cummins (A-core)",
+      "inherits": ["cummins-aarch64-poky-linux"],
+      "cacheVariables": {
+        "NATIVE_DIR": "${sourceDir}/b-devel"
+      }
+    },
+    {
+      "name": "dev-s390x",
+      "description": "Dev: Cross compile for Linux on 64 bit s390x",
+      "inherits": ["lnx-s390x-gnu"],
+      "cacheVariables": {
+        "NATIVE_DIR": "${sourceDir}/b-devel"
+      }
+    },
+    {
+      "name": "coverage",
+      "description": "Dev: Linux with code coverage",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_C_FLAGS": "--coverage -fprofile-abs-path",
+        "CMAKE_CXX_FLAGS": "--coverage -fprofile-abs-path",
+        "CMAKE_EXE_LINKER_FLAGS": "--coverage",
+        "rdmpsp_LIBRARY": "-lm -lpthread"
+      }
+    },
+    {
+      "name": "coverage-no-os",
+      "description": "Dev: Linux with code coverage",
+      "inherits": "linux-dev",
+      "cacheVariables": {
+        "CMAKE_C_FLAGS": "--coverage -fprofile-abs-path",
+        "CMAKE_CXX_FLAGS": "--coverage -fprofile-abs-path -DRDM_NO_OS",
+        "CMAKE_EXE_LINKER_FLAGS": "--coverage"
+      }
+    }
+  ]
+}

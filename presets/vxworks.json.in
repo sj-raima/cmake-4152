@@ -1,0 +1,189 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "vxworks",
+      "generator": "Ninja Multi-Config",
+      "binaryDir": "b-${presetName}",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      },
+      "hidden": true
+    },
+    {
+      "name": "vxworks-cross",
+      "inherits": ["vxworks"],
+      "environment": {
+        "DRIVE": "/opt",
+        "VXWORKS_PREBUILT_PROJECTS_DIR": "$env{DRIVE}/WindRiver/vxworks/$env{VXWORKS_VERSION}/samples/prebuilt_projects",
+
+        "VXWORKS_VERSION": "23.03",
+        "WIND_GNU_PATH": "$env{WIND_COMPILER_PATHS}/gnu-8.3.0.4",
+        "WIND_LLVM_PATH": "$env{WIND_COMPILER_PATHS}/llvm-12.0.1.1",
+        "WIND_RUST_PATH": "$env{WIND_COMPILER_PATHS}/rust-1.55.0.0",
+        "WIND_RELEASE_ID": "$env{VXWORKS_VERSION}",
+        "WIND_HOME": "/$env{DRIVE}/WindRiver",
+        "WIND_BASE": "/opt/WindRiver/vxworks/$env{WIND_RELEASE_ID}",
+        "WIND_COMPILER_PATHS": "$env{WIND_HOME}/compilers",
+        "WIND_TOOLS": "$env{WIND_HOME}/workbench-4",
+        "WIND_HOST_TYPE": "x86-linux2",
+        "PATH": "$env{WIND_TOOLS}/x86_64-linux2/$env{WIND_RELEASE_ID}/bin:$env{WIND_BASE}/vxharden/exe:$env{WIND_BASE}/source/build/mk/scripts:$env{WIND_BASE}/host/x86_64-linux/bin:$env{WIND_BASE}/host/$env{WIND_HOST_TYPE}/bin:$env{WIND_TOOLS}/wrasp/$env{WIND_HOST_TYPE}/bin:$env{WIND_TOOLS}/simulator/bin/wbUtilities/7-Zip:$env{WIND_TOOLS}/wrsysviewer/host/x86_64-linux2/bin:$env{WIND_HOME}/license/lmapi-5/$env{WIND_HOST_TYPE}/bin:$env{WIND_TOOLS}:$env{WIND_RUST_PATH}/x86_64-unknown-linux-gnu/bin:$env{WIND_LLVM_PATH}/LINUX64/bin:$env{WIND_GNU_PATH}/x86_64-linux2/bin:$penv{PATH}",
+        "WIND_PREFERRED_PACKAGES": "vxworks/$env{WIND_RELEASE_ID}",
+        "WIND_SPIN_ID": "0",
+        "WIND_PLATFORM": "vxworks-7",
+        "WIND_WELCOME_URL": "https://docs.windriver.com/category/os_vxworks_$env{WIND_RELEASE_ID}",
+        "WIND_SEARCH_URL": "https://docs.windriver.com/search?facetreset=yes&source=all&q={expression}&labelKey=os_vxworks&sort=score&rpp=10",
+        "WIND_RSS_CHANNELS": "https://support2.windriver.com/feeds/workbench_400.xml:https://support2.windriver.com/feeds/vxworks_700.xml",
+        "WIND_TOOLCHAINS": "rust:llvm:gnu",
+        "WIND_GNU_HOST_TYPE": "x86_64-linux2",
+        "WIND_VX7_GNU_HOST_TYPE": "x86_64-linux2",
+        "WIND_LLVM_HOST_TYPE": "LINUX64",
+        "WIND_VX7_LLVM_HOST_TYPE": "LINUX64",
+        "WIND_RUST_HOST_TYPE": "x86_64-unknown-linux-gnu",
+        "WIND_VX7_RUST_HOST_TYPE": "x86_64-unknown-linux-gnu",
+        "WIND_RPM": "$env{WIND_TOOLS}/eclipse",
+        "WIND_WRSV_PATH": "$env{WIND_TOOLS}/wrsysviewer",
+        "FLEXLM_NO_CKOUT_INSTALL_LIC": "1",
+        "LD_LIBRARY_PATH": "$env{WIND_TOOLS}/x86_64-linux2/$env{WIND_RELEASE_ID}/lib:$env{WIND_BASE}/host/x86_64-linux/lib:$env{WIND_BASE}/host/$env{WIND_HOST_TYPE}/lib:$env{WIND_TOOLS}/wrsysviewer/host/x86_64-linux2/lib:$env{WIND_HOME}/license/lmapi-5/$env{WIND_HOST_TYPE}/lib",
+        "WRSD_LICENSE_FILE": "27000@wrslmgr2.seattlead.bstep.us:$env{WIND_HOME}/license",
+        "WIND_SAMPLES": "$env{WIND_BASE}/samples/system:$env{WIND_BASE}/samples/rtp:$env{WIND_BASE}/samples/dkm:$env{WIND_TOOLS}/samples/wrtool/wrlinux:$env{WIND_TOOLS}/samples/wrtool/vxworks7:$env{WIND_TOOLS}/samples/wrtool:$env{WIND_TOOLS}/samples/windiss:$env{WIND_TOOLS}/samples/vxworks7",
+        "WIND_HOST_TYPE_WB": "x86_64-linux2",
+        "WIND_WRWB_PATH": "$env{WIND_TOOLS}/eclipse/x86_64-linux2",
+        "WIND_VX7_HOST_TYPE": "x86_64-linux",
+        "WIND_FOUNDATION_PATH": "$env{WIND_BASE}/host",
+        "WIND_DOCS": "$env{WIND_BASE}/generated_documents/docs",
+        "WIND_UTILITIES": "$env{WIND_BASE}/host/$env{WIND_HOST_TYPE}/bin",
+        "COMP_DSM_TOOLS": "$env{WIND_BASE}/host",
+        "WIND_PREBUILT_PATHS": "$env{WIND_BASE}/samples/prebuilt_projects",
+        "WIND_SOURCE_BASE": "$env{WIND_BASE}/source",
+        "WIND_BUILD": "$env{WIND_BASE}/source/build",
+        "OSCONFIG_PATH": "$env{WIND_BASE}/source/build/osconfig",
+        "TCLLIBPATH": "$env{WIND_BASE}/source/build/osconfig/tcl",
+        "WIND_KRNL_MK": "$env{WIND_BASE}/source/build/mk/krnl",
+        "WIND_USR_MK": "$env{WIND_BASE}/source/build/mk/usr",
+        "WIND_BUILD_TOOL": "$env{WIND_BASE}/source/build/tool",
+        "WIND_VSB_PROFILE_PATHS": "$env{WIND_BASE}/source/build/misc/vsb_profiles",
+        "WIND_PKGS_DIR_NAME": "os",
+        "WIND_PKGS": "$env{WIND_BASE}/source/os",
+        "WIND_USR": "",
+        "WIND_COMPONENTS_LIBNAMES": "",
+        "WIND_WRVX_MK": "$env{WIND_BASE}/source/build/mk/wrvx",
+        "APROBE": "$env{WIND_TOOLS}/x86_64-linux2"
+      },
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "FALSE"
+      },
+      "hidden": true
+    },
+    {
+      "name": "vxworks-itl_generic32",
+      "description": "Cross compile for VxWorks Kernel Module Cross compile for Intel Generic 32 bit",
+      "inherits": ["vxworks-cross"],
+        "toolchainFile": "target/vxworks-itl_generic32/toolchain.cmake",
+      "environment": {
+        "WIND_CC_SYSROOT": "$env{VXWORKS_PREBUILT_PROJECTS_DIR}/vsb_x86_64_core"
+      }
+    },
+    {
+      "name": "vxworks-rtp-itl_generic32",
+      "description": "Cross compile for VxWorks RTP Cross compile for Intel Generic 32 bit",
+      "inherits": ["vxworks-cross"],
+      "toolchainFile": "target/vxworks-rtp-itl_generic32/toolchain.cmake",
+      "environment": {
+        "WIND_CC_SYSROOT": "$env{VXWORKS_PREBUILT_PROJECTS_DIR}/vsb_x86_64_core"
+      }
+    },
+    {
+      "name": "vxworks-itl_generic64",
+      "description": "Cross compile for VxWorks Kernel Module Cross compile for Intel Generic 64 bit",
+      "inherits": ["vxworks-cross"],
+      "toolchainFile": "target/vxworks-itl_generic64/toolchain.cmake",
+      "environment": {
+        "WIND_CC_SYSROOT": "$env{VXWORKS_PREBUILT_PROJECTS_DIR}/vsb_x86_64_core"
+      }
+    },
+    {
+      "name": "vxworks-rtp-itl_generic64",
+      "description": "Cross compile for VxWorks RTP Cross compile for Intel Generic 64 bit",
+      "inherits": ["vxworks-cross"],
+      "toolchainFile": "target/vxworks-rtp-itl_generic64/toolchain.cmake",
+      "environment": {
+        "WIND_CC_SYSROOT": "$env{VXWORKS_PREBUILT_PROJECTS_DIR}/vsb_x86_64_core"
+      }
+    },
+    {
+      "name": "vxworks-renesas_rcar_h3",
+      "description": "Cross compile for VxWorks Kernel Module Cross compile for renesas_rcar_h3",
+      "inherits": ["vxworks-cross"],
+      "toolchainFile": "target/vxworks-renesas_rcar_h3/toolchain.cmake",
+      "environment": {
+        "WIND_CC_SYSROOT": "$env{VXWORKS_PREBUILT_PROJECTS_DIR}/vsb_aarch64"
+      }
+    },
+    {
+      "name": "vxworks-rtp-renesas_rcar_h3",
+      "description": "Cross compile for VxWorks RTP Cross compile for renesas_rcar_h3",
+      "inherits": ["vxworks-cross"],
+      "toolchainFile": "target/vxworks-rtp-renesas_rcar_h3/toolchain.cmake",
+      "environment": {
+        "WIND_CC_SYSROOT": "$env{VXWORKS_PREBUILT_PROJECTS_DIR}/vsb_aarch64"
+      }
+    },
+    {
+      "name": "vxworks-fsl_imx6",
+      "description": "Cross compile for VxWorks Kernel Module Cross compile for fsl imx6",
+      "inherits": ["vxworks-cross"],
+      "toolchainFile": "target/vxworks-fsl_imx6/toolchain.cmake",
+      "environment": {
+        "WIND_CC_SYSROOT": "$env{VXWORKS_PREBUILT_PROJECTS_DIR}/vsb_armv7"
+      }
+    },
+    {
+      "name": "vxworks-rtp-fsl_imx6",
+      "description": "Cross compile for VxWorks RTP Cross compile for fsl imx6",
+      "inherits": ["vxworks-cross"],
+      "toolchainFile": "target/vxworks-rtp-fsl_imx6/toolchain.cmake",
+      "environment": {
+        "WIND_CC_SYSROOT": "$env{VXWORKS_PREBUILT_PROJECTS_DIR}/vsb_armv7"
+      }
+    },
+    {
+      "name": "vxworks-x86_64_simlinux",
+      "description": "Cross compile for VxWorks Kernel Module Cross compile for x86 64 bit Simulator on Linux",
+      "inherits": ["vxworks-cross"],
+      "toolchainFile": "target/vxworks-x86_64_simlinux/toolchain.cmake",
+      "environment": {
+        "WIND_CC_SYSROOT": "$env{VXWORKS_PREBUILT_PROJECTS_DIR}/vsb_x86_64_simlinux"
+      }
+    },
+    {
+      "name": "vxworks-rtp-x86_64_simlinux",
+      "description": "Cross compile for VxWorks RTP Cross compile for x86 64 bit Simulator on Linux",
+      "inherits": ["vxworks-cross"],
+      "toolchainFile": "target/vxworks-rtp-x86_64_simlinux/toolchain.cmake",
+      "environment": {
+        "WIND_CC_SYSROOT": "$env{VXWORKS_PREBUILT_PROJECTS_DIR}/vsb_x86_64_simlinux"
+      }
+    },
+    {
+      "name": "vxworks-x86_64_simwindows",
+      "description": "Cross compile for VxWorks Kernel Module Cross compile for x86 64 bit simulator on Windows",
+      "inherits": ["vxworks-cross"],
+      "toolchainFile": "target/vxworks-x86_64_simwindows/toolchain.cmake",
+      "environment": {
+        "WIND_CC_SYSROOT": "$env{VXWORKS_PREBUILT_PROJECTS_DIR}/vsb_x86_64_simwindows"
+      }
+    },
+    {
+      "name": "vxworks-rtp-x86_64_simwindows",
+      "description": "Cross compile for VxWorks RTP Cross compile for x86 64 bit simulator on Windows",
+      "inherits": ["vxworks-cross"],
+      "toolchainFile": "target/vxworks-rtp-x86_64_simwindows/toolchain.cmake",
+      "environment": {
+        "WIND_CC_SYSROOT": "$env{VXWORKS_PREBUILT_PROJECTS_DIR}/vsb_x86_64_simwindows"
+      }
+    }
+  ]
+}

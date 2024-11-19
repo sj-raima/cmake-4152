@@ -1,0 +1,13 @@
+$INCLUDES="
+    ../../qaframe
+    ../../../docs-examples/tfs
+";
+$LINKLIBRARIES="
+    qaframe
+    $TFS
+    $RDM
+";
+
+$COMPILE_CPP_E="
+    musiclib
+";

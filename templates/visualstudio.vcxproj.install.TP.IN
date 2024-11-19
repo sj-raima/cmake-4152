@@ -1,0 +1,18 @@
+if (($LIBRARY ne "" || $EXECUTABLE ne "") && $LANGUAGE ne "java") {
+    my $myNAME;
+    my $myOBJECT;
+
+    if ($LIBRARY ne "") {
+        $myNAME= "${LIBRARY}-@@PRODUCT_VERSION_MAJOR@@";
+        $myOBJECT= "$LIBRARY";
+    }
+    else {
+        $myNAME= $EXECUTABLE;
+        $myOBJECT= $EXECUTABLE;
+    }
+
+    if (projectInclude ("WINDOWS") && $LANGUAGE ne "java" && $LANGUAGE ne "cs" && $DIRPATH =~ m/GettingStarted/) {
+        makeOneVisualstudioProjectFile ($myNAME, $myOBJECT, "");
+        ${id_visualstudio_PROJ}++;
+    }
+}

@@ -1,0 +1,8 @@
+$LINKLIBRARIES="
+    qaframe
+";
+
+$EMBED_CPP="
+    A_T.xml
+";
+

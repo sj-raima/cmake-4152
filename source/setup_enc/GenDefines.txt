@@ -1,0 +1,14 @@
+$ENC_SIMPLE='enc_simple' unless ($ENC_SIMPLE ne '');
+
+if ($ENC eq "") {
+    if ($EXISTLIBRARY{'enc'}) {
+        $ENC="enc";
+    }
+    elsif ($EXISTLIBRARY{'enc_simple'}) {
+        $ENC="$ENC_SIMPLE";
+    }
+    else {
+        # This will exclude anything depending on the ENC
+        $ENC="enc";
+    }
+}

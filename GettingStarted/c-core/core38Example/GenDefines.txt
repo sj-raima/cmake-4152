@@ -1,0 +1,10 @@
+$DESCRIPTION="Client/Server example in C language";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core38Example
+";

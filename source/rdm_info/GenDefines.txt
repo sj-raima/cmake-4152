@@ -1,0 +1,13 @@
+$LIBRARY="rdm_info";
+
+$LINKLIBRARIES="
+    $TFS
+    $DDL
+    $RDM
+    $ENC
+";
+
+$INCLUDES="
+    ../ddl
+    ../tx
+";

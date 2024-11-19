@@ -1,0 +1,60 @@
+$LIBRARY="rdm_client";
+$COMB="1";
+
+$DEFINES="
+    RDM_CLIENT
+    RDM_PUBLIC_CLASS=RDM_EXPORT
+";
+
+$LINKLIBRARIES="
+    base
+    psp
+    transport
+";
+
+$COPY_FILES="
+    ../rdm/api_enter.cpp
+    ../rdm/api_enter.h
+    ../rdm/btree_node.h
+    ../rdm/db.cpp
+    ../rdm/db.h
+    ../rdm/db_object.h
+    ../rdm/db_object_iz.h
+    ../rdm/db_types.h
+    ../rdm/dbobj_types.h
+    ../rdm/dbtype_types.h
+    ../rdm/column_info.cpp
+    ../rdm/column_info.h
+    ../rdm/currency_cursor.h
+    ../rdm/currency_row.cpp
+    ../rdm/currency_row.h
+    ../rdm/currency_row_prikey.h
+    ../rdm/currency_row_prikey_alloc.h
+    ../rdm/currency_row_prikey_big.h
+    ../rdm/cursor.h
+    ../rdm/cursor.cpp
+    ../rdm/node.h
+    ../rdm/rdmdbvaluetypes.h
+    ../rdm/rdmenums_types.h
+    ../rdm/rdm_cursor_api.cpp
+    ../rdm/rdm_cursor_private_api.cpp
+    ../rdm/rdm_cursor_string_api.cpp
+    ../rdm/rdm_cursor_value_api.cpp
+    ../rdm/rdm_retcodeapi.cpp
+    ../rdm/rowid_api.cpp
+    ../rdm/rtree_node.h
+    ../rdm/search_key.h
+    ../rdm/tfs.cpp
+    ../rdm/tfs.h
+    ../rdm/trans.cpp
+    ../rdm/trans.h
+    ../rdm/user.cpp
+    ../rdm/user.h
+    ../rdm/version_api.h
+    ../rdm/version.cpp
+    ../tfs_client/tfs_rpc_common_api_int.h
+    ../tfs_client/tfs_client_rpc_common.cpp
+    ../tfs_local/tfs_platform_data.h
+    ../tfs_local/tfs_platform_endian.h
+    ../tfs_local/tfs_platform_type.h
+";

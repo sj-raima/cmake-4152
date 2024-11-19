@@ -1,0 +1,10 @@
+$DESCRIPTION="Basic tutorial in C where a simple database is used to store data using transactions";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core32Example
+";

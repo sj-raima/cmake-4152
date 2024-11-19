@@ -1,0 +1,12 @@
+$LIBRARY="ddl";
+$COMB="1";
+
+$LINKLIBRARIES="
+    $BASE
+    $PSP
+    $TX
+";
+
+$RDMYACC_CPP_P="
+    rdmddl
+";

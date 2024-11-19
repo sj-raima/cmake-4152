@@ -1,0 +1,13 @@
+
+$LINKLIBRARIES="
+    $BASE
+    $PSP
+";
+
+$PLATFORM_INC="
+    LINUX
+";
+
+$PKG_CONFIG="
+    libpq
+";

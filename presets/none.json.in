@@ -1,0 +1,67 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "none-cross",
+      "generator": "Ninja Multi-Config",
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "FALSE"
+      },
+      "binaryDir": "b-${presetName}",
+      "hidden": true
+    },
+    {
+      "name": "none-library-math",
+      "cacheVariables": {
+        "rdmpsp_LIBRARY": "-lm"
+      },
+      "hidden": true
+    },
+    {
+      "name": "cummins-arm-none-eabi",
+      "description": "Bare metal on 32 bit ARM Cortex m4 running under Autosar",
+      "inherits": ["none-cross"],
+      "toolchainFile": "${sourceDir}/target/cummins-arm-none-eabi/toolchain.cmake",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_AUTOSAR"
+      }
+    },
+    {
+      "name": "rx-elf",
+      "description": "Bare metal on rx-elf running under ThreadX",
+      "inherits": ["none-cross"],
+      "toolchainFile": "${sourceDir}/target/rx-elf/toolchain.cmake",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_THREADX",
+        "CMAKE_C_FLAGS": "-DRDM_THREADX"
+      }
+    },
+    {
+      "name": "threadx-sim",
+      "description": "ThreadX Simulator on Linux",
+      "inherits": ["none-cross"],
+      "toolchainFile": "${sourceDir}/target/lnx-static-x86_64/toolchain.cmake",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_THREADX_SIM -I/home/sj/threadx/common/inc -I/home/sj/threadx/b-/custom_inc -I/home/sj/threadx/ports/linux/gnu/inc/ -I/home/sj/filex/common/inc -I/home/sj/filex/b-/custom_inc -I/home/sj/filexx/ports/linux/gnu/inc/ -I/home/sj/netxduo/common/inc -I/home/sj/netxduo/b-/custom_inc -I/home/sj/netxduo/ports/linux/gnu/inc/ -I/home/sj/netxduo/addons/BSD",
+        "CMAKE_EXE_LINKER_FLAGS": "-L/home/sj/netxduo/b- -L/home/sj/netxduo/b-/filex -L/home/sj/netxduo/b-/filex/threadx",
+        "rdmtransport_LIBRARY": "-lnetxduo -lfilex",
+        "rdmpsp_LIBRARY": "-lthreadx -lm -lpthread"
+      }
+    },
+    {
+      "name": "threadx-mimic",
+      "description": "Mimic ThreadX on Linux without actually using threadX nor netXduo",
+      "inherits": ["none-cross"],
+      "toolchainFile": "${sourceDir}/target/lnx-x86_64/toolchain.cmake",
+      "cacheVariables": {
+        "rdmpsp_LIBRARY": "-lm -lpthread"
+      }
+    }
+  ],
+  "packagePresets": [
+    {
+      "name": "cummins-arm-none-eabi",
+      "configurePreset": "cummins-arm-none-eabi"
+    }
+  ]
+}

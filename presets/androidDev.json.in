@@ -1,0 +1,38 @@
+{
+  "version": 6,
+  "include": [
+    "android.json"
+  ],
+  "configurePresets": [
+    {
+      "name": "dev-android",
+      "description": "Dev: Cross compile for android",
+      "inherits": ["android-cross"],
+      "cacheVariables": {
+        "rdmpsp_LIBRARY": "-llog",
+        "NATIVE_DIR": "${sourceDir}/b-devel",
+        "CMAKE_LIBRARY_OUTPUT_DIRECTORY": "${sourceDir}/b-${presetName}/lib",
+        "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/b-${presetName}/bin"
+      },
+      "hidden": true
+    },
+    {
+      "name": "dev-android-armeabi",
+      "description": "Dev: Cross compile for android for Arm 32 bit",
+      "inherits": ["android-cross"],
+      "toolchainFile": "target/android-armeabi/toolchain.cmake"
+    },
+    {
+      "name": "dev-android-arm64",
+      "description": "Cross compile for android for Arm 64 bit",
+      "inherits": ["dev-android"],
+      "toolchainFile": "target/android-arm64/toolchain.cmake"
+    },
+    {
+      "name": "dev-android-x86_64",
+      "description": "Cross compile for android for X86 64 bit",
+      "inherits": ["dev-android"],
+      "toolchainFile": "target/android-x86_64/toolchain.cmake"
+    }
+  ]
+}

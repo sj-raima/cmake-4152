@@ -1,0 +1,27 @@
+$LIBRARY= "cppapi";
+
+$EXCEPTIONS="1";
+$RTTI="1";
+
+$LINKLIBRARIES="
+    $RDM
+    $BASE
+    $PSP
+";
+
+$INCLUDES="
+    ../rdm
+    ../base
+";
+
+$DEFINES="
+    RDM_PUBLIC_CLASS=RDM_EXPORT
+    $REPLICATION_ENABLED
+";
+
+$PUBLIC_HEADERS="
+    cpp-cursor.h
+    cpp-db.h
+    cpp-transaction.h
+    cpp-exception.h
+";

@@ -1,0 +1,6 @@
+$SUBDIRS="
+#    ado
+    rdbc
+    jdbc
+    odrv
+";

@@ -1,0 +1,8 @@
+$LINKLIBRARIES="
+    qaframe_rsql
+    rsql
+";
+
+$COMPILE_CPP_C="
+    rsql_opt
+";

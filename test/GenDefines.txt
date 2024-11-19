@@ -1,0 +1,76 @@
+$INCLUDES="
+    qa-embed
+";
+
+$SUBDIRS="
+    qa-embed
+    qa
+    qaframe
+    qaframe_legacy
+    qaframe_tfs
+    qaframe_test
+    qawrite
+    qaprof
+    qaverify
+    qadir
+    qaframe_rsql
+    qaframe_rdbc
+    qaframe_odrv
+    exelimit
+    qasignal
+    tfs
+    ado
+    psp
+    base
+    nist
+#    suiteNoTFS
+    docs-examples
+    perf
+    clion
+    symmetricDS
+    rdm-compile
+    rdm-convert
+    rdm-create
+    rdm-crypt
+    rdm-vacuum
+    rdm-import
+    rdm-initialize
+    rdm-export
+    rdm-drop
+    rdm-repair
+    rdm-info
+    rdm-tfs
+    rdm-copy
+    rdm-replicate
+    rdm-regodbc
+    sym-ds
+    rest
+#    dddl
+    noqaframe
+    rdm-sql
+    rdm-check
+    14tfs
+    14tfscpp
+    14tfssql
+    reentrant
+    unused
+    unused_retcodes
+    undefined_define
+    include_files
+    api_includes_header_files
+    none_types_includes_header_files
+    psp_private_rdm_export_include
+    rdm_export_api_header
+    psp_private_int_header
+    missing_tests
+    header-file-cycles
+    compile_headers
+    lint
+
+# The_following_should_be_the_last_one
+    not_marked_as_fixed
+";
+
+$DEFINES="
+    QA_" . uc $TFS . "
+";

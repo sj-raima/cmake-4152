@@ -1,0 +1,14 @@
+$INCLUDES="
+    ../../qaframe_tfs
+    ../../../docs-examples/rtree
+";
+$LINKLIBRARIES="
+    qaframe_tfs
+    $RDM
+";
+
+$COMPILE_CPP_LC_S_E="
+    zipcodes
+";
+
+$DEFINES="RDM_NO_CONSTRUCTORS"

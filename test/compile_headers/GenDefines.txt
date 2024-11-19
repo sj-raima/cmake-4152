@@ -1,0 +1,9 @@
+$SUBDIRS="
+    source
+    source-cpp
+    source-windows
+    include
+    include2
+    include-cpp
+    include-cpp2
+";

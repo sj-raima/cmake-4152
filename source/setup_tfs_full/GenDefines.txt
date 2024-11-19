@@ -1,0 +1,6 @@
+if ($EXISTLIBRARY{'tfs_full'}) {
+    $TFS_FULL="tfs_full";
+}
+else {
+    $TFS_FULL=$TFS;
+}

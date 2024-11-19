@@ -1,0 +1,7 @@
+$LINKLIBRARIES="
+    rdm_regodbc
+";
+
+$PLATFORM_INC="
+    WINDOWS
+";

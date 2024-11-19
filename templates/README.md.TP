@@ -1,0 +1,66 @@
+if ($DIRPATH =~ m/GettingStarted/ && $EXECUTABLE ne "") {
+    my $mainLANGUAGE = $LANGUAGE;
+    if ($LANGUAGE eq "c/cpp")
+    {
+        $mainLANGUAGE = 'cpp';
+    }
+
+    $output.= "\\example ${EXECUTABLE}_main.$mainLANGUAGE\n\n";
+    if ($DESCRIPTION ne "") {
+        if (substr $DESCRIPTION, -1 ne '.') {
+            $DESCRIPTION.= ".";
+        }
+        $output.= "$DESCRIPTION\n";
+    }
+    else {
+        $output.= "TBD: Update GenDefines.txt with a \$DESCRIPTION for this example.\n";
+    }
+
+    foreach $gen_macro (keys (%GEN_MACRO_RULES)) {
+        if ("$gen_macro" ne 'EMBED') {
+            foreach $macro (@{$gen_macro}) {
+                my $gen_h ="";
+                foreach $argument (@{$GEN_MACRO_RULES{$gen_macro}{outputH}}) {
+                    my ${arg}= "${argument}";
+                    ${arg} =~ s/\$\{base\}/${macro}/;
+                    ${built_sources}.= " \\\n    ${arg}";
+                    $gen_h.= "    #include \"${arg}\"\n";
+                }
+                my $gen_c ="";
+                foreach $argument (@{$GEN_MACRO_RULES{$gen_macro}{outputC}}) {
+                    my ${arg}= "${argument}";
+                    ${arg} =~ s/\$\{base\}/${macro}/;
+                    ${built_sources}.= " \\\n    ${arg}";
+                    $gen_c.= "    ${arg}\n";
+                }
+
+                my $input = "";
+                foreach $argument (@{$GEN_MACRO_RULES{$gen_macro}{input}}) {
+                    my ${arg}= "${argument}";
+                    ${arg} =~ s/\$\{base\}/${macro}/;
+                    $input.= "${arg}";
+                }
+
+                my $command ="";
+                foreach $argument (@{$GEN_MACRO_RULES{$gen_macro}{command}}) {
+                    my ${arg}= "${argument}";
+                    ${arg} =~ s/[-a-z_]*\///g;
+                    ${arg} =~ s/[ ][-]q//g;
+                    ${arg} =~ s/\$\{base\}/${macro}/;
+                    ${arg} =~ s/\$\{input_base\}/${macro}/;
+                    ${arg} =~ s/\$\{output_base\}/${macro}/;
+                    ${arg} =~ s/\$\{include_dir\}/\$(top_srcdir)\/include/;
+                    ${arg} =~ s/\$\{docroot\}/\./;
+                    $command.= "    ${arg}\n";
+                } 
+
+                $output.= "This example needs a compiled schema, \\ref $input.\n\n\\par\n\n";
+                $output.= "\\example $input\n\n";
+                $output.= "Schema for the \\ref ${EXECUTABLE}_main.$mainLANGUAGE example.\n";
+                $output.= "Compile this schema using \\rdmcompile as follows:\n\n$command\n";
+                $output.= "and include the generated header file(s) as follows:\n\n$gen_h\n";
+                $output.= "and compile the following generated source file(s):\n\n$gen_c\n";
+            }
+        }
+    }
+}

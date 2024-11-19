@@ -1,0 +1,100 @@
+# RDM
+#
+# Copyright (c) 2010 Raima Inc.,  All rights reserved.
+#
+# Use of this software, whether in source code format, or in executable,
+# binary object code form, is governed by the Raima LICENSE which
+# is fully described in the LICENSE.TXT file, included within this
+# distribution of files.
+
+include(CheckLibraryExists)
+#
+# Include the Sys file and set the OS define
+#
+if (RDM_TARGET MATCHES "integrity")
+    include ("CMake/SysIntegrity.txt")
+elseif (RDM_TARGET MATCHES "nto")
+    include ("CMake/SysQNX.txt")
+elseif (RDM_TARGET MATCHES "android")
+    include ("CMake/SysAndroid.txt")
+else ()
+    include ("CMake/Sys${CMAKE_SYSTEM_NAME}.txt")
+endif ()
+if (CMAKE_SIZEOF_VOID_P EQUAL 8)
+    ADD_DEFINITIONS (-DRDM_64BIT)
+endif (CMAKE_SIZEOF_VOID_P EQUAL 8)
+
+set (COMPILE_ALL_SOURCE ON CACHE BOOL "Compile all source files at once for each library")
+
+enable_testing ()
+
+#
+# Include this if we change the CMAKE_MINIMUM_REQUIRED to a version
+# where this policies is known
+#
+# cmake_policy(SET CMP0011 OLD)
+
+macro (subdirectories)
+  foreach (DIR ${ARGV})
+    add_subdirectory (${DIR})
+  endforeach (DIR)
+endmacro (subdirectories)
+
+include ("CMake/GenMacros.txt")
+
+#
+# Macro for generating def files
+#
+
+macro (def NAME)
+  if (WIN32)
+    set (SOURCE_FILES ${SOURCE_FILES} rdm${NAME}.def)
+  endif ()
+endmacro(def NAME)
+
+#
+# source and library macros
+#
+
+macro (source)
+  set (SOURCE_FILES ${ARGV})
+endmacro (source)
+
+macro (library name)
+   add_library (name ${SOURCE_FILES})
+endmacro (library)
+
+add_custom_target(generate
+    perl perl/generate.pl
+    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+    COMMENT "Generate build files"
+    VERBATIM
+)
+
+# add a target to generate API documentation with Doxygen
+find_package(Doxygen)
+option(BUILD_DOCUMENTATION "Create and install the HTML based API documentation (requires Doxygen)" ${DOXYGEN_FOUND})
+
+if(BUILD_DOCUMENTATION)
+    if(NOT DOXYGEN_FOUND)
+        message(FATAL_ERROR "Doxygen (doxygen.org) is needed to build the documentation.")
+    endif()
+
+    if(NOT DOXYGEN_DOT_FOUND)
+        message(WARNING "Dot (graphviz.org) is needed by Doxygen to produce call graphs.  Continue without.")
+    endif()
+
+    set(doxyfile_in ${CMAKE_SOURCE_DIR}/Doxyfile.CMake.in)
+    set(doxyfile ${CMAKE_BINARY_DIR}/Doxyfile)
+
+    configure_file(${doxyfile_in} ${doxyfile} @ONLY)
+
+    add_custom_target(doc
+        COMMAND ${DOXYGEN_EXECUTABLE} ${doxyfile}
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+        COMMENT "Generating API documentation with Doxygen"
+        VERBATIM)
+
+# TBD: SJ: Don't install this for now
+#    install(DIRECTORY ${CMAKE_BINARY_DIR}/html DESTINATION share/doc)
+endif()

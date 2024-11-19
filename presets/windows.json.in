@@ -1,0 +1,148 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "visualstudio",
+      "binaryDir": "b-${presetName}",
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "TRUE"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      },
+      "hidden": true
+    },
+    {
+      "name": "visualstudio19",
+      "generator": "Visual Studio 16 2019",
+      "inherits": ["visualstudio"],
+      "toolset": "v142",
+      "hidden": true
+    },
+    {
+      "name": "visualstudio22",
+      "generator": "Visual Studio 17 2022",
+      "inherits": ["visualstudio"],
+      "toolset": "v143",
+      "hidden": true
+    },
+    {
+      "name": "windows-library",
+      "cacheVariables": {
+        "rdmodrv_LIBRARY": "odbc32.lib;odbccp32.lib;legacy_stdio_definitions.lib",
+        "rdmocfg_LIBRARY": "odbc32.lib;odbccp32.lib;legacy_stdio_definitions.lib",
+        "rdmrdm_regodbc_LIBRARY": "odbc32.lib;odbccp32.lib;legacy_stdio_definitions.lib"
+      },
+      "hidden": true
+    },
+    {
+      "name": "windows-library-ws2",
+      "cacheVariables": {
+        "rdmtransport_LIBRARY": "ws2_32.lib"
+      },
+      "hidden": true
+    },
+    {
+      "name": "windows-library-ssl",
+      "cacheVariables": {
+        "rdmtransport_LIBRARY": "ws2_32.lib;C:/openssl-3/x64/lib/libssl.lib;C:/openssl-3/x64/lib/libcrypto.lib"
+      },
+      "hidden": true
+    },
+    {
+      "name": "windows-no-os",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_NO_OS"
+      },
+      "hidden": true
+    },
+    {
+      "name": "win-x86_64_vs2019",
+      "description": "Windows on 64 bit AMD or INTEL X64 for toolset version 142",
+      "inherits": ["visualstudio19", "windows-library", "windows-library-ws2"],
+      "architecture": "x64",
+      "hidden": false
+    },
+    {
+      "name": "win-x86_64_vs2019-ssl",
+      "description": "Windows on 64 bit AMD or INTEL X64 for toolset version 142 with OpenSSL",
+      "inherits": ["visualstudio19", "windows-library", "windows-library-ssl"],
+      "architecture": "x64",
+      "cacheVariables": {
+          "CMAKE_CXX_FLAGS": "\"/IC:/openssl-3/x64/include\" -DRDM_TRANSPORT_HAVE_SSL"
+      },
+      "hidden": false
+    },
+    {
+      "name": "win-x86_32_vs2019",
+      "description": "Windows on 32 bit AMD or INTEL X86 for toolset version 142",
+      "inherits": ["visualstudio19", "windows-library", "windows-library-ws2"],
+      "architecture": "Win32",
+      "hidden": false
+    },
+    {
+      "name": "win-x86_64_vs2022",
+      "description": "Windows on 64 bit AMD or INTEL X64 for toolset version 143",
+      "inherits": ["visualstudio22", "windows-library", "windows-library-ws2"],
+      "architecture": "x64",
+      "hidden": false
+    },
+    {
+      "name": "win-x86_64_vs2022-ssl",
+      "description": "Windows on 64 bit AMD or INTEL X64 for toolset version 143 with OpenSSL",
+      "inherits": ["visualstudio22", "windows-library", "windows-library-ssl"],
+      "architecture": "x64",
+      "cacheVariables": {
+          "CMAKE_CXX_FLAGS": "\"/IC:/Program Files/OpenSSL/include\" -DRDM_TRANSPORT_HAVE_SSL"
+      },
+      "hidden": false
+    },
+    {
+      "name": "win-x86_32_vs2022",
+      "description": "Windows on 32 bit AMD or INTEL X86 for toolset version 143",
+      "inherits": ["visualstudio22", "windows-library", "windows-library-ws2"],
+      "architecture": "Win32",
+      "toolset": "v143",
+      "hidden": false
+    },
+    {
+      "name": "win-x86_64",
+      "description": "Windows on 64 bit AMD or INTEL X86 for default toolset",
+      "inherits": ["win-x86_64_vs2019"],
+      "hidden": false
+    },
+    {
+      "name": "win-x86_64-ssl",
+      "description": "Windows on 64 bit AMD or INTEL X86 for default toolset with OpenSSL",
+      "inherits": ["win-x86_64_vs2019-ssl"],
+      "hidden": false
+    },
+    {
+      "name": "win-x86_64/no-os",
+      "description": "Windows on 64 bit AMD or INTEL X86 for default toolset for RDM_NO_OS",
+      "inherits": ["win-x86_64_vs2019", "windows-no-os"],
+      "binaryDir": "b-win-x86_64",
+      "hidden": false
+    },
+    {
+      "name": "win-x86_32",
+      "description": "Windows on 32 bit AMD or INTEL X86 for default toolset",
+      "inherits": ["win-x86_32_vs2019"],
+      "hidden": false
+    },
+    {
+      "name": "win-no_os",
+      "description": "Windows on 64 bit AMD or INTEL X64 for NO OS",
+      "inherits": ["visualstudio22"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_NO_OS"
+      },
+      "architecture": "x64",
+      "toolset": "v143",
+      "binaryDir": "b-${presetName}",
+      "hidden": false
+    }
+  ]
+}

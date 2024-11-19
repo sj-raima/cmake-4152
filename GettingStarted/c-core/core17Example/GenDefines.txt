@@ -1,0 +1,10 @@
+$DESCRIPTION="Simple example which creates/inserts and reads a single record type with a single field which is designated as a key. This shows inserting duplicate keys in a field that is not defined as a unique key";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core17Example
+";

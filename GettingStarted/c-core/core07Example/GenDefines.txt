@@ -1,0 +1,10 @@
+$DESCRIPTION="Many-to-many. Three record types, two sets constructing a many-to-many relationship. Populate with a few records. Scan from one side, then scan from the other side";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core07
+";

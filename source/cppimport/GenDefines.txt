@@ -1,0 +1,12 @@
+$LIBRARY= "cppimport";
+
+$LINKLIBRARIES="
+    $RDM
+    import
+    cppapi
+";
+
+$DEFINES="
+    RDM_PUBLIC_CLASS=RDM_EXPORT
+";
+

@@ -1,0 +1,6 @@
+$SUBDIRS="
+    tpc-b
+    atempo
+    14infor
+    cummins
+";

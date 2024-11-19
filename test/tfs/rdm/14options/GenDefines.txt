@@ -1,0 +1,13 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+    $RDM
+";
+
+$COMPILE_CPP_LC_S_E="
+    optionsdb
+    optionsdb2
+";

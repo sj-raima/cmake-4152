@@ -1,0 +1,7 @@
+$SUBDIRS="
+";
+
+$COMPILE_C="
+    jdbc_unit
+";
+

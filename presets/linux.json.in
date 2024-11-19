@@ -1,0 +1,223 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "linux",
+      "generator": "Ninja Multi-Config",
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "TRUE"
+      },
+      "binaryDir": "b-${presetName}",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      },
+      "hidden": true
+    },
+    {
+      "name": "linux-cross",
+      "inherits": ["linux"],
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "FALSE"
+      },
+      "hidden": true
+    },
+    {
+      "name": "linux-library-math",
+      "cacheVariables": {
+        "rdmpsp_LIBRARY": "-lm"
+      },
+      "hidden": true
+    },
+    {
+      "name": "linux-library-pthread-math",
+      "cacheVariables": {
+        "rdmpsp_LIBRARY": "-lm -lpthread"
+      },
+      "hidden": true
+    },
+    {
+      "name": "linux-library-ssl",
+      "cacheVariables": {
+        "rdmtransport_LIBRARY": "-lssl -lcrypto -lz"
+      },
+      "hidden": true
+    },
+    {
+      "name": "linux-no-os",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_NO_OS"
+      },
+      "hidden": true
+    },
+    {
+      "name": "lnx-x86_64-static",
+      "description": "Linux on 64 bit AMD or INTEL X64",
+      "inherits": ["linux", "linux-library-pthread-math"],
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "FALSE"
+      }
+    },
+    {
+      "name": "lnx-x86_64",
+      "description": "Linux on 64 bit AMD or INTEL X64",
+      "inherits": ["linux", "linux-library-pthread-math"]
+    },
+    {
+      "name": "lnx-x86_64-ssl",
+      "description": "Linux on 64 bit AMD or INTEL X64 with OpenSSL",
+      "inherits": ["linux", "linux-library-pthread-math", "linux-library-ssl"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_TRANSPORT_HAVE_SSL"
+      }
+    },
+    {
+      "name": "lnx-x86_64/no-os",
+      "description": "Linux on 64 bit AMD or INTEL X64 for RDM_NO_OS",
+      "inherits": ["linux", "linux-library-pthread-math", "linux-no-os"],
+      "binaryDir": "b-lnx-x86_64"
+    },
+    {
+      "name": "lnx-x86_32",
+      "description": "Linux on 32 bit AMD or INTEL X86",
+      "inherits": ["linux-cross", "linux-library-pthread-math"],
+      "toolchainFile": "${sourceDir}/target/lnx-x86_32/toolchain.cmake"
+    },
+    {
+      "name": "lnx-i686-gnu",
+      "description": "Cross compile for Linux on 64 bit x86",
+      "inherits": ["linux-cross", "linux-library-pthread-math"],
+      "toolchainFile": "${sourceDir}/target/lnx-i686-gnu/toolchain.cmake"
+    },
+    {
+      "name": "lnx-x86_64-gnu",
+      "description": "Cross compile for Linux on 64 bit x86_64",
+      "inherits": ["linux-cross", "linux-library-pthread-math"],
+      "toolchainFile": "${sourceDir}/target/lnx-x86_64-gnu/toolchain.cmake"
+    },
+    {
+      "name": "lnx-no-os",
+      "description": "Linux on 64 bit AMD or INTEL X64 for NO OS",
+      "inherits": ["linux-cross", "linux-library-math"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_NO_OS"
+      }
+    },
+    {
+      "name": "cummins-aarch64-poky-linux",
+      "description": "Cross compile for Linux on SCM board provided by Cummins (A-core)",
+      "inherits": ["linux-cross", "linux-library-pthread-math"],
+      "toolchainFile": "${sourceDir}/target/cummins-aarch64-poky-linux/toolchain.cmake",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_TRANSPORT_HAVE_SHM_POLL -DRDM_TRANSPORT_SHM_POLL_OFFSET=0x90810000 -DRDM_TRANSPORT_SHM_POLL_DEVICE='\"/dev/mem\"' -DRDM_TRANSPORT_SHM_POLL_SLEEP=0 -D_FORTIFY_SOURCE=2 -DRDM_ENV_SIGNAL"
+      },
+      "hidden": false
+    },
+    {
+      "name": "lnx-aarch64-a35-cummins",
+      "description": "Cross compile for Linux on 64 bit arm Cortex A35",
+      "inherits": ["linux-cross", "linux-library-pthread-math"],
+      "toolchainFile": "${sourceDir}/target/lnx-aarch64-a35-cummins/toolchain.cmake",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_TRANSPORT_HAVE_SHM_POLL -DRDM_TRANSPORT_SHM_POLL_OFFSET=0x90810000 -DRDM_TRANSPORT_SHM_POLL_DEVICE='\"/dev/mem\"' -DRDM_TRANSPORT_SHM_POLL_SLEEP=0 -DRDM_ENV_SIGNAL"
+      }
+    },
+    {
+      "name": "lnx-aarch64-gnu",
+      "description": "Cross compile for Linux on 64 bit arm",
+      "inherits": ["linux-cross", "linux-library-pthread-math"],
+      "toolchainFile": "${sourceDir}/target/lnx-aarch64-gnu/toolchain.cmake"
+    },
+    {
+      "name": "lnx-aarch64-gnu/no-os",
+      "description": "Cross compile for Linux on 64 bit arm for RDM_NO_OS",
+      "inherits": ["linux-cross", "linux-library-pthread-math", "linux-no-os"],
+      "toolchainFile": "${sourceDir}/target/lnx-aarch64-gnu/toolchain.cmake",
+      "binaryDir": "b-lnx-aarch64-gnu"
+    },
+    {
+      "name": "lnx-arm-gnueabi",
+      "description": "Cross compile for Linux on 32 bit arm using the arm-gnueabi",
+      "inherits": ["linux-cross", "linux-library-pthread-math"],
+      "toolchainFile": "${sourceDir}/target/lnx-arm-gnueabi/toolchain.cmake"
+    },
+    {
+      "name": "lnx-arm-gnueabihf",
+      "description": "Cross compile for Linux on 32 bit arm using the arm-gnueabi with hardware floating point",
+      "inherits": ["linux-cross", "linux-library-pthread-math"],
+      "toolchainFile": "${sourceDir}/target/lnx-arm-gnueabihf/toolchain.cmake"
+    },
+    {
+      "name": "lnx-arm-gnueabihf/no-os",
+      "description": "Cross compile for Linux on 32 bit arm using the arm-gnueabi with hardware floating point for RDM_NO_OS",
+      "inherits": ["linux-cross", "linux-library-pthread-math", "linux-no-os"],
+      "toolchainFile": "${sourceDir}/target/lnx-arm-gnueabihf/toolchain.cmake",
+      "binaryDir": "b-lnx-arm-gnueabihf"
+    },
+    {
+      "name": "lnx-s390x-gnu",
+      "description": "Cross compile for Linux on 64 bit s390x",
+      "inherits": ["linux-cross", "linux-library-pthread-math"],
+      "toolchainFile": "${sourceDir}/target/lnx-s390x-gnu/toolchain.cmake"
+    },
+    {
+      "name": "lnx-coverage",
+      "description": "Linux with code coverage",
+      "inherits": ["linux", "linux-library-pthread-math"],
+      "cacheVariables": {
+        "CMAKE_C_FLAGS": "--coverage -fprofile-abs-path",
+        "CMAKE_CXX_FLAGS": "--coverage -fprofile-abs-path",
+        "CMAKE_EXE_LINKER_FLAGS": "--coverage"
+      }
+    },
+    {
+      "name": "lnx-coverage-ssl",
+      "description": "Linux with code coverage",
+      "inherits": ["linux", "linux-library-pthread-math", "linux-library-ssl"],
+      "cacheVariables": {
+        "CMAKE_C_FLAGS": "--coverage -fprofile-abs-path",
+        "CMAKE_CXX_FLAGS": "--coverage -fprofile-abs-path -DRDM_TRANSPORT_HAVE_SSL",
+        "CMAKE_EXE_LINKER_FLAGS": "--coverage"
+      }
+    }
+  ],
+  "packagePresets": [
+    {
+      "name": "cummins-aarch64-poky-linux",
+      "configurePreset": "cummins-aarch64-poky-linux"
+    },
+    {
+      "name": "lnx-aarch64-a35-cummins",
+      "configurePreset": "lnx-aarch64-a35-cummins"
+    },
+    {
+      "name": "lnx-aarch64-gnu",
+      "configurePreset": "lnx-aarch64-gnu"
+    },
+    {
+      "name": "lnx-arm-gnueabi",
+      "configurePreset": "lnx-arm-gnueabi"
+    },
+    {
+      "name": "lnx-arm-gnueabihf",
+      "configurePreset": "lnx-arm-gnueabihf"
+    },
+    {
+      "name": "lnx-x86_64",
+      "configurePreset": "lnx-x86_64"
+    },
+    {
+      "name": "lnx-x86_64-ssl",
+      "configurePreset": "lnx-x86_64-ssl"
+    },
+    {
+      "name": "lnx-x86_32",
+      "configurePreset": "lnx-x86_32"
+    },
+    {
+      "name": "lnx-no-os",
+      "configurePreset": "lnx-no-os"
+    }
+  ]
+}

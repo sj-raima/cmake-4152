@@ -1,0 +1,9 @@
+$LIBRARY="qaframe_tfs";
+
+$LINKLIBRARIES="
+    qaframe
+    $RDM
+    $TFS
+    $ENC
+    $DDL
+";

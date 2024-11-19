@@ -1,0 +1,38 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$COMPILE_CPP_E="
+    schema_1
+    schema_23
+";
+
+$COMPILE_CPP_LC_S_C="
+    test03
+    schemaChange
+";
+
+$COMPILE_CPP_LC_S_E="
+    circ
+    rec
+    save
+    test01
+    test02
+    dataUint16
+";
+
+$EMBED_CPP="
+    save.xml
+    test01.xml
+    test02.xml
+    schema_1_with_name.sdl
+    schema_1_no_namespace.cat
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+    $TFS
+    $RDM
+    $TX
+    $DDL
+";

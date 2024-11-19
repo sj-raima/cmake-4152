@@ -1,0 +1,9 @@
+$INCLUDES="
+    ../qaframe
+";
+
+$SUBDIRS="
+    file
+    func
+    perf
+";

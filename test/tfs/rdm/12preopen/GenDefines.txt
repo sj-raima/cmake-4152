@@ -1,0 +1,12 @@
+$INCLUDES="
+    ../../../qaframe_legacy
+";
+
+$DDLP_CPP_LC_E="
+    preopen
+    preopen2
+";
+
+$LINKLIBRARIES="
+    qaframe_legacy
+";

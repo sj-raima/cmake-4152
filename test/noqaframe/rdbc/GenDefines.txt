@@ -1,0 +1,5 @@
+$LINKLIBRARIES="
+    $TFS
+    $BASE
+    rdbc
+";

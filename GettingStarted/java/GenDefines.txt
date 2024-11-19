@@ -1,0 +1,14 @@
+$SUBDIRS="
+    java01Example
+	java02Example
+	java03Example
+	java04Example
+	java05Example
+	java06Example
+	java08Example
+	java09Example
+";
+
+$PLATFORM_INC="
+    JAVA
+";

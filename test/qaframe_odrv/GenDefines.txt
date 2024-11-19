@@ -1,0 +1,22 @@
+$LIBRARY="qaframe_odrv";
+
+$LINKLIBRARIES="
+    $PSP
+    $RDM
+    $TFS_FULL
+    qaframe_tfs
+    qaframe
+    odrv
+";
+
+$DEFINES="
+    RDM_ODBC_DRV
+";
+
+$SYSLIBS="
+    os_drv_syslibs
+";
+
+$PLATFORM_INC="
+    WINDOWS
+";

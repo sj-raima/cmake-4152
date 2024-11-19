@@ -1,0 +1,50 @@
+@Makefile_RDM_buildtools = ();
+$Makefile_RDM_configure = '';
+$Makefile_RDM_configure_header= "#!/usr/bin/perl -w
+
+use File::Copy;
+#use File::Path qw( make_path );
+
+\$target = '';
+
+sub usage {
+    print \"configure-rdm.pl [-h|--help] <target-dir>
+
+    Configure an out-of-source build of static libraries and
+    statically linked executables using a simple Makefile. Run this
+    scrip from the top level directory of RDM where this script is
+    located. Give it a target directory as an argument. The template
+    for these makefiles are located in-source in Makefile.rdm
+
+    Example:
+
+        \\\$ configure-rdm.pl myBuild
+        \\\$ cd myBuild
+        \\\$ make LIBS='-lm -lpthread -lrt'
+\";
+}
+
+while (\@ARGV) {
+    \$ARG=\$ARGV[0];
+    if (\$ARG eq '-h' || \$ARG eq '--help') {
+        usage; exit;
+    }
+    elsif (substr (\$ARG, 0, 1) eq '-') {
+        print \"ERROR: Illegal option specified. --help for help\n\";
+        exit 1;
+    }
+    elsif (\$target eq '') {
+        \$target = \$ARG;
+    }
+    else {
+        print \"ERROR: Only one argument can be specified. --help for help\n\";
+        exit 1;
+    }
+    shift \@ARGV;
+}
+if (\$target eq '') {
+    print \"ERROR: One argument is required. --help for help\n\";
+    exit 1;
+}
+";
+

@@ -1,0 +1,17 @@
+$DESCRIPTION="Hello World. Create & initialize database if not present. Create one record, read and print all records";
+
+$PLATFORM_INC="
+    JAVA
+";
+
+$DEPENDENCIES="
+    rdm-create
+";
+
+$LINKLIBRARIES="
+  jdbc
+";
+
+$EXTRA_DIST= "
+    java01Example.sdl
+";

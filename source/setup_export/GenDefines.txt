@@ -1,0 +1,14 @@
+$RDM_CLIENT='rdm_client' unless ($RDM_CLIENT ne '');
+
+if ($EXPORT eq "") {
+    if ($EXISTLIBRARY{'export'}) {
+        $EXPORT="export";
+    }
+    elsif ($EXISTLIBRARY{'rdm_client'}) {
+        $EXPORT="$RDM_CLIENT";
+    }
+    else {
+        # This will exclude anything depending on the RDM
+        $EXPORT="export";
+    }
+}

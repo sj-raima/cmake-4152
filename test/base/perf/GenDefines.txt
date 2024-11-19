@@ -1,0 +1,3 @@
+$LINKLIBRARIES="
+    qaframe
+";

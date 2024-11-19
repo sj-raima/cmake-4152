@@ -1,0 +1,11 @@
+$DEPENDENCIES="
+  rdm-create
+  rdm-compile
+  rdm-sql
+  rdm-tfs
+";
+
+$EXTRA_DIST="
+  rdmCreate.sdl
+  rdmCreate2.sdl
+";

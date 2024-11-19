@@ -1,0 +1,22 @@
+$INCLUDES="
+    ../qaframe
+";
+
+$COPY_FILES="
+    ../14tfs/test.sdl
+    ../14tfs/tfs_common.h
+    ../14tfs/tfs_options.cpp
+";
+
+$COMPILE_CPP_API_LC_E="
+    test
+";
+
+$LINKLIBRARIES="
+    $RDM
+    qaframe
+    $TFS
+    cppapi
+    cpp$TFS
+    cpp$ENC
+";

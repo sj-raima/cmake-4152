@@ -1,0 +1,4 @@
+$LINKLIBRARIES="
+    qaframe
+    cppapi
+";

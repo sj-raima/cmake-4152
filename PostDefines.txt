@@ -1,0 +1,6 @@
+$EXTRA_DIST.= "
+    $JAVA_LIB
+    $EXPAT_LICENSE
+    OPENSSL_LICENSE.txt
+    versioninfo.xml
+";

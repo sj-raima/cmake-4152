@@ -1,0 +1,8 @@
+$LINKLIBRARIES="
+   rdbc
+   $TFS
+";
+
+$COMPILE_C="
+    hello_worldODBC
+";

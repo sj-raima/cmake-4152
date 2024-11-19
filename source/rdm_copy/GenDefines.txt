@@ -1,0 +1,10 @@
+$LIBRARY="rdm_copy";
+
+$LINKLIBRARIES="
+    $BASE
+    $DDL
+    $TFS
+    $RDM
+    $ENC
+    export
+";

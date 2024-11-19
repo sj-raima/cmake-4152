@@ -1,0 +1,79 @@
+$EMBED_CPP="
+    needfile.txt
+";
+
+$LINKLIBRARIES="
+    qaframe_odrv
+";
+
+$DEFINES="
+    RDM_ODBC_DRV
+";
+
+$COMPILE_C="
+    rdbc_unit
+    rdbc_thread
+";
+
+$EMBED_CPP="
+    export01_expected.xml
+    rtab_person_import.sql
+    ucode01_expected.txt
+    ucode02_expected.txt
+    rdbc_unit.sdl
+    rdbc_unit_a.sdl
+    SYM_ON_U_FOR_SYM_ND_HST_SRVR.sql
+    SYM_ON_I_FOR_SYM_TRGGR_SRVR.sql
+";
+
+$SYSLIBS="
+    os_drv_syslibs
+";
+
+$PLATFORM_INC="
+    WINDOWS
+";
+
+$COPY_FILES="
+    ../../rdbc/rutil/odbcfcns.h
+    ../../rdbc/rutil/qr_fcns.h
+    ../../rdbc/unit/rdbcUnit_array.h
+    ../../rdbc/unit/rdbcUnit_attrib.h
+    ../../rdbc/unit/rdbcUnit_blob.h
+    ../../rdbc/unit/rdbcUnit_catalog.h
+    ../../rdbc/unit/rdbcUnit_common.h
+    ../../rdbc/unit/rdbcUnit_cursor.h
+    ../../rdbc/unit/rdbcUnit_datetime.h
+    ../../rdbc/unit/rdbcUnit_decimal.h
+    ../../rdbc/unit/rdbcUnit_export.h
+    ../../rdbc/unit/rdbcUnit_fetch.h
+    ../../rdbc/unit/rdbcUnit_func.h
+    ../../rdbc/unit/rdbcUnit_numeric.h
+    ../../rdbc/unit/rdbcUnit_param.h
+    ../../rdbc/unit/rdbcUnit_test.h
+    ../../rdbc/unit/rdbcUnit_thread.h
+    ../../rdbc/unit/rdbcUnit_trigger.h
+    ../../rdbc/unit/rdbcUnit_ucode.h
+    ../../rdbc/unit/rdbcUnit_udf.h
+    ../../rdbc/rutil/odbcfcns.cpp
+    ../../rdbc/rutil/qr_fcns.cpp
+    ../../rdbc/unit/rdbcUnit_array.cpp
+    ../../rdbc/unit/rdbcUnit_attrib.cpp
+    ../../rdbc/unit/rdbcUnit_blob.cpp
+    ../../rdbc/unit/rdbcUnit_catalog.cpp
+    ../../rdbc/unit/rdbcUnit_common.cpp
+    ../../rdbc/unit/rdbcUnit_cursor.cpp
+    ../../rdbc/unit/rdbcUnit_datetime.cpp
+    ../../rdbc/unit/rdbcUnit_decimal.cpp
+    ../../rdbc/unit/rdbcUnit_export.cpp
+    ../../rdbc/unit/rdbcUnit_fetch.cpp
+    ../../rdbc/unit/rdbcUnit_func.cpp
+    ../../rdbc/unit/rdbcUnit_numeric.cpp
+    ../../rdbc/unit/rdbcUnit_param.cpp
+    ../../rdbc/unit/rdbcUnit_test.cpp
+    ../../rdbc/unit/rdbcUnit_thread.cpp
+    ../../rdbc/unit/rdbcUnit_trigger.cpp
+    ../../rdbc/unit/rdbcUnit_ucode.cpp
+    ../../rdbc/unit/rdbcUnit_udf.cpp
+
+";

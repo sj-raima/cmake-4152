@@ -1,0 +1,10 @@
+$DESCRIPTION="Multiple databases opened in a union. Demonstrate key scan through the union";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core09
+";

@@ -1,0 +1,4 @@
+$EXTRA_DIST= "
+  qa.sh
+  qa.pm
+";

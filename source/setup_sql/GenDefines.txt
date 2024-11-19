@@ -1,0 +1,8 @@
+if ($EXISTLIBRARY{'rsql'}) {
+    $SQL='rsql';
+    $SQL_ENABLED='RDM_SQL_ENABLED';
+}
+else {
+    $SQL='';
+    $SQL_ENABLED='';
+}

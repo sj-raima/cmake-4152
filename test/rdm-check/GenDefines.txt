@@ -1,0 +1,9 @@
+$DEPENDENCIES="
+  rdm-import
+  rdm-sql
+  rdm-check
+";
+
+$EXTRA_DIST="
+  CHECKDB.sql
+";

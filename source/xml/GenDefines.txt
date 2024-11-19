@@ -1,0 +1,14 @@
+$LIBRARY="xml";
+
+$LINKLIBRARIES="
+    $RDM
+    $BASE
+    $PSP
+";
+
+$INCLUDES="
+    ../psp
+    ../rdm
+";
+
+$EXPAT_LICENSE = "EXPAT_LICENSE.txt";

@@ -1,0 +1,3 @@
+if ($EXISTLIBRARY{'jdbcjni'}) {
+    $JAVA_LIB = "java-lib";
+}

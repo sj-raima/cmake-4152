@@ -1,0 +1,17 @@
+$LIBRARY="tfs";
+$COMB="1";
+
+$COPY_FILES="
+    $ALL_TFS_LOCAL_FILES
+    $ALL_TFS_SERVER_FILES
+    $ALL_TFS_CLIENT_FILES
+    $ALL_TFS_EMBED_FILES
+    $ALL_TFS_INMEM_FILES
+";
+
+$LINKLIBRARIES="
+    psp
+    base
+    http
+    transport
+";

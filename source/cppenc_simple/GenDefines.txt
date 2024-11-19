@@ -1,0 +1,11 @@
+$LIBRARY= "cppenc_simple";
+
+$LINKLIBRARIES="
+    $BASE
+    $ENC_SIMPLE
+    cppapi
+";
+
+$DEFINES="
+    RDM_PUBLIC_CLASS=RDM_EXPORT
+";

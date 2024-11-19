@@ -1,0 +1,20 @@
+$LIBRARY="rdm_replicate";
+
+if ($EXISTLIBRARY{'tfs_full'}) {
+    $TFS_REP="tfs_full";
+}
+else {
+    $TFS_REP=$TFS;
+}
+
+$LINKLIBRARIES="
+    $TFS_REP
+    $DDL
+    $RDM
+    $ENC
+";
+
+$INCLUDES="
+    ../ddl
+    ../tx
+";

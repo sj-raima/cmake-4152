@@ -1,0 +1,18 @@
+$LIBRARY="rdm_tfs";
+
+if ($EXISTLIBRARY{'tfs_full'}) {
+    $TFS_SQL="$TFS_FULL";
+}
+elsif ($EXISTLIBRARY{'tfs_rdm'}) {
+    $TFS_SQL="$TFS_RDM";
+}
+else {
+    $TFS_SQL="$TFS_SERVER";
+}
+
+$LINKLIBRARIES="
+    $TFS_SQL
+    $BASE
+    $PSP
+    $ENC
+";

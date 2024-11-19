@@ -1,0 +1,7 @@
+$INCLUDES= "
+    ../qaframe
+";
+
+$LINKLIBRARIES="
+    qaframe
+";

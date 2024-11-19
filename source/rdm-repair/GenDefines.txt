@@ -1,0 +1,5 @@
+$LINKLIBRARIES="
+    rdm_repair
+";
+
+$TOOL="rdm-repair";

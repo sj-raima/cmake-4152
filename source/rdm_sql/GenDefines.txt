@@ -1,0 +1,12 @@
+$LIBRARY="rdm_sql";
+
+$LINKLIBRARIES="
+    rdbc
+    rsql
+    $RDM
+    $PSP
+    $BASE
+    $TFS_SQL
+    $TRANSPORT
+    $ENC
+";

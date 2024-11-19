@@ -1,0 +1,103 @@
+$INCLUDES="
+    ../../../qaframe_legacy
+";
+
+$DDLP_CPP_LC_E="
+    runtimePerf_4_0
+    runtimePerf_4_1
+    runtimePerf_16_0
+    runtimePerf_16_1
+    runtimePerf_16_2
+    runtimePerf_16_3
+    runtimePerf_16_4
+    runtimePerf_64_0
+    runtimePerf_64_1
+    runtimePerf_64_2
+    runtimePerf_64_3
+    runtimePerf_64_4
+    runtimePerf_256_0
+    runtimePerf_256_1
+    runtimePerf_256_2
+    runtimePerf_256_3
+    runtimePerf_256_4
+
+    runtimePerfKey_4_0
+    runtimePerfKey_4_1
+    runtimePerfKey_16_0
+    runtimePerfKey_16_1
+    runtimePerfKey_16_2
+    runtimePerfKey_16_3
+    runtimePerfKey_16_4
+    runtimePerfKey_64_0
+    runtimePerfKey_64_1
+    runtimePerfKey_64_2
+    runtimePerfKey_64_3
+    runtimePerfKey_64_4
+    runtimePerfKey_256_0
+    runtimePerfKey_256_1
+    runtimePerfKey_256_2
+    runtimePerfKey_256_3
+    runtimePerfKey_256_4
+
+    runtimePerfHash_4_0_10k
+    runtimePerfHash_4_1_10k
+    runtimePerfHash_16_0_10k
+    runtimePerfHash_16_1_10k
+    runtimePerfHash_16_2_10k
+    runtimePerfHash_16_3_10k
+    runtimePerfHash_16_4_10k
+    runtimePerfHash_64_0_10k
+    runtimePerfHash_64_1_10k
+    runtimePerfHash_64_2_10k
+    runtimePerfHash_64_3_10k
+    runtimePerfHash_64_4_10k
+    runtimePerfHash_256_0_10k
+    runtimePerfHash_256_1_10k
+    runtimePerfHash_256_2_10k
+    runtimePerfHash_256_3_10k
+    runtimePerfHash_256_4_10k
+
+    runtimePerfHash_4_0_100k
+    runtimePerfHash_4_1_100k
+    runtimePerfHash_16_0_100k
+    runtimePerfHash_16_1_100k
+    runtimePerfHash_16_2_100k
+    runtimePerfHash_16_3_100k
+    runtimePerfHash_16_4_100k
+    runtimePerfHash_64_0_100k
+    runtimePerfHash_64_1_100k
+    runtimePerfHash_64_2_100k
+    runtimePerfHash_64_3_100k
+    runtimePerfHash_64_4_100k
+    runtimePerfHash_256_0_100k
+    runtimePerfHash_256_1_100k
+    runtimePerfHash_256_2_100k
+    runtimePerfHash_256_3_100k
+    runtimePerfHash_256_4_100k
+
+    runtimePerfHash_4_0_1M
+    runtimePerfHash_4_1_1M
+    runtimePerfHash_16_0_1M
+    runtimePerfHash_16_1_1M
+    runtimePerfHash_16_2_1M
+    runtimePerfHash_16_3_1M
+    runtimePerfHash_16_4_1M
+    runtimePerfHash_64_0_1M
+    runtimePerfHash_64_1_1M
+    runtimePerfHash_64_2_1M
+    runtimePerfHash_64_3_1M
+    runtimePerfHash_64_4_1M
+    runtimePerfHash_256_0_1M
+    runtimePerfHash_256_1_1M
+    runtimePerfHash_256_2_1M
+    runtimePerfHash_256_3_1M
+    runtimePerfHash_256_4_1M
+";
+
+$COMPILE_CPP_LC_S_E="
+    runtimePerf_dens
+";
+
+$LINKLIBRARIES="
+    qaframe_legacy
+";

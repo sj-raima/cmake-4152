@@ -1,0 +1,10 @@
+$DESCRIPTION="On-Disk. Same as first but with transactions of increasing batch size";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core25Example
+";

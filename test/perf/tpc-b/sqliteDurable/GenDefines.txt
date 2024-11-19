@@ -1,0 +1,14 @@
+$COPY_FILES="
+    ../../sqlite/sqlite3.c
+    ../../sqlite/sqlite3.h
+";
+
+$LINKLIBRARIES="
+    $BASE
+    $PSP
+";
+
+$DEFINES="
+    SQLITE_OMIT_LOAD_EXTENSION
+    SQLITE_DEFAULT_SYNCHRONOUS=3
+";

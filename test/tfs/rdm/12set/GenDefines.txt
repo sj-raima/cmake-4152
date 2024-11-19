@@ -1,0 +1,19 @@
+$INCLUDES="
+    ../../../qaframe_legacy
+";
+
+$LINKLIBRARIES="
+    qaframe_legacy
+";
+
+$DDLP_CPP_LC_E="
+    setp
+    setorder
+    setOrderFltIndex
+";
+
+$DDLP_CPP_LC_C_E="
+    setComb
+    setCombInmem
+    setSelRep
+";

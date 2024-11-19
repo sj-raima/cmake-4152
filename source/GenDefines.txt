@@ -1,0 +1,149 @@
+# May be set in enable_* or disable_*
+$TRANSPORT_ENABLED='';
+$REPLICATION_ENABLED='';
+$SQL_ENABLED='';
+$RDM_CLIENT_ENABLED='t';
+
+# These are set in respective setup directories unless excluded
+$PSP='';
+$BASE='';
+$TRANSPORT='';
+$TX='';
+$ENC='';
+$ENC_SIMPLE='';
+$EXPORT='';
+$HTTP='';
+$IMPORT='';
+$DDL='';
+$RDM='';
+$RDM_CLIENT='';
+$TFS='';
+$TFS_RDM='';
+$TFS_SERVER='';
+$TFS_EMBED='';
+$TFS_CLIENT='';
+$TFS_INMEM='';
+$TFS_FULL='';
+$TFS_LOCAL='';
+$SQL='';
+
+$SUBDIRS="
+    internal_rdmyacc
+    $COMB_DIRS
+    psp
+    setup_psp
+    base
+    setup_base
+    transport
+    setup_transport
+    enable_transport
+    tx
+    setup_tx
+    enc_simple
+    enc
+    setup_enc
+    http
+    setup_http
+    ddl
+    setup_ddl
+    enable_replication
+    rdm
+    rdm_client
+    setup_rdm
+    export
+    setup_export
+    tfs_copy_files
+    tfs_local
+    tfs_inmem
+    tfs_embed
+    tfs_server
+    tfs_client
+    tfs
+    tfs_rdm
+    setup_tfs
+    rdm_legacy
+    xml
+    rdm_compile
+    rdm-compile
+    import
+    setup_import
+    rsql
+    setup_sql
+    rdm_export
+    rdm-export
+    rdm_import
+    rdm-import
+    rdm_convert
+    rdm-convert
+    rdm_create
+    rdm-create
+    rdm_copy
+    rdm-copy
+    rdm_info
+    rdm-info
+    rdm_replicate
+    rdm-replicate
+    rdm_vacuum
+    rdm-vacuum
+    rdm_check
+    rdm-check
+    rdm_initialize
+    rdm-initialize
+    rdm_crypt
+    rdm-crypt
+    rdm_repair
+    rdm-repair
+    tfs_full
+    setup_tfs_full
+    rdm_tfs
+    rdm-tfs
+    rdbc
+    rdm_sql
+    rdm-sql
+    odrv
+    ocfg
+    rdm_regodbc
+    rdm-regodbc
+
+    cppapi
+    cppenc_simple
+    cppenc
+    cppexport
+    cpptfs_local
+    cpptfs_inmem
+    cpptfs_embed
+    cpptfs_server
+    cpptfs_client
+    cpptfs
+    cpptfs_rdm
+    cppimport
+    cpptfs_full
+
+    disable_rdm_client
+    setup_rdm_client
+
+    # Everything_below_is_linking_with_rdm_client_without_SQL_unless_disabled
+
+    rdm_drop
+    rdm-drop
+    ado.net
+    jdbc
+    internal_rdm-console
+    internal_gdbserver
+    internal_tag_fail
+";
+
+
+# This variable will be set in the jdbc directory unless jdbc is
+# excluded:
+
+$JAVA_LIB = "";
+
+# This variable will be set in xml directory unless xml is
+# excluded:
+
+$EXPAT_LICENSE = "";
+
+#
+# There is additional EXTRA_DIST in PostDefines.txt
+#

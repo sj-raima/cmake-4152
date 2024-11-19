@@ -1,0 +1,1 @@
+$RDM='rdm' unless ($RDM ne '');

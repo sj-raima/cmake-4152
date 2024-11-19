@@ -1,0 +1,14 @@
+$LINKLIBRARIES="
+   Raima.Rdm
+";
+
+$PLATFORM_EXCL="
+    LINUX
+    OSX
+    IOS
+    ANDROID
+    QNX
+    INTEGRITY
+    VXWORKS
+    VXWORKS_RTP
+ ";

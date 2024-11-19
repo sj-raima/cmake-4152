@@ -1,0 +1,10 @@
+$DESCRIPTION="Shared mode. All previous databases were using 'x' mode. This one creates two tasks. In the first one, a database is created and populated. In the second one, the database is opened and read is attempted but times out";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core13
+";

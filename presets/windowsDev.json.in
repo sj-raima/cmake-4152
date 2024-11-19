@@ -1,0 +1,256 @@
+{
+  "version": 6,
+  "include": [
+    "windows.json"
+  ],
+  "configurePresets": [
+    {
+      "name": "windows-dev-2022",
+      "inherits": ["win-x86_64_vs2022"],
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "FALSE",
+        "COMPILE_ALL_SOURCE": "FALSE"
+      },
+      "hidden": true
+    },
+    {
+      "name": "windows-dev32-2022",
+      "inherits": ["win-x86_32_vs2022"],
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "FALSE",
+        "COMPILE_ALL_SOURCE": "FALSE"
+      },
+      "hidden": true
+    },
+    {
+      "name": "windows-dev-2022-shared",
+      "inherits": ["win-x86_64_vs2022"],
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "TRUE",
+        "COMPILE_ALL_SOURCE": "FALSE",
+        "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/b-${presetName}/bin"
+      },
+      "hidden": true
+    },
+    {
+      "name": "windows-dev32-2022-shared",
+      "inherits": ["win-x86_32_vs2022"],
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "TRUE",
+        "COMPILE_ALL_SOURCE": "FALSE",
+        "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/b-${presetName}/bin"
+      },
+      "hidden": true
+    },
+    {
+      "name": "windows-dev-2022-ssl",
+      "inherits": ["win-x86_64_vs2022-ssl"],
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "FALSE",
+        "COMPILE_ALL_SOURCE": "FALSE"
+      },
+      "hidden": true
+    },
+    {
+      "name": "windows-dev-2022-ssl-shared",
+      "inherits": ["win-x86_64_vs2022-ssl"],
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "TRUE",
+        "COMPILE_ALL_SOURCE": "FALSE",
+        "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/b-${presetName}/bin"
+      },
+      "hidden": true
+    },
+    {
+      "name": "windows-dev",
+      "inherits": [
+        "win-x86_64_vs2019"
+      ],
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "FALSE",
+        "COMPILE_ALL_SOURCE": "FALSE"
+      },
+      "hidden": true
+    },
+    {
+      "name": "windows-dev-shared",
+      "inherits": [
+        "win-x86_64_vs2019"
+      ],
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "TRUE",
+        "COMPILE_ALL_SOURCE": "FALSE",
+        "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/b-${presetName}/bin"
+      },
+      "hidden": true
+    },
+    {
+      "name": "windows-dev-ssl",
+      "inherits": [
+        "win-x86_64_vs2019-ssl"
+      ],
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "FALSE",
+        "COMPILE_ALL_SOURCE": "FALSE"
+      },
+      "hidden": true
+    },
+    {
+      "name": "dev",
+      "description": "Dev: Windows with a default debug build",
+      "inherits": "windows-dev"
+    },
+    {
+      "name": "dev-2019",
+      "description": "Dev: Windows with a default debug build",
+      "inherits": "windows-dev"
+    },
+    {
+      "name": "dev-2019-shared",
+      "description": "Dev: Windows with a default debug build",
+      "inherits": "windows-dev-shared"
+    },
+    {
+      "name": "dev-2019-ssl",
+      "description": "Dev: Windows with a default debug build",
+      "inherits": "windows-dev-ssl"
+    },
+    {
+      "name": "dev-2022",
+      "description": "Dev: Windows with a default debug build",
+      "inherits": "windows-dev-2022"
+    },
+    {
+      "name": "dev_32-2022",
+      "description": "Dev: Windows with a default debug build",
+      "inherits": "windows-dev32-2022"
+    },
+    {
+      "name": "dev_32-2022-shared",
+      "description": "Dev: Windows with a default debug build",
+      "inherits": "windows-dev32-2022-shared"
+    },
+    {
+      "name": "dev-2022-shared",
+      "description": "Dev: Windows with a default debug build",
+      "inherits": "windows-dev-2022-shared"
+    },
+    {
+      "name": "dev-2022-ssl",
+      "description": "Dev: Windows with a default debug build",
+      "inherits": "windows-dev-2022-ssl"
+    },
+    {
+      "name": "dev-2022-ssl-shared",
+      "description": "Dev: Windows with a default debug build",
+      "inherits": "windows-dev-2022-ssl-shared"
+    },
+    {
+      "name": "dev-tag-bitmap",
+      "description": "Dev: Windows where we use the bitmap allocator",
+      "inherits": "windows-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_TAG_SUB_BITMAP"
+      }
+    },
+    {
+      "name": "dev-tag-list-of-lists",
+      "description": "Dev: Windows where we use the list-of-lists allocator",
+      "inherits": "windows-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_TAG_SUB_LIST_OF_LISTS"
+      }
+    },
+    {
+      "name": "dev-tag-fail",
+      "description": "Dev: Windows where we use the failure-simulation allocator",
+      "inherits": "windows-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_TAG_FAIL"
+      }
+    },
+    {
+      "name": "dev-tag-profile",
+      "description": "Dev: Windows where we use the profile allocator",
+      "inherits": "windows-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_TAG_PROFILE"
+      }
+    },
+    {
+      "name": "dev-tag-malloc",
+      "description": "Dev: Windows where we use the malloc allocator",
+      "inherits": "windows-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_TAG_MALLOC"
+      }
+    },
+    {
+      "name": "dev-verify-in-use",
+      "description": "Dev: Windows where we verify the in-use in the database pack",
+      "inherits": "windows-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DENABLE_PACK_VERIFY_INUSE_MAIN -DPACK_VERIFY_OLDEST_PACK_ID -DENABLE_PACK_VERIFY_DRAWER_LOCATIONS"
+      }
+    },
+    {
+      "name": "dev-no-os-2022",
+      "description": "Dev: Windows with the NO_OS implementation",
+      "inherits": "windows-dev-2022",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_NO_OS"
+      }
+    },
+    {
+      "name": "dev-no-os",
+      "description": "Dev: Windows with the NO_OS implementation",
+      "inherits": "windows-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_NO_OS"
+      }
+    },
+    {
+      "name": "dev-all-source",
+      "description": "Dev: Windows where we compile all source together",
+      "inherits": "windows-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "",
+        "COMPILE_ALL_SOURCE": "TRUE"
+      }
+    },
+    {
+      "name": "dev-poll",
+      "description": "Dev: Windows where whe have enabled the poll transport",
+      "inherits": "windows-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_TRANSPORT_SHM_POLL_NUM_USERS=10 -DRDM_TRANSPORT_HAVE_SHM_POLL"
+      }
+    },
+    {
+      "name": "dev-poll-tag-malloc",
+      "description": "Dev: Windows where whe have enabled the poll transport and the malloc allocator",
+      "inherits": "windows-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_TRANSPORT_SHM_POLL_NUM_USERS=10 -DRDM_TRANSPORT_HAVE_SHM_POLL -DRDM_TAG_MALLOC"
+      }
+    },
+    {
+      "name": "dev-easy-profiler",
+      "description": "Dev: Windows where whe have enabled the easy profiler",
+      "inherits": "windows-dev",
+      "cacheVariables": {
+        "RDM_EASY_PROFILER": "ON"
+      }
+    },
+    {
+      "name": "dev-link-time-opt",
+      "description": "Dev: Windows where we use Link Time Optimization",
+      "inherits": "windows-dev",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "/GL",
+        "CMAKE_C_FLAGS": "/GL",
+        "CMAKE_EXE_LINKER_FLAGS": "/LTGL"
+      }
+    }
+  ]
+}

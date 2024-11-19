@@ -1,0 +1,14 @@
+$LIBRARY="http";
+$COMB="1";
+
+$COPY_FILES="
+    ../tfs_local/tfs_platform_data.h
+    ../tfs_local/tfs_platform_endian.h
+    ../tfs_local/tfs_platform_type.h
+";
+
+$LINKLIBRARIES="
+    transport
+    base
+    psp
+";

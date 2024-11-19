@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "cl.exe build active file",
+            "command": "cl.exe",
+            "args": [
+                "/IC:\\Raima\\rdm_enterprise_enc_simple-@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@\\include",
+                "bookstore.c",
+                "/link",
+                "/LIBPATH:C:\\Raima\\rdm_enterprise_enc_simple-@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@\\lib",
+                "/MACHINE:X64",
+                "rdmtfs.lib",
+                "rdmrdm.lib",
+                "rdmbase.lib",
+				"rdmtx.lib"
+            ],
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+$LIBRARY="enc_simple";
+$COMB="1";
+
+$COPY_FILES="
+    ../tfs_local/tfs_enter.cpp
+    ../tfs_local/tfs_enter_api_int.h
+";
+
+$LINKLIBRARIES="
+    psp
+    base
+    tx
+";

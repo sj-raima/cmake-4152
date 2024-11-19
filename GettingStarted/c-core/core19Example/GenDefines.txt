@@ -1,0 +1,10 @@
+$DESCRIPTION="Basic tutorial in C where a pure in-memory database is created, a row is inserted and then a row is retrieved and displayed";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core19Example
+";

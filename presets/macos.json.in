@@ -1,0 +1,96 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "macos",
+      "generator": "Ninja Multi-Config",
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "TRUE",
+        "rdmpsp_LIBRARY": "-lm"
+      },
+      "binaryDir": "b-${presetName}",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Darwin"
+      },
+      "hidden": true
+    },
+    {
+      "name": "macos-cross",
+      "inherits": ["macos"],
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "TRUE"
+      },
+      "hidden": true
+    },
+    {
+      "name": "mac-x86_64",
+      "description": "MacOS on 64 bit INTEL",
+      "inherits": ["macos"]
+    },
+    {
+      "name": "mac-x86_64-ssl",
+      "description": "MacOS on 64 bit INTEL with OpenSSL",
+      "inherits": ["macos"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-I/opt/homebrew/Cellar/openssl@3/3.3.1/include -DRDM_TRANSPORT_HAVE_SSL",
+        "rdmtransport_LIBRARY": "-L/opt/homebrew/Cellar/openssl@3/3.3.1/lib -lssl -lcrypto -lz"
+      }
+    },
+    {
+      "name": "mac-arm_64",
+      "description": "MacOS on 64 bit ARM",
+      "inherits": ["macos"],
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "arm64"
+      }
+    },
+    {
+      "name": "mac-arm_64-ssl",
+      "description": "MacOS on 64 bit ARM with OpenSSL",
+      "inherits": ["macos"],
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-I/opt/homebrew/Cellar/openssl@3/3.3.1/include -DRDM_TRANSPORT_HAVE_SSL",
+        "rdmtransport_LIBRARY": "-L/opt/homebrew/Cellar/openssl@3/3.3.1/lib -lssl -lcrypto -lz",
+        "CMAKE_OSX_ARCHITECTURES": "arm64"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "mac-x86_64",
+      "configurePreset": "mac-x86_64"
+    },
+    {
+      "name": "mac-x86_64-ssl",
+      "configurePreset": "mac-x86_64-ssl"
+    },
+    {
+      "name": "mac-arm_64",
+      "configurePreset": "mac-arm_64"
+    },
+    {
+      "name": "mac-arm_64-ssl",
+      "configurePreset": "mac-arm_64-ssl"
+    }
+  ],
+  "packagePresets": [
+    {
+      "name": "mac-x86_64",
+      "configurePreset": "mac-x86_64"
+    },
+    {
+      "name": "mac-x86_64-ssl",
+      "configurePreset": "mac-x86_64-ssl"
+    },
+    {
+      "name": "mac-arm_64",
+      "configurePreset": "mac-arm_64"
+    },
+    {
+      "name": "mac-arm_64-ssl",
+      "configurePreset": "mac-arm_64-ssl"
+    }
+  ]
+}

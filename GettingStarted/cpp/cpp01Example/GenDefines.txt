@@ -1,0 +1,10 @@
+$DESCRIPTION="Basic tutorial in C++ where a database is created, a row is inserted and then a row is retrieved and displayed";
+
+$LINKLIBRARIES="
+    cpp$TFS
+    cppapi
+";
+
+$COMPILE_CPP_API_LC="
+    cpp01Example
+";

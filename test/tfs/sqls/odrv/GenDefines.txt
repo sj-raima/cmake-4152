@@ -1,0 +1,19 @@
+$INCLUDES="
+    ../../../qaframe_odrv
+";
+
+$SUBDIRS="
+    unit
+";
+
+$DEFINES="
+    RDM_ODBC_DRV
+";
+
+$SYSLIBS="
+    os_drv_syslibs
+";
+
+$PLATFORM_INC="
+    WINDOWS
+";

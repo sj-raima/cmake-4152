@@ -1,0 +1,9 @@
+$DEPENDENCIES="
+  rdm-tfs
+  rdm-sql
+";
+
+$PLATFORM_EXCL="
+    WINDOWS
+";
+

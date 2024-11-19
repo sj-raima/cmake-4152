@@ -1,0 +1,10 @@
+$DESCRIPTION="Transaction abort. Commit one transaction, then begin another transaction and abort it. Navigate through created records to see only committed records";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core12
+";

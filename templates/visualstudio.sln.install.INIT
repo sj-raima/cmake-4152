@@ -1,0 +1,32 @@
+$id_visualstudio_SLN= 500000;
+sub initOneVisualstudioSolutionFile {
+    my ($myPLATFORM) = @_;
+    $output_visualstudio_SLN{$myPLATFORM}= "Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+";
+    $output_enableProjects_visualstudio_SLN{$myPLATFORM}= "";
+}
+
+initOneVisualstudioSolutionFile ("");
+
+$output_folders_visualstudio_SLN= "";
+%objectid_visualstudio_SLN= ();
+sub makeOneVisualstudioSolutionFile {
+    my ($myNAME, $myOBJECT, $myPLATFORM) = @_;
+    my $myDIRPATH=$DIRPATH;
+    $myDIRPATH=~ s/\//\\/g;
+    my $projext;
+    $projext= ".vcxproj";
+    $output_visualstudio_SLN{$myPLATFORM}.= "Project(\"{F2A28222-AF8E-4502-BB9A-CBDCFB499999}\") = \"$myNAME\", \"$myDIRPATH\\${myOBJECT}$projext\", \"{F2A28222-AF8E-4502-BB9A-CBDCFB$id_visualstudio_SLN}\"
+";
+
+    $output_visualstudio_SLN{$myPLATFORM}.= "EndProject
+";
+    $output_enableProjects_visualstudio_SLN{$myPLATFORM} .="\t\t{F2A28222-AF8E-4502-BB9A-CBDCFB$id_visualstudio_SLN}.Debug|x64.ActiveCfg = Debug|x64
+\t\t{F2A28222-AF8E-4502-BB9A-CBDCFB$id_visualstudio_SLN}.Debug|x64.Build.0 = Debug|x64
+\t\t{F2A28222-AF8E-4502-BB9A-CBDCFB$id_visualstudio_SLN}.Release|x64.ActiveCfg = Release|x64
+\t\t{F2A28222-AF8E-4502-BB9A-CBDCFB$id_visualstudio_SLN}.Release|x64.Build.0 = Release|x64
+";
+}

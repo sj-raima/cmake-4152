@@ -1,0 +1,13 @@
+$LINKLIBRARIES="
+    qaframe_rsql
+    rsql
+";
+
+$COMPILE_CPP_C="
+    rsql_unit
+    rsql_thread
+";
+
+$EMBED_CPP="
+    SYM_ON_U_FOR_SYM_ND_HST_SRVR.sql
+";

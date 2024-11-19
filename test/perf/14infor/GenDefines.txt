@@ -1,0 +1,10 @@
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+    $BASE
+    $PSP
+";
+
+$COMPILE_LC_S_C="
+    rlog
+";

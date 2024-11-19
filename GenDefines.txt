@@ -1,0 +1,48 @@
+$SUBDIRS="
+    source
+    include
+    test
+    GettingStarted
+";
+
+$STACK_SIZE= "0x28000";
+
+$EXTRA_DIST= "
+    admin-gui
+
+    mainpage.md
+    versioninfo.xml
+
+    RELEASE-NOTES.txt
+    patch.txt
+    LICENSE.txt
+
+    CMake/Macros.txt
+    CMake/SysDarwin.txt
+    CMake/SysGeneric.txt
+    CMake/SysIntegrity.txt
+    CMake/SysLinux.txt
+    CMake/SysQNX.txt
+    CMake/SysWindows.txt
+    CMake/SysVxWorks.txt
+    CMake/SysAndroid.txt
+    CMake/AddConfig.txt
+    CMake/RDMConfig.cmake.in
+
+    CMakePresets.json
+    presets
+
+    docs
+    README
+
+    target
+    installer-components/unix-setup.sh
+    installer-components/versioninfo.sh
+    installer-components/LICENSE.txt
+";
+
+$INCLUDES="include";
+
+#
+# There is additional EXTRA_DIST in PostDefines.txt
+#

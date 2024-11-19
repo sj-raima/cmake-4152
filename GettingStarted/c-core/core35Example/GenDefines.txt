@@ -1,0 +1,10 @@
+$DESCRIPTION="R-Tree example";
+
+$LINKLIBRARIES="
+    $RDM
+    $TFS
+";
+
+$COMPILE_LC_S_C="
+    core35Example
+";

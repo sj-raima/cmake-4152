@@ -1,0 +1,10 @@
+$DESCRIPTION="Currency. Using hierarchical database, find a leaf record through an index, make it the current member of its set, navigate up. Show other members of owner records";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core10
+";

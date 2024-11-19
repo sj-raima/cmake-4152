@@ -1,0 +1,21 @@
+$SUBDIRS="
+    cpp01Example
+#    cpp02Example
+#    cpp03Example
+#    cpp04Example
+#    cpp05Example
+#    cpp06Example
+#    cpp07Example
+#    cpp08Example
+#    cpp09Example
+#    cpp10Example
+#    cpp11Example
+#    cpp12Example
+#    cpp13Example
+#    cpp20Example
+    cpp35Example
+    cpp51Example
+    cpp50Example
+    cpp55Example
+    cpp70Example
+";

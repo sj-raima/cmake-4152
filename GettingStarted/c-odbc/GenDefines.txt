@@ -1,0 +1,7 @@
+$SUBDIRS="
+    odbc01Example
+#    odbc20Example
+#    odbc21Example
+#    odbc25Example
+#    odbc28Example
+";

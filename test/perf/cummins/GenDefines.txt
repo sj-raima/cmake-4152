@@ -1,0 +1,14 @@
+$LINKLIBRARIES="
+    base
+    psp
+    rdm_client
+    transport
+";
+
+$COMPILE_CPP_LC_S_C="
+    cummins
+";
+
+$DEPENDENCIES="
+    rdm-compile
+";

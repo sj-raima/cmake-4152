@@ -1,0 +1,57 @@
+$INCLUDES="
+    ../../../qaframe_legacy
+    ../../../../source/rdm
+";
+
+$DDLP_CPP_LC_E="
+    rec
+";
+
+$DDLP_CPP_LC_D_E="
+    circdb1
+    appdata
+    save
+    init
+    sales
+    char1
+    integerx
+    long1
+    float1
+    double1
+    dba8_test
+    dbaddr_db
+    test01
+    test02
+    db1
+    db2
+    tst2
+    tims000
+    vctims
+    varchartest
+    cmpkey
+    arrays
+    dchain_test
+";
+
+$DDLP_CPP_LC_C_D="
+    subdir_db
+    unionx
+    union_save
+    disk_01
+    inmem_vol_01
+    inmem_vol_02
+    inmem_vol_03
+    inmem_pers_01
+    inmem_pers_02
+    inmem_pers_03
+    inmem_read_01
+    inmem_read_02
+    inmem_read_03
+";
+
+$LINKLIBRARIES="
+    qaframe_legacy
+    $TFS
+    rdm_legacy
+    $RDM
+";

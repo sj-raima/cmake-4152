@@ -1,0 +1,7 @@
+$LINKLIBRARIES="
+    rdm_convert
+";
+
+$BUILDTOOL="t";
+
+$TOOL="rdm-convert";

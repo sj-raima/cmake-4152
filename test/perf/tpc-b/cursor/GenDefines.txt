@@ -1,0 +1,9 @@
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    tpcb
+";

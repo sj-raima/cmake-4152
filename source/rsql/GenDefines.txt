@@ -1,0 +1,20 @@
+$LIBRARY="rsql";
+
+$INCLUDES="
+    ../ddl
+";
+
+$LINKLIBRARIES="
+    $BASE
+    $RDM
+    $PSP
+    $DDL
+";
+
+$RDMYACC_CPP="
+    ssctabscan
+";
+
+$RDMYACC_CPP_P="
+    sscsql
+";

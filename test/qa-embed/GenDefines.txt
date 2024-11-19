@@ -1,0 +1,12 @@
+$PLATFORM_EXCL= "
+    WINCE
+    VXWORKS
+    VXWORKS_RTP
+    INTEGRITY
+";
+
+$LINKLIBRARIES="
+    $BASE
+";
+
+$BUILDTOOL="t";

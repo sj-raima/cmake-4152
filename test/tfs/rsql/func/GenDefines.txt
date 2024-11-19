@@ -1,0 +1,31 @@
+$LINKLIBRARIES="
+    qaframe_rsql
+    rsql
+";
+
+$DDLP_CPP_LC_C_E="
+    rsqlNativeDBSet
+    rsqlNativeDBRec
+    rsqlNativeDBRecText
+    rsqlNativeDBBinary
+    rsqlNativeDBCircUint8
+    rsqlNativeDBCircUint16
+    rsqlNativeDBCircInt16
+    rsqlNativeDBCircUint32
+    rsqlNativeDBCircInt32
+    rsqlNativeDBCircUint64
+    rsqlNativeDBCircInt64
+    rsqlNativeDBBlob
+    i4143
+";
+
+$COMPILE_CPP_C="
+    rsqlStatementHandle
+    rsqlStatementHandle0
+    rsqlStatementHandle1
+    rsqlStatementHandle2
+    rsqlStatementHandlex0
+    rsqlStatementHandlex1
+    rsqlStatementHandlex2
+#    rsqlStoredProcedure
+";

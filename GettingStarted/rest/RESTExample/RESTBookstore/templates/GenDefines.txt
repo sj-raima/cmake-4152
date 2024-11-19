@@ -1,0 +1,8 @@
+$EXTRA_DIST="
+    dashboard.html
+    index.html
+    error.html
+    query.html
+    layout.html
+    result.html
+";

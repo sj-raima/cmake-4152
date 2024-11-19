@@ -1,0 +1,48 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "android",
+      "generator": "Ninja Multi-Config",
+      "binaryDir": "b-${presetName}",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      },
+      "hidden": true
+    },
+    {
+      "name": "android-cross",
+      "inherits": ["android"],
+       "cacheVariables": {
+        "BUILD_SHARED_LIBS": "TRUE"
+      },
+      "hidden": true
+    },
+    {
+      "name": "android-armeabi",
+      "description": "Cross compile for android for Arm 32 bit",
+      "inherits": ["android-cross"],
+      "toolchainFile": "target/android-armeabi/toolchain.cmake"
+    },
+    {
+      "name": "android-arm64",
+      "description": "Cross compile for android for Arm 64 bit",
+      "inherits": ["android-cross"],
+      "toolchainFile": "target/android-arm64/toolchain.cmake"
+    },
+    {
+      "name": "android-x86",
+      "description": "Cross compile for android for x86 32 bit",
+      "inherits": ["android-cross"],
+      "toolchainFile": "target/android-x86/toolchain.cmake"
+    },
+    {
+      "name": "android-x86_64",
+      "description": "Cross compile for android for X86 64 bit",
+      "inherits": ["android-cross"],
+      "toolchainFile": "target/android-x86_64/toolchain.cmake"
+    }
+  ]
+}

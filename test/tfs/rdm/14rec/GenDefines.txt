@@ -1,0 +1,43 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$COMPILE_CPP_LC_S_E="
+    recno
+    recArrayOrder
+    recArrayOrderPK
+    rec
+    rec0
+    rec1
+    rec2
+#    recPkeyUnion
+    recPkeyUnion0
+    recPkeyUnion1
+    recPkeyUnion2
+    recKeyShare
+    recKeyOrder
+    recKeyOrder0
+    recKeyOrder1
+    recKeyOrder2
+    recKeyOrderPK
+    recKeyOrderPK0
+    recKeyOrderPK1
+    recKeyOrderPK2
+    recKeyOrderBigPK
+    recKeyOrderBigPK0
+    recKeyOrderBigPK1
+    recKeyOrderBigPK2
+
+    recinit
+
+    recArrayOrderSimpleAvl
+    recArrayOrderSimpleBtree
+
+    transRec
+    transRecArray
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+    $TFS
+";

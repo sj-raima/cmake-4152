@@ -1,0 +1,7 @@
+$PLATFORM_EXCL="
+    INTEGRITY
+";
+
+$LINKLIBRARIES="
+    rdbc
+";

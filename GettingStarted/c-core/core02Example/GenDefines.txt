@@ -1,0 +1,10 @@
+$DESCRIPTION="Hello World. If database doesn't exist (first time), it will be created. If it does exist, new records will be added. Same create and read algorithm as in core02Example";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core02Example
+";

@@ -1,0 +1,10 @@
+$DESCRIPTION="Simple record type, integer field, on-disk. Time creation of 50,000 records. Time scanning and summing of all records' integer field. Time deletion of all records";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core21
+";

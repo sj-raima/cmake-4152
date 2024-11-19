@@ -1,0 +1,34 @@
+$TFS_RDM="tfs_rdm" unless ($TFS_RDM ne '');
+$TFS_SERVER="tfs_server" unless ($TFS_SERVER ne '');
+$TFS_EMBED="tfs_embed" unless ($TFS_EMBED ne '');
+$TFS_CLIENT="tfs_client" unless ($TFS_CLIENT ne '');
+$TFS_INMEM="tfs_inmem" unless ($TFS_INMEM ne '');
+$TFS_LOCAL="tfs_local" unless ($TFS_LOCAL ne '');
+
+if ($TFS eq "") {
+    if ($EXISTLIBRARY{'tfs_rdm'}) {
+        $TFS="$TFS_RDM";
+    }
+    elsif ($EXISTLIBRARY{'tfs'}) {
+        $TFS="tfs";
+    }
+    elsif ($EXISTLIBRARY{'tfs_server'}) {
+        $TFS="$TFS_SERVER";
+    }
+    elsif ($EXISTLIBRARY{'tfs_embed'}) {
+        $TFS="$TFS_EMBED";
+    }
+    elsif ($EXISTLIBRARY{'tfs_client'}) {
+        $TFS="$TFS_CLIENT";
+    }
+    elsif ($EXISTLIBRARY{'tfs_inmem'}) {
+        $TFS="$TFS_INMEM";
+    }
+    elsif ($EXISTLIBRARY{'tfs_local'}) {
+        $TFS="$TFS_LOCAL";
+    }
+    else {
+        # This will exclude anything depending on the TFS
+        $TFS="tfs";
+    }
+}

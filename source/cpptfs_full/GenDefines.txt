@@ -1,0 +1,17 @@
+$LIBRARY= "cpptfs_full";
+
+$COPY_FILES="
+    $ALL_TFS_CPP_FILES
+";
+
+$LINKLIBRARIES="
+    psp
+    rdm
+    rsql
+    tfs_full
+    cppapi
+";
+
+$DEFINES="
+    RDM_PUBLIC_CLASS=RDM_EXPORT
+";

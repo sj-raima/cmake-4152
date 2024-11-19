@@ -1,0 +1,10 @@
+$DESCRIPTION="Basic tutorial in C where a simple one to many relationship between two tables is made and used";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core31Example
+";

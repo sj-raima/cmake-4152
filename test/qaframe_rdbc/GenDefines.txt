@@ -1,0 +1,10 @@
+$LIBRARY="qaframe_rdbc";
+
+$LINKLIBRARIES="
+    $PSP
+    $RDM
+    rdbc
+    $TFS
+    qaframe
+    $ENC
+";

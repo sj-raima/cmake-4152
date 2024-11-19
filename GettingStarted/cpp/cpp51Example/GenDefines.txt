@@ -1,0 +1,12 @@
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_CPP_S_C_NO_CONSTRUCTOR="
+    BenchmarkDB
+";
+
+$DEPENDENCIES="
+    rdm-compile
+";

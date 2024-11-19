@@ -1,0 +1,4 @@
+$LINKLIBRARIES="
+    qaframe_rdbc
+    rdbc
+";

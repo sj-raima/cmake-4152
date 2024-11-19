@@ -1,0 +1,10 @@
+$DESCRIPTION="Hello World example in C language";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core01Example
+";

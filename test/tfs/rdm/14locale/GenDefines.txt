@@ -1,0 +1,15 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+";
+
+$COMPILE_CPP_LC_S="
+    locale
+";
+$EMBED_CPP="
+    locale.sdl
+    locales.cat
+";

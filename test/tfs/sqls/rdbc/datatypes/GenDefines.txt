@@ -1,0 +1,9 @@
+$INCLUDES="
+    ../qaframe_rdbc
+    ../rutil
+";
+
+$LINKLIBRARIES="
+    qaframe_rdbc
+    $TFS
+";

@@ -1,0 +1,7 @@
+$LIBRARY="rdm_drop";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+    $ENC
+";

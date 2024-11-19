@@ -1,0 +1,16 @@
+$SUBDIRS="
+    rdm
+    cpp
+    rsql
+    sqls
+    benchmark
+#    objcapi
+";
+
+if ($ENC eq "enc_simple") {
+    $DEFINES="LINK_ENC_SIMPLE=1";
+}
+
+$EXTRA_DIST= "
+    invariant-check-images.sh
+";

@@ -1,0 +1,13 @@
+$LIBRARY="tag_fail";
+
+$LINKLIBRARIES="
+    $PSP
+";
+
+$SYSLIBS="
+    os_base_syslibs
+";
+
+$PLATFORM_INC="
+    LINUX
+";

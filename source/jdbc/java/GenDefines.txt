@@ -1,0 +1,6 @@
+$LIBRARY="jdbc";
+
+$EXTRA_DIST = "
+  META-INF/services/java.sql.Driver.in
+  Manifest.txt.in
+";

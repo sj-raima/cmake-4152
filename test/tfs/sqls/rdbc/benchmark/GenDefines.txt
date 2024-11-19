@@ -1,0 +1,8 @@
+$COMPILE_CPP_LC_S_E="
+    rdbc_benchmark
+";
+
+$LINKLIBRARIES="
+    qaframe_rdbc
+    rdbc
+";

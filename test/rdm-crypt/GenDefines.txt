@@ -1,0 +1,11 @@
+$DEPENDENCIES="
+  rdm-compile
+  rdm-create
+  rdm-crypt
+  rdm-sql
+  rdm-tfs
+";
+
+$EXTRA_DIST="
+  dbEnc.sdl
+";

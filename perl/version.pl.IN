@@ -1,0 +1,21 @@
+# Raima Database Manager
+#
+# Copyright (c) 2010 Raima Inc.,  All rights reserved.
+#
+# Use of this software, whether in source code format, or in executable,
+# binary object code form, is governed by the Raima LICENSE which
+# is fully described in the LICENSE.TXT file, included within this
+# distribution of files.
+
+# version.pl
+#
+# WARNING!  version.pl is a machine-generated file -- do not hand edit.
+# To create or update this file run "productize perl/version.pl..IN"
+# or prebuild.pl from the top level directory
+
+$Version = "@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@.@@PRODUCT_VERSION_BUILD@@";    # RDM version
+$Date = "[@@PRODUCT_INFO_DATE_DAY@@-@@PRODUCT_INFO_DATE_MONTH@@-@@PRODUCT_INFO_DATE_YEAR@@]";     # Date to put into .DLL DESCRIPTION field
+
+$hdr_version   = "@@PRODUCT_NAME_LONG@@ $Version. $Date";
+$hdr_copyright = "Copyright (c) @@PRODUCT_COPYRIGHT_YEAR@@ @@PRODUCT_COPYRIGHT_HOLDER@@, @@PRODUCT_COPYRIGHT_TEXT@@@@PRODUCT_COPYRIGHT_NAG_HDRNEWLINE@@";
+

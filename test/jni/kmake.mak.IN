@@ -1,0 +1,204 @@
+#include $(RDM_HOME)$/sysmake$/$(KMAKESYS).mak
+#include $(RDM_HOME)$/kheader.mak
+
+MOASJAR = moas
+MOASPATH = com$/raima$/moas
+
+JNISUITEJAR = JNISuite
+JNISUITEPATH = com$/raima$/jnisuite
+
+all: odir $O$(MOASJAR).jar $O$(JNISUITEJAR).jar
+
+MOAS_CLASSES = \
+    ALIGNREC \
+    AOEREC \
+    AOERECAOEBYTEARRAY1 \
+    AOERECAOECHAR1 \
+    AOERECAOECHARARRAY1 \
+    AOERECAOEDB_ADDR4_1 \
+    AOERECAOEDB_ADDR8_1 \
+    AOERECAOEDOUBLE1 \
+    AOERECAOEFLOAT1 \
+    AOERECAOEINT1 \
+    AOERECAOELONG1 \
+    AOERECAOESHORT1 \
+    AOERECAOEUINT1 \
+    AOERECAOEULONG1 \
+    AOERECAOEUSHORT1 \
+    AOERECAOEWCHAR_T1 \
+    AOERECAOEWCHAR_TARRAY1 \
+    AOSREC \
+    AOSRECAOS1Struct \
+    BYTEARRAYREC \
+    BYTEARRAYRECBYTEARRAY1 \
+    CHARARRAYREC \
+    CHARARRAYRECCHARARRAY1 \
+    CHARREC \
+    CHARRECCHAR1 \
+    COMPKEYREC1 \
+    COMPKEYREC1CK1KEY \
+    COMPKEYREC2 \
+    COMPKEYREC2CK2KEY \
+    DB_ADDR4REC \
+    DB_ADDR4RECDB_ADDR4_1 \
+    DB_ADDR8REC \
+    DB_ADDR8RECDB_ADDR8_1 \
+    DOUBLEREC \
+    DOUBLERECDOUBLE1 \
+    FLOATREC \
+    FLOATRECFLOAT1 \
+    INTREC \
+    INTRECINT1 \
+    LONGREC \
+    LONGRECLONG1 \
+    MDARRAYREC \
+    MDARRAYRECMDARRAYCHAR1 \
+    MDARRAYRECMDARRAYDB_ADDR4_1 \
+    MDARRAYRECMDARRAYDB_ADDR8_1 \
+    MDARRAYRECMDARRAYDOUBLE1 \
+    MDARRAYRECMDARRAYFLOAT1 \
+    MDARRAYRECMDARRAYINT1 \
+    MDARRAYRECMDARRAYLONG1 \
+    MDARRAYRECMDARRAYSHORT1 \
+    MDARRAYRECMDARRAYUINT1 \
+    MDARRAYRECMDARRAYULONG1 \
+    MDARRAYRECMDARRAYUSHORT1 \
+    MDARRAYRECMDARRAYWCHAR_T1 \
+    MIXREC \
+    moas \
+    SHORTREC \
+    SHORTRECSHORT1 \
+    STRUCTALIGNREC \
+    STRUCTALIGNRECSAR1Struct \
+    STRUCTREC \
+    STRUCTRECSTRUCT1Struct \
+    STRUCTRECSTRUCT2Struct \
+    TOEREC \
+    TOERECTOEBYTEARRAY1 \
+    TOERECTOECHAR1 \
+    TOERECTOECHARARRAY1 \
+    TOERECTOEDB_ADDR4_1 \
+    TOERECTOEDB_ADDR8_1 \
+    TOERECTOEDOUBLE1 \
+    TOERECTOEFLOAT1 \
+    TOERECTOEINT1 \
+    TOERECTOELONG1 \
+    TOERECTOESHORT1 \
+    TOERECTOEUINT1 \
+    TOERECTOEULONG1 \
+    TOERECTOEUSHORT1 \
+    TOERECTOEWCHAR_T1 \
+    TOERECTOEWCHAR_TARRAY1 \
+    UINTREC \
+    UINTRECUINT1 \
+    ULONGREC \
+    ULONGRECULONG1 \
+    USHORTREC \
+    USHORTRECUSHORT1 \
+    WCHAR_TARRAYREC \
+    WCHAR_TARRAYRECWCHAR_TARRAY1 \
+    WCHAR_TREC \
+    WCHAR_TRECWCHAR_T1
+
+MOAS_COMP_CLASSES = \
+    ALIGNREC_comp \
+    AOEREC_comp \
+    AOSRECAOS1Struct_comp \
+    AOSREC_comp \
+    BYTEARRAYREC_comp \
+    CHARARRAYREC_comp \
+    CHARREC_comp \
+    COMPKEYREC1_comp \
+    COMPKEYREC2_comp \
+    datacomp \
+    datagen \
+    DB_ADDR4REC_comp \
+    DB_ADDR8REC_comp \
+    DOUBLEREC_comp \
+    FLOATREC_comp \
+    INTREC_comp \
+    LONGREC_comp \
+    MDARRAYREC_comp \
+    MIXREC_comp \
+    SHORTREC_comp \
+    STRUCTALIGNRECSAR1Struct_comp \
+    STRUCTALIGNREC_comp \
+    STRUCTRECSTRUCT1Struct_comp \
+    STRUCTRECSTRUCT2Struct_comp \
+    STRUCTREC_comp \
+    TOEREC_comp \
+    UINTREC_comp \
+    ULONGREC_comp \
+    USHORTREC_comp \
+    validate \
+    WCHAR_TARRAYREC_comp \
+    WCHAR_TREC_comp 
+
+JNISUITE_CLASSES = \
+    GetOwnerTypes \
+    GetOwnerTypesTest \
+    grouplock \
+    grouplockTest \
+    JNICtxt \
+    JNISuite \
+    JNISuiteRun \
+    JNITest \
+    Keytest \
+    login \
+    loginTest \
+    WRValignrec \
+    WRVaoerec \
+    WRVaosrec \
+    WRVbytearrayrec \
+    WRVchararrayrec \
+    WRVcharrec \
+    WRVcompkeyrec1 \
+    WRVcompkeyrec2 \
+    WRVdb_addr4rec \
+    WRVdb_addr8rec \
+    WRVdoublerec \
+    WRVfloatrec \
+    WRVintrec \
+    WRVlongrec \
+    WRVmdarrayrec \
+    WRVmixrec \
+    WRVshortrec \
+    WRVstructalignrec \
+    WRVstructrec \
+    WRVtest \
+    WRVtoerec \
+    WRVuintrec \
+    WRVulongrec \
+    WRVushortrec \
+    WRVwchar_tarrayrec \
+    WRVwchar_trec 
+
+#define ALLCLASSES{ddl,path,classes,pkgname}
+#let dll $(dll)
+
+#for class in $(classes)
+
+#let FILES $(FILES) com$/raima$/moas$/$(class).java
+#let AUTO_CLEAN_TARGETS $(AUTO_CLEAN_TARGETS) clean_$(class)
+
+clean_$(class):
+	$#DELFILE{file=com$/raima$/moas$/$(class).java}
+
+#efor
+
+$(FILES): $(path)$/$(ddl)
+    $(RUN_TFSERVER)
+    krun $(path) ddlp -jni $(pkgname) $(ddl)
+    $(STOP_TFSERVER)
+
+#edef
+
+$#ALLCLASSES{ddl=moas.ddl, path=com$/raima$/moas, classes=$(MOAS_CLASSES),\
+        pkgname=com.raima.moas}
+
+$#MKJAR{jar=$(MOASJAR), classes=$(MOAS_CLASSES) $(MOAS_COMP_CLASSES),\
+    path=$(MOASPATH), injars=$(JNI_JAR)}
+$#MKJAR{jar=$(JNISUITEJAR), classes=$(JNISUITE_CLASSES), path=$(JNISUITEPATH),\
+    injars=$(JNI_JAR) $(DLIB)$(MOASJAR).jar}
+
+$#KEND{}

@@ -1,0 +1,11 @@
+$LIBRARY="tfs_inmem";
+$COMB="1";
+
+$COPY_FILES="
+    $ALL_TFS_LOCAL_FILES
+";
+
+$LINKLIBRARIES="
+    psp
+    base
+";

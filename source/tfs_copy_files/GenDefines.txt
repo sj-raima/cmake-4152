@@ -1,0 +1,134 @@
+
+$ALL_TFS_LOCAL_FILES="
+    ../tfs_local/tfs_capability.cpp
+    ../tfs_local/tfs_init.cpp
+    ../tfs_local/tfs_local.cpp
+    ../tfs_local/tfs_enter.cpp
+    
+    ../tfs_local/tfs_enter_api_int.h
+    ../tfs_local/tfs_local_api_int.h
+    ../tfs_local/tfs_platform_data.h
+    ../tfs_local/tfs_platform_endian.h
+    ../tfs_local/tfs_platform_type.h
+";
+
+$BASE_TFS_INMEM_FILES="
+    ../tfs_inmem/user_db_mem_types.h
+    ../tfs_inmem/tfs_debug_types.h
+";
+
+$ALL_TFS_INMEM_FILES="
+    $BASE_TFS_INMEM_FILES
+
+    ../tfs_inmem/database_lock.cpp
+    ../tfs_inmem/db.cpp
+    ../tfs_inmem/db_info.cpp
+    ../tfs_inmem/db_mem.cpp
+    ../tfs_inmem/db_mem_replication.cpp
+    ../tfs_inmem/dbrec_config.cpp
+    ../tfs_inmem/lock.cpp
+    ../tfs_inmem/tfs_config.cpp
+    ../tfs_inmem/tfs_embedx.cpp
+    ../tfs_inmem/tfs_embedx_inmem.cpp
+    ../tfs_inmem/tfs_info.cpp
+    ../tfs_inmem/tfs_json.cpp
+    ../tfs_inmem/user_db.cpp
+    ../tfs_inmem/user_db_mem.cpp
+
+    ../tfs_inmem/db_api_int.h
+    ../tfs_inmem/db_info.h
+    ../tfs_inmem/db_mem_api_int.h
+    ../tfs_inmem/db_mem_types.h
+    ../tfs_inmem/tfs_embedx_api_int.h
+    ../tfs_inmem/tfs_embedx_inmem_api_int.h
+    ../tfs_inmem/tfs_info.h
+    ../tfs_inmem/tfs_json_api_int.h
+    ../tfs_inmem/user_db_api_int.h
+    ../tfs_inmem/user_db_mem_api_int.h
+";
+
+$BASE_TFS_EMBED_FILES="
+    ../tfs_embed/pack.cpp
+    ../tfs_embed/pack_decode.cpp
+    ../tfs_embed/pack_mark.cpp
+    ../tfs_embed/replicate_prot.cpp
+
+    ../tfs_embed/db_disk_types.h
+    ../tfs_embed/pack_api_int.h
+    ../tfs_embed/pack_debug_types.h
+    ../tfs_embed/pack_decode_api_int.h
+    ../tfs_embed/pack_mark_api_int.h
+    ../tfs_embed/pack_shared_types_int.h
+    ../tfs_embed/pack_types_int.h
+    ../tfs_embed/replicate_prot_api_int.h
+    ../tfs_embed/replicate_prot_types_int.h
+";
+
+$ALL_TFS_EMBED_FILES="
+    $BASE_TFS_EMBED_FILES
+    ../tfs_embed/db_disk.cpp
+    ../tfs_embed/db_info_disk.cpp
+    ../tfs_embed/db_load.cpp
+    ../tfs_embed/db_persist.cpp
+    ../tfs_embed/db_vacuum.cpp
+    ../tfs_embed/pack_scan.cpp
+    ../tfs_embed/pack_shared.cpp
+    ../tfs_embed/pack_vacuum.cpp
+    ../tfs_embed/pack_verify.cpp
+    ../tfs_embed/tfs_embedx_disk.cpp
+    ../tfs_embed/user_db_disk.cpp
+
+    ../tfs_embed/db_disk_api_int.h
+    ../tfs_embed/pack_scan_api_int.h
+    ../tfs_embed/pack_shared_api_int.h
+    ../tfs_embed/pack_vacuum_api_int.h
+    ../tfs_embed/pack_verify_api_int.h
+    ../tfs_embed/tfs_embedx_disk_api_int.h
+    ../tfs_embed/user_db_disk_api_int.h
+    ../tfs_embed/user_db_disk_types.h
+";
+
+$ALL_TFS_CLIENT_FILES="
+    ../tfs_client/tfs_client.cpp
+    ../tfs_client/tfs_client_rpc.cpp
+    ../tfs_client/tfs_client_rpc_common.cpp
+
+    ../tfs_client/tfs_client_api_int.h
+    ../tfs_client/tfs_client_types.h
+    ../tfs_client/tfs_rpc_common_api_int.h
+";
+
+$ALL_TFS_SERVER_FILES="
+    ../tfs_server/tfs_call.cpp
+    ../tfs_server/tfs_server_handler.cpp
+    ../tfs_server/tfs_server_handler_api_int.h
+    ../tfs_server/tfs_server_types.h
+";
+
+$ALL_TFS_HYBRID_FILES="
+    ../tfs/tfs_hybrid.cpp
+    ../tfs/tfs_hybrid_api_int.h
+    ../tfs/tfs_hybrid_types.h
+";
+
+$ALL_TFS_RDM_FILES="
+    ../tfs_rdm/rdm_call.cpp
+    ../tfs_rdm/tfs_rdm_after_last_cursor.h
+    ../tfs_rdm/tfs_rdm_after_last_cursor.cpp
+    ../tfs_rdm/tfs_rdm_before_first_cursor.h
+    ../tfs_rdm/tfs_rdm_before_first_cursor.cpp
+    ../tfs_rdm/tfs_rdm_ctx.h
+    ../tfs_rdm/tfs_rdm_cursor.h
+    ../tfs_rdm/tfs_rdm_cursor.cpp
+    ../tfs_rdm/tfs_rdm_db.cpp
+    ../tfs_rdm/tfs_rdm_db.h
+    ../tfs_rdm/tfs_rdm_trans.cpp
+    ../tfs_rdm/tfs_rdm_trans.h
+";
+
+$ALL_TFS_CPP_FILES="
+    ../cpptfs_local/db.cpp
+    ../cpptfs_local/idb.cpp
+    ../cpptfs_local/tfs.cpp
+    ../cpptfs_local/itfs.cpp
+";

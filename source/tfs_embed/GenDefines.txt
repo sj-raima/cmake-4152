@@ -1,0 +1,12 @@
+$LIBRARY="tfs_embed";
+$COMB="1";
+
+$COPY_FILES="
+    $ALL_TFS_LOCAL_FILES
+    $ALL_TFS_INMEM_FILES
+";
+
+$LINKLIBRARIES="
+    psp
+    base
+";

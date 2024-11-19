@@ -1,0 +1,29 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+    $RDM
+";
+
+$COMPILE_CPP_LC_S_E="
+    blob
+    cariad
+    circular
+    family
+    family_big_pri
+    family_ck
+    family_pri
+    many_lock_groups
+    prikey_updates
+    rec
+    ref_cascade
+    ref_restrict
+    ref_setnull
+";
+
+$EMBED_CPP="
+    test.sdl
+    test2.cat
+";

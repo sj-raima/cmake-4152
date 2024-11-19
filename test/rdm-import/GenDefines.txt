@@ -1,0 +1,34 @@
+$DEPENDENCIES="
+  rdm-compile
+  rdm-create
+  rdm-sql
+  rdm-import
+  rdm-export
+  rdm-tfs
+";
+
+$EXTRA_DIST="
+    A_T.xml
+    badname.csv
+    badname.sql
+    badname.xml
+    bicycle.csv
+    BLOBDB.sql
+    CIRC.sql
+    dbImp_export2.sql
+    dbImp_export.sql
+    dbImp.sdl
+    dens01.sql
+    densofM1011.sql
+    dupvalues.csv
+    imp_with_bom.sql
+    invliteral.csv
+    invliteral.xml
+    lm_db_listnames.csv
+    manufacturer.csv
+    toomanyvals.sql
+    typemismatch.sql
+    VIRT.sql
+    4554.sdl
+    4554.sql
+";

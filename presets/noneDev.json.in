@@ -1,0 +1,40 @@
+{
+  "version": 6,
+  "include": [
+    "none.json"
+  ],
+  "configurePresets": [
+    {
+      "name": "dev-cummins-arm-none-eabi",
+      "description": "Dev: Bare metal on 32 bit ARM Cortex m4 running under Autosar",
+      "inherits": ["cummins-arm-none-eabi"],
+      "cacheVariables": {
+        "NATIVE_DIR": "${sourceDir}/b-devel"
+      }
+    },
+    {
+      "name": "dev-threadx-sim",
+      "description": "Dev: ThreadX Simulator on Linux",
+      "inherits": ["threadx-sim"],
+      "cacheVariables": {
+        "NATIVE_DIR": "${sourceDir}/b-devel"
+      }
+    },
+    {
+      "name": "dev-threadx-mimic",
+      "description": "Dev: Mimic ThreadX on Linux whitout actually using ThreadX nor netXduo",
+      "inherits": ["threadx-mimic"],
+      "cacheVariables": {
+        "NATIVE_DIR": "${sourceDir}/b-devel"
+      }
+    },
+    {
+      "name": "dev-rx-elf",
+      "description": "Dev: Bare metal on rx-elf running under ThreadX",
+      "inherits": ["rx-elf"],
+      "cacheVariables": {
+        "NATIVE_DIR": "${sourceDir}/b-devel"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+$LIBRARY="qaframe_legacy";
+
+$DEFINES= "INCLUDE_LEGACY_ERROR_HANDLING";
+
+$LINKLIBRARIES="
+    qaframe
+    rdm_legacy
+    $RDM
+    $BASE
+    $PSP
+    $TFS
+    $ENC
+";
+
+
+$DEPENDENCIES="
+#    tfserver
+";

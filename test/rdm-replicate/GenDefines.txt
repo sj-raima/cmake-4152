@@ -1,0 +1,20 @@
+$DEPENDENCIES="
+  rdm-replicate
+  rdm-sql
+  rdm-drop
+  rdm-vacuum
+  rdm-tfs
+  rdm-create
+  rdm-info
+  rdm-import
+  rdm-export
+";
+
+$EXTRA_DIST="
+  a.sdl
+  rdm-replicate-create1.sdl
+  rdm-replicate-create2.sdl
+  rdm-replicate-create1.sql
+  rdm-replicate-create2.sql
+  rdm-replicate-create3.sql
+";

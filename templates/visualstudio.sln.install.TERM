@@ -1,0 +1,23 @@
+sub printTheVisualstudioSolutionFile {
+    my ($myPLATFORM) = @_;
+    $output_visualstudio_SLN{$myPLATFORM}.= "Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+";
+    $output_visualstudio_SLN{$myPLATFORM}.= "		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+";
+    print_writeable_file("visualstudio.sln.install", $output_visualstudio_SLN{$myPLATFORM} . "	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+$output_folders_visualstudio_SLN	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+$output_enableProjects_visualstudio_SLN{$myPLATFORM}	EndGlobalSection
+EndGlobal
+");
+}
+
+printTheVisualstudioSolutionFile ("");

@@ -1,0 +1,14 @@
+$SUBDIRS="
+    func
+    convert
+    unit
+    perf
+    benchmark
+    opt
+";
+
+$INCLUDES="
+    ../../qaframe_rsql
+    ../../../source/rsql
+";
+

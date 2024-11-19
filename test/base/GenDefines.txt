@@ -1,0 +1,10 @@
+$INCLUDES="
+    ../qaframe
+";
+
+$SUBDIRS="
+    unit
+    perf
+    tag
+    file
+";

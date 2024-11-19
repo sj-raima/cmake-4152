@@ -1,0 +1,17 @@
+$INCLUDES="
+    ../../../qaframe_rdbc
+";
+
+$SUBDIRS="
+    benchmark
+    convert
+    datatypes
+    unit
+    func
+    perf
+    drvperf
+";
+
+$EXTRA_DIST="
+    rutil
+";

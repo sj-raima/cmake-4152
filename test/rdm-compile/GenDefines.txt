@@ -1,0 +1,32 @@
+$DEPENDENCIES="
+  rdm-compile
+  rdm-export
+";
+
+$EXTRA_DIST="
+  rdm-compile-alterTableAlterColumnRightSyntax2.sdl
+  rdm-compile-alterTableAlterColumnRightSyntax.sdl
+  rdm-compile-alterTableAlterColumnWrongSyntax2.sdl
+  rdm-compile-alterTableAlterColumnWrongSyntax.sdl
+  rdm-compile-alterTableDropColumnOnly.sdl
+  rdm-compile-alterTableDropColumnRightSyntax2.sdl
+  rdm-compile-alterTableDropColumnRightSyntax.sdl
+  rdm-compile-alterTableDropColumnWrongSyntax.sdl
+  rdm-compile-cat-sdl.sdl
+  rdm-compile-constraintKeywordNotOptionalRightSyntax.sdl
+  rdm-compile-constraintKeywordNotOptionalWrongSyntax.sdl
+  rdm-compile-foreignKeyRightSyntax.sdl
+  rdm-compile-foreignKeyWrongSyntax2.sdl
+  rdm-compile-foreignKeyWrongSyntax.sdl
+  rdm-compile-keyRightSyntax.sdl
+  rdm-compile-keyWrongSyntax.sdl
+  rdm-compile-primaryKeyRightSyntax.sdl
+  rdm-compile-primaryKeyWrongSyntax.sdl
+  rdm-compile-uniqueKeyRightSyntax.sdl
+  rdm-compile-uniqueKeyWrongSyntax.sdl
+  rdm-compile-table-twice.sdl
+  rdm-compile-enum-twice.sdl
+  rdm-compile-type-twice.sdl
+  rdm-compile-enum-type-twice.sdl
+  TWOKEYS01.sdl
+";

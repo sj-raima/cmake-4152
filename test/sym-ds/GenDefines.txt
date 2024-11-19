@@ -1,0 +1,9 @@
+$DEPENDENCIES="
+    rdm-tfs
+    rdm-replicate
+    rdm-export
+";
+
+$EXTRA_DIST="
+    sym-trans-engines
+";

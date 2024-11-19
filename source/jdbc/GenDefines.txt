@@ -1,0 +1,12 @@
+$SUBDIRS="
+    jni
+    java
+";
+
+$PLATFORM_INC="
+    JAVA
+";
+
+#
+# There is additional setup and EXTRA_DIST in PostDefines.txt
+#

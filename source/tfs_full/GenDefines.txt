@@ -1,0 +1,20 @@
+$LIBRARY="tfs_full";
+
+$COPY_FILES="
+    $ALL_TFS_LOCAL_FILES
+    $ALL_TFS_RDM_FILES
+    $ALL_TFS_HYBRID_FILES
+    $ALL_TFS_SERVER_FILES
+    $ALL_TFS_CLIENT_FILES
+    $ALL_TFS_EMBED_FILES
+    $ALL_TFS_INMEM_FILES
+";
+
+$LINKLIBRARIES="
+    psp
+    base
+    http
+    transport
+    rdm
+    rsql
+";

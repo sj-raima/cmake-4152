@@ -1,0 +1,48 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "integrity",
+      "generator": "Ninja Multi-Config",
+      "binaryDir": "b-${presetName}",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      },
+      "hidden": true
+    },
+    {
+      "name": "integrity-cross",
+      "inherits": ["integrity"],
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "FALSE"
+      },
+      "hidden": true
+    },
+    {
+      "name": "integrity11-arm",
+      "description": "Cross compile for INTEGRITY for Arm 32 bit",
+      "inherits": ["integrity-cross"],
+      "toolchainFile": "target/integrity11-arm/toolchain.cmake"
+    },
+    {
+      "name": "integrity11-arm64",
+      "description": "Cross compile for INTEGRITY for Arm 64 bit",
+      "inherits": ["integrity-cross"],
+      "toolchainFile": "target/integrity11-arm64/toolchain.cmake"
+    },
+    {
+      "name": "integrity11-simarm",
+      "description": "Cross compile for INTEGRITY for Arm simulator",
+      "inherits": ["integrity-cross"],
+      "toolchainFile": "target/integrity11-simarm/toolchain.cmake"
+    },
+    {
+      "name": "integrity11-x86",
+      "description": "Cross compile for INTEGRITY for X86",
+      "inherits": ["integrity-cross"],
+      "toolchainFile": "target/integrity11-x86/toolchain.cmake"
+    }
+  ]
+}

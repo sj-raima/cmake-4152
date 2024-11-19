@@ -1,0 +1,8 @@
+$LIBRARY="rdm_create";
+
+$LINKLIBRARIES="
+    $DDL
+    $TFS
+    $RDM
+    $ENC
+";

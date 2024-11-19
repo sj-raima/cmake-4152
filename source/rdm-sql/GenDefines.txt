@@ -1,0 +1,5 @@
+$LINKLIBRARIES="
+    rdm_sql
+";
+
+$TOOL="rdm-sql";

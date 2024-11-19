@@ -1,0 +1,11 @@
+$DEPENDENCIES="
+  rdm-create
+  rdm-sql
+  rdm-export
+  rdm-import
+";
+
+$EXTRA_DIST="
+  qa
+  TESTDB.sdl
+";

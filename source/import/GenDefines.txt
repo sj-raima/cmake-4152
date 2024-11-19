@@ -1,0 +1,16 @@
+$LIBRARY="import";
+$COMB="1";
+
+$LINKLIBRARIES="
+    $TX
+    $BASE
+    $PSP
+    xml
+    $RDM
+    $DDL
+";
+
+$RDMYACC_CPP_P="
+    rdmimp
+";
+

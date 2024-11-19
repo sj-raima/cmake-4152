@@ -1,0 +1,16 @@
+$LIBRARY= "cpptfs_local";
+
+$LINKLIBRARIES="
+    $PSP
+    $RDM
+    $TFS_LOCAL
+    cppapi
+";
+
+$DEFINES="
+    RDM_PUBLIC_CLASS=RDM_EXPORT
+";
+
+$PUBLIC_HEADERS="
+    cpp-tfs.h
+";

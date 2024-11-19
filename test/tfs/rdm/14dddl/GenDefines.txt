@@ -1,0 +1,82 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$COMPILE_CPP_C="
+    catCmp-p1
+    catCmp-p2
+    catCmp-p3
+    catCmp-p4
+    catCmp-p5
+    catCmp-p6
+    catCmp-p7
+    catCmp-p8
+    catCmp-p9
+    catCmp-p10
+    catCmp-p11
+    catCmp-p12
+    catCmp-p13
+    catCmp-p14
+    catCmp-p15
+    catCmp-p16
+    catCmp-p17
+    catCmp-p18
+    catCmp-p19
+    catCmp-p20
+    catCmp-p21
+    catCmp-p22
+    catCmp-p23
+    catCmp-p24
+    catCmp-p25
+    catCmp-p26
+    catCmp-p27
+    catCmp-p28
+    catCmp-p29
+    catCmp-p30
+    catCmp-p31
+    catCmp-p32
+    catCmp-p33
+    catCmp-p34
+    catCmp-p35
+    catCmp-p36
+    catCmp-p37
+    catCmp-p38
+    catCmp-p39
+    catCmp-p40
+    catCmp-p41
+    catCmp-p42
+    catCmp-p43
+    catCmp-p44
+    catCmp-p45
+    catCmp-p46
+    catCmp-p47
+    catCmp-p48
+    catCmp-p49
+    catCmp-p50
+";
+
+$COMPILE_CPP_LC_S_E="
+    dddl-p0
+    dddl-q0
+    dddl-r0
+    dddl-s0
+";
+
+$COMPILE_CPP_LC_S="
+    dddl-p1
+    dddl-p2
+    dddl-p3
+
+    dddl-q1
+    dddl-q2
+    dddl-q3
+
+    dddl-r1
+    dddl-r2
+    dddl-r3
+    dddl-r4
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+";

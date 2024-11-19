@@ -1,0 +1,4 @@
+$DEPENDENCIES="
+  rdm-sql
+  rdm-drop
+";

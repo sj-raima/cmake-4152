@@ -1,0 +1,6 @@
+$SUBDIRS="
+    qa
+    func
+    support
+    test_qa
+";

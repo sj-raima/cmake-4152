@@ -1,0 +1,16 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$COMPILE_CPP_API_LC_E="
+    enc_bookdb
+    rec
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+    $TFS
+    cppapi
+    cpp$TFS
+    cpp$ENC
+";

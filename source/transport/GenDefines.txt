@@ -1,0 +1,15 @@
+$LIBRARY="transport";
+$COMB="1";
+
+$LINKLIBRARIES="
+    psp
+    base
+";
+
+$DEFINES="
+    TRANS_PUBLIC_CLASS=RDM_EXPORT
+";
+
+$SYSLIBS="
+    os_tfs_syslibs
+";

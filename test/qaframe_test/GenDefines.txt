@@ -1,0 +1,15 @@
+$INCLUDES= "
+    ../qaframe
+";
+
+#$DDLP_LC_E= "
+#    embed
+#";
+
+$EMBED_CPP="
+    embed_file1.txt
+";
+
+$LINKLIBRARIES="
+    qaframe
+";

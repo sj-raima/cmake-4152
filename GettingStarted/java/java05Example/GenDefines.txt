@@ -1,0 +1,9 @@
+$DESCRIPTION="Many-to-many. Three tables, two foreign key references constructing a many-to-many relationship. Populate with a few rows. Select and print from one side, then from the other";
+
+$PLATFORM_INC="
+    JAVA
+";
+
+$LINKLIBRARIES="
+  jdbc
+";

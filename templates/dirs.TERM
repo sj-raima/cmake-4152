@@ -1,0 +1,1 @@
+print_file("dirs", "kmake\n" . $output_DIRS);

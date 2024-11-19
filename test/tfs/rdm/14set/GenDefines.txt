@@ -1,0 +1,15 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+";
+
+$COMPILE_CPP_LC_S_E="
+    setp
+    setorder
+    setOrderFltIndex
+    setComb
+    setSelRep
+";

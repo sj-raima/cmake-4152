@@ -1,0 +1,5 @@
+$LINKLIBRARIES="
+    rdm_crypt
+";
+
+$TOOL="rdm-crypt";

@@ -1,0 +1,5 @@
+$LINKLIBRARIES="
+    rdm_create
+";
+
+$TOOL="rdm-create";

@@ -1,0 +1,8 @@
+$LIBRARY="qaprof";
+
+$LINKLIBRARIES="
+";
+
+$PLATFORM_INC="
+    LINUX
+";

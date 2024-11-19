@@ -1,0 +1,10 @@
+$DESCRIPTION="Mixed model. Combine set scanning and index look up for navigation of a hierarchy";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core06
+";

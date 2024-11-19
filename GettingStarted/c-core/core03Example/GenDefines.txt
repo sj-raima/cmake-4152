@@ -1,0 +1,10 @@
+$DESCRIPTION="Set instance. Create database containing two record types and a set between them. Create one owner, several members, then scan owner(s) and their members";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core03Example
+";

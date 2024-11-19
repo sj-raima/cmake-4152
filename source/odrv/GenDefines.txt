@@ -1,0 +1,23 @@
+$LIBRARY="odrv";
+
+$LINKLIBRARIES="
+    $TRANSPORT
+    base
+    psp
+    rdm
+    rsql
+";
+
+$DEFINES="
+    RDM_ODBC_DRV
+    $TRANSPORT_ENABLED
+";
+
+$SYSLIBS="
+    os_drv_syslibs
+";
+
+$PLATFORM_INC="
+    WINDOWS
+";
+

@@ -1,0 +1,14 @@
+$RDM_CLIENT='rdm_client' unless ($RDM_CLIENT ne '');
+
+if ($IMPORT eq "") {
+    if ($EXISTLIBRARY{'import'}) {
+        $IMPORT="import";
+    }
+    elsif ($EXISTLIBRARY{'rdm_client'}) {
+        $IMPORT="$RDM_CLIENT";
+    }
+    else {
+        # This will exclude anything depending on the RDM
+        $IMPORT="import";
+    }
+}

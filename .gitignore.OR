@@ -1,0 +1,266 @@
+# RDM 
+#
+# Copyright (c) 2010 Raima Inc.,  All rights reserved.
+#
+# Use of this software, whether in source code format, or in executable,
+# binary object code form, is governed by the Raima LICENSE which
+# is fully described in the LICENSE.TXT file, included within this
+# distribution of files.
+
+# Build directories
+.acignore
+.gitignore
+.deps
+.vs
+Win32
+x64
+lnx
+lnx64
+sol
+sol64
+hpia
+hpia64
+hpux
+hpux64
+aix
+aix64
+b-*
+dp
+source/comb
+
+/CMakeUserPresets.json
+/CMakeUserPresets.json.in
+/presets/*.json
+extensions.json
+
+/bin
+/lib
+
+*.install
+RelGenDefines.txt
+Makefile.rdm
+/configure-rdm.pl
+/InstallBinaries.bat
+/versioninfo.xml
+/build-java.sh
+/dirs
+CMakeLists.txt
+/INSTALLConfig.cmake
+/index
+/source.fil
+/kheader.mak
+/TAGS
+/ar-lib
+/FILELISTS
+
+.clang-format.my
+.clang-format
+format
+*check.sh
+*check.ps1
+!release-system/check.ps1
+*check.bat
+*lint.pl
+*.lnt
+*.dp
+visualstudio.proj
+*.vcproj
+*.vcproj.user
+*.vcxproj
+*.vcxproj.user
+*.csproj
+*.csproj.user
+*.sln.install
+*.sed
+*.gpj
+*.gpj.in
+*.int
+*.int.in
+
+# In Java examples
+/GettingStarted/java/*_java/*.jar
+
+# Backup files produced by editors
+*~
+*.old*
+*.swp
+
+# Database files
+*.pack
+*.idindex
+
+# Files produced by patch
+*.rej
+*.orig
+
+# Files produced by javac
+*.class
+
+# Jar file build in-source
+*.jar
+
+# Generated Java jdbc source files and the Meta info for the jdbc driver
+RSQLErrors.java
+RSQLDateFormat.java
+RSQLParamType.java
+RSQLCursorStatus.java
+BType.java
+RSQLErrorCode.java
+source/jdbc/META-INF/services/java.sql.Driver
+/java-lib/*.jar
+
+# Generate doxygen documentation
+/source/tfs_embed/html
+/dox/UG/ref/*
+
+# Files generated for ado.net
+/source/ado.net/RsqlEnums.cs
+/source/ado.net/RsqlErrorCode.cs
+/source/ado.net/RsqlErrors.cs
+/source/ado.net/NativeMethods.cs
+
+# Files generated for the tarTests.sh template
+/tarTests.sh
+
+# Files generated for QNX project files
+/target/qnx
+/qnx.proj
+
+# Files generated for CMake
+/CMake/GenMacros.txt
+/CMake/Macros.txt
+
+# Files produced by the Gnu Autotools
+Makefile
+Makefile.in
+Makefile.am
+/aclocal.m4
+/autom4te.cache/
+/compile
+/config.guess
+/config.sub
+/configure
+/configure.ac
+/GettingStarted/configure.ac
+/depcomp
+/install-sh
+/ltmain.sh
+/missing
+/m4/libtool.m4
+/m4/ltoptions.m4
+/m4/ltsugar.m4
+/m4/ltversion.m4
+/m4/lt~obsolete.m4
+/RELEASE-NOTES.txt
+/test-driver
+
+/include/rdm_excludes.h
+/include/rdmretcodetypes.h
+/source/base/rettables.h
+/source/psp/return_code_err.h
+/source/rdm_export/rdm-export.h
+/perl/return_code_err.sed
+/perl/grep-retcode
+
+/release/system/b-*
+/release-system/versioninfo-build.sh
+/release-system/versioninfo.bat
+/release-system/versioninfo.sh
+/release-system/config.guess
+
+/source/jdbc/*.jar
+/source/jdbc/com/raima/rdm/jdbc/*.java
+/source/jdbc/com/raima/rdm/sql/*.java
+/source/jdbc/com/raima/rdm/util/*.java
+
+/test/tfs/sqls/jdbc/unit/com/raima/rdm/jdbc/RDMDriver.java
+/test/tfs/sqls/jdbc/unit/com/raima/rdm/rdmjni.def
+/test/tfs/sqls/jdbc/unit/com/raima/rdm/util/RDMVersion.java
+/test/tfs/xml/*.xml
+
+/test/compile_headers/*/include_*.cpp
+/test/compile_headers/*/include_*.c
+/test/compile_headers/*/source_*.cpp
+
+/test/internal_old/tools/rdmsql/*.txt
+
+## VxWorks stuff
+vxworks.proj
+vxworks-rtp.proj
+vxworks.proj.in
+vxworks-rtp.proj.in
+
+## QNX stuff
+qnx.proj
+qnx.proj.in
+
+## Visual Studio stuff
+*.lastbuildstate
+*.obj
+*.exe
+*.pdb
+*.idb
+
+## Kmake stuff
+Lint32
+Lint64
+Win32
+Win64
+link.w32
+link.w64
+link.lnt
+yacc3.tmp
+
+## Doxygen
+/CMakeDoxyfile.in
+/Doxyfile.CMake.in
+/Doxyfile.in
+/Doxyfile
+html
+latex
+/dox/UG/Doxyfile
+/dox/UG/searchdata.xml
+/mainpage.md
+/GettingStarted/**/README.md
+
+## Test stuff
+*.0*.pack
+*.0*.idindex
+*.0*.journal
+*.cat
+tests.xml
+tfserver.lock
+objcver.h
+
+/target/vxworks
+/target/vxworks-rtp
+/target/qnx
+
+Temporary
+
+## macOS stuff
+/.DS_Store
+
+## jacoco stuff
+jacoco.exec
+
+/build.xml
+
+## CLion stuff
+/.idea/*.name
+/.idea/*.iml
+/.idea/*.xml
+/.idea/codeStyles/*.xml
+/.idea/inspectionProfiles/*.xml
+
+## IntelliJ stuff
+/source/jdbc/.idea/jdbc.iml
+/source/jdbc/.idea/*.xml
+
+## The comb library
+/source/comb/all.c
+/source/comb/allx.cpp
+/source/comb/sub.c
+/source/comb/subx.cpp
+/source/comb/subex.c
+/source/comb/subexx.cpp

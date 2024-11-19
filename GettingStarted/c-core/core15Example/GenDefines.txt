@@ -1,0 +1,10 @@
+$DESCRIPTION="Simple example on how to create and work with a circular limited table";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core15Example
+";

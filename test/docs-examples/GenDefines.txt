@@ -1,0 +1,13 @@
+$INCLUDES="
+    ../qaframe_tfs
+";
+
+$SUBDIRS="
+    cursor
+    rtree
+    tfs
+    tfscpp
+    tfsrdbc
+    timeseries
+    errSnippet
+";

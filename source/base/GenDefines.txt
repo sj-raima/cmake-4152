@@ -1,0 +1,35 @@
+$LIBRARY="base";
+$COMB="1";
+
+$LINKLIBRARIES="
+    psp
+";
+
+$SYSLIBS="
+    os_base_syslibs
+";
+
+$DEFINES="
+    BASE_PUBLIC_CLASS=RDM_EXPORT
+";
+
+$PUBLIC_HEADERS="
+    rdmcmdlineapi.h
+    rdmcmdlinetypes.h
+    rdmdatetimeapi.h
+    rdmdatetimetypes.h
+    rdmdateapi.h
+    rdmtimeapi.h
+    rdmtimestampapi.h
+    rdmtimestamptzapi.h
+    rdmtimetzapi.h
+    rdmrowidtypes.h
+    rdmbcdapi.h
+    rdmbcdtypes.h
+    rdmuuidapi.h
+    rdmuuidtypes.h
+    rdmffttypes.h
+    rdmfftapi.h
+    version_rc.h
+";
+

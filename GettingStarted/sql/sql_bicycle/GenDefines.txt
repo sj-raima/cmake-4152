@@ -1,0 +1,12 @@
+$DESCRIPTION="Example database: Simple bicycle shop database";
+
+$DEPENDENCIES="
+  rdm-import
+  rdm-sql
+";
+
+$EXTRA_DIST="
+    BICYCLE_DB.sql
+
+	join_query.sql
+";

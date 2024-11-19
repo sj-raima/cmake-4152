@@ -1,0 +1,9 @@
+$INCLUDES="
+    ../qaframe
+";
+
+$LINKLIBRARIES="
+    $RDM
+    qaframe
+    tfs_full
+";

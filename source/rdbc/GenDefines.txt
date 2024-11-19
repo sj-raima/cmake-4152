@@ -1,0 +1,20 @@
+$LIBRARY="rdbc";
+
+$LINKLIBRARIES="
+    rsql
+    $TRANSPORT
+    base
+    psp
+    rdm
+";
+
+$DEFINES=$TRANSPORT_ENABLED;
+
+$PUBLIC_HEADERS="
+    sql.h
+    sqlext.h
+    sqlrext.h
+    sqlrtypes.h
+    sqltypes.h
+    sqlucode.h
+";

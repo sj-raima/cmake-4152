@@ -1,0 +1,80 @@
+ {
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "qnx",
+      "generator": "Ninja Multi-Config",
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "TRUE",
+        "rdmpsp_LIBRARY": "-lm",
+        "rdmtransport_LIBRARY": "-lsocket"
+      },
+      "binaryDir": "b-${presetName}",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      },
+      "hidden": true
+    },
+    {
+      "name": "qnx-cross",
+      "inherits": ["qnx"],
+      "environment": {
+        "QNX_TARGET": "/opt/qnx710/target/qnx7",
+        "QNX_HOST": "/opt/qnx710/host/linux/x86_64",
+        "PATH": "$penv{PATH}:$env{QNX_HOST}/usr/bin"
+      },
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "FALSE"
+      },
+      "hidden": true
+    },
+    {
+      "name": "qnx-no-os",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-DRDM_NO_OS"
+      },
+      "hidden": true
+    },
+    {
+      "name": "qnx-aarch64-unknown-nto-qnx7.1.0",
+      "description": "Cross compile for QNX on arm 64 bit",
+      "inherits": ["qnx-cross"],
+      "toolchainFile": "${sourceDir}/target/qnx-aarch64-unknown-nto-qnx7.1.0/toolchain.cmake"
+    },
+    {
+      "name": "qnx-aarch64-unknown-nto-qnx7.1.0/no-os",
+      "description": "Cross compile for QNX on arm 64 bit for NO-OS",
+      "inherits": ["qnx-cross", "qnx-no-os"],
+      "toolchainFile": "${sourceDir}/target/qnx-aarch64-unknown-nto-qnx7.1.0/toolchain.cmake",
+      "binaryDir": "b-qnx-aarch64-unknown-nto-qnx7.1.0"
+    },
+    {
+      "name": "qnx-arm-unknown-nto-qnx7.1.0eabi",
+      "description": "Cross compile for QNX on arm 32 bit",
+      "inherits": ["qnx-cross"],
+      "toolchainFile": "${sourceDir}/target/qnx-arm-unknown-nto-qnx7.1.0eabi/toolchain.cmake"
+    },
+    {
+      "name": "qnx-arm-unknown-nto-qnx7.1.0eabi/no-os",
+      "description": "Cross compile for QNX on arm 32 bit for NO-OS",
+      "inherits": ["qnx-cross", "qnx-no-os"],
+      "toolchainFile": "${sourceDir}/target/qnx-arm-unknown-nto-qnx7.1.0eabi/toolchain.cmake",
+      "binaryDir": "b-qnx-arm-unknown-nto-qnx7.1.0eabi"
+    },
+    {
+      "name": "qnx-x86_64-pc-nto-qnx7.1.0",
+      "description": "Cross compile for QNX on AMD or INTEL 64 bit",
+      "inherits": ["qnx-cross"],
+      "toolchainFile": "${sourceDir}/target/qnx-x86_64-pc-nto-qnx7.1.0/toolchain.cmake"
+    },
+    {
+      "name": "qnx-x86_64-pc-nto-qnx7.1.0/no-os",
+      "description": "Cross compile for QNX on AMD or INTEL 64 bit for NO-OS",
+      "inherits": ["qnx-cross", "qnx-no-os"],
+      "toolchainFile": "${sourceDir}/target/qnx-x86_64-pc-nto-qnx7.1.0/toolchain.cmake",
+      "binaryDir": "b-qnx-x86_64-pc-nto-qnx7.1.0"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+$DESCRIPTION="Indexing. Create 10 rows with random values in indexed column. Select all in order and print";
+
+$PLATFORM_INC="
+    JAVA
+";
+
+$LINKLIBRARIES="
+  jdbc
+";

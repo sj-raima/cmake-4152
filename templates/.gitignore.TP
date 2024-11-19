@@ -1,0 +1,35 @@
+
+my $USER = $ENV{'USER'} || $ENV{'USERNAME'} || 'build';
+
+my $gen_macro;
+foreach $gen_macro (keys (%GEN_MACRO_RULES)) {
+    my $macro;
+    foreach $macro (@{$gen_macro}) {
+        my $argument;
+        foreach $argument ((@{$GEN_MACRO_RULES{$gen_macro}{outputH}}, @{$GEN_MACRO_RULES{$gen_macro}{outputC}}, @{$GEN_MACRO_RULES{$gen_macro}{output}})) {
+            my ${arg}= "${argument}";
+            ${arg} =~ s/\$\{base\}/${macro}/;
+            $output.= "${arg}\n";
+        }
+    }
+}
+
+opendir (DIR, ".") or die "Can not open current directory";
+my @all_in_files= grep { $_ =~ m/\.IN/} readdir DIR;
+closedir DIR;
+
+my $file;
+foreach $file (@all_in_files) {
+    $file =~ s/\.$USER$//;
+    $file =~ s/\.IN$//;
+    $output.= "$file\n";
+}
+foreach $file (@TPLTYPES) {
+    if (-e $file) {
+        $output.= "$file\n";
+    }
+}
+foreach $file (@COPIED_FILES) {
+    $file =~ s/.*\///;
+    $output.= "$file\n";
+}

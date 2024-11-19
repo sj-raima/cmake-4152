@@ -1,0 +1,35 @@
+$EMBED_CPP="
+    needfile.txt
+";
+
+$LINKLIBRARIES="
+    qaframe_rdbc
+";
+
+$COMPILE_CPP_C="
+    rdbc_unit
+    rdbc_thread
+    rdbc_sym
+";
+
+$EMBED_CPP="
+    export01_expected.xml
+    rtab_person_import.sql
+    ucode01_expected.txt
+    ucode02_expected.txt
+    sym_channel_tbl.sql
+    sym_conflict_tbl.sql
+    sym_context_tbl.sql
+    sym_data_tbl.sql
+    sym_data_idx.sql
+    sym_data_event_tbl.sql
+    sym_data_event_idx.sql
+    sym_data_gap_tbl.sql
+    sym_extension_tbl.sql
+    SYM_ON_U_FOR_SYM_ND_HST_SRVR.sql
+    SYM_ON_I_FOR_SYM_TRGGR_SRVR.sql
+";
+
+$PLATFORM_EXCL="
+    INTEGRITY
+";

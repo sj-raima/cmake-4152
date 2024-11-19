@@ -1,0 +1,13 @@
+\mainpage @@PRODUCT_NAME_SHORT@@ @@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@ public API
+
+This contain a stripped down reference manual for
+@@PRODUCT_NAME_SHORT@@
+@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@
+generated from the public header file included in this package:
+
+- \subpage rdm
+
+Please consult <a href="@@PRODUCT_DOCUMENTATION_URL@@">the
+online documentation for @@PRODUCT_NAME_SHORT@@
+@@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@</a>
+for the full documentation for this product.

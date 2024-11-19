@@ -1,0 +1,17 @@
+$LIBRARY="tx";
+$COMB="1";
+
+$LINKLIBRARIES="
+    base
+    psp
+";
+
+$COPY_FILES="
+    ../tfs_local/tfs_enter.cpp
+    ../tfs_local/tfs_enter_api_int.h
+";
+
+$PUBLIC_HEADERS="
+    rdmtfsapi.h
+    rdmtfstypes.h
+";

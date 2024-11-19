@@ -1,0 +1,6 @@
+$PLATFORM_EXCL= "
+    WINCE
+    VXWORKS
+    VXWORKS_RTP
+    INTEGRITY
+";

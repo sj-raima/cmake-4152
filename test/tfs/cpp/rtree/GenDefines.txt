@@ -1,0 +1,18 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$COPY_FILES="
+    ../../rdm/14rtree/rtree_common.h
+    ../../rdm/14rtree/rtree_common.cpp
+";
+
+$COMPILE_CPP_API_LC_E="
+    rtree0
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+    cppapi
+    cpp$TFS
+";

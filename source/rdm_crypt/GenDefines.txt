@@ -1,0 +1,7 @@
+$LIBRARY="rdm_crypt";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+    $ENC
+";

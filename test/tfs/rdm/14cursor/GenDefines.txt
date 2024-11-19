@@ -1,0 +1,20 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$DEFINES="
+    $REPLICATION_ENABLED
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+    $RDM
+";
+
+$COMPILE_CPP_LC_S_E="
+    family
+    family1
+    family2
+    family3
+    audi
+";

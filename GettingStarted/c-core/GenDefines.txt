@@ -1,0 +1,34 @@
+$SUBDIRS="
+    core01Example
+	core02Example
+	core03Example
+	core04Example
+	core05Example
+	core06Example
+	core07Example
+	core08Example
+	core09Example
+	core10Example
+	core11Example
+	core12Example
+	core13Example
+	core15Example
+	core16Example
+	core17Example
+	core18Example
+	core19Example
+	core20Example
+	core21Example
+	core22Example
+	core23Example
+	core24Example
+	core25Example
+	core31Example
+	core32Example
+	core33Example
+	core35Example
+	core36Example
+	core37Example
+	core38Example
+	core40Example
+";

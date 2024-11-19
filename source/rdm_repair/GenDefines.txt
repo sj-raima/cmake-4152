@@ -1,0 +1,11 @@
+$LIBRARY="rdm_repair";
+
+$INCLUDES="
+    ../rdm
+";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+    $ENC
+";

@@ -1,0 +1,7 @@
+$LIBRARY="tfs_local";
+$COMB="1";
+
+$LINKLIBRARIES="
+    psp
+    base
+";

@@ -1,0 +1,9 @@
+$DESCRIPTION="Transaction abort. Insert and commit some rows. Insert more rows, but abort the transaction. Select all rows and see only the first set of rows";
+
+$PLATFORM_INC="
+    JAVA
+";
+
+$LINKLIBRARIES="
+  jdbc
+";

@@ -1,0 +1,5 @@
+$LINKLIBRARIES="
+    rdm_initialize
+";
+
+$TOOL="rdm-initialize";

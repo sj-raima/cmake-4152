@@ -1,0 +1,14 @@
+$INCLUDES="
+    ../qaframe
+";
+
+$COMPILE_LC_E="
+    test
+";
+
+$LINKLIBRARIES="
+    $RDM
+    qaframe
+    $TFS
+    $ENC
+";

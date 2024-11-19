@@ -1,0 +1,11 @@
+$LIBRARY="export";
+$COMB="1";
+
+$LINKLIBRARIES="
+    $TX
+    $DDL
+    $RDM
+    $BASE
+    $PSP
+";
+

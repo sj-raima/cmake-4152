@@ -1,0 +1,5 @@
+$LINKLIBRARIES="
+    rdm_export
+";
+
+$TOOL="rdm-export";

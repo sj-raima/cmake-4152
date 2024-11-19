@@ -1,0 +1,10 @@
+$DESCRIPTION="Transaction. Create records in a transaction. Commit. Navigate through created records";
+
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_LC_S_C="
+    core11
+";

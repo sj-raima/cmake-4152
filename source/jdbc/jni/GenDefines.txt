@@ -1,0 +1,17 @@
+$LIBRARY="jdbcjni";
+
+$INCLUDES="
+    ../../rsql
+";
+
+$PLATFORM_INC="
+    JAVA
+";
+
+$LINKLIBRARIES="
+    psp
+    base
+    rsql
+    tfs_full
+";
+

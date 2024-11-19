@@ -1,0 +1,15 @@
+$DEPENDENCIES="
+  rdm-import
+  rdm-sql
+  rdm-tfs
+";
+
+$EXTRA_DIST="
+  qa
+  dot-r-command-include.sql
+  dot-r-command.sql
+  dot-r-command
+  imp_with_bom.sql
+  select.sql
+  trace.sql
+";

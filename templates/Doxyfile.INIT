@@ -1,0 +1,5 @@
+${outputDoxyFileDirectoriesConfigure}="";
+${outputDoxyFileDirectoriesCMake}="";
+${outputDoxyFileDirectories}="";
+
+%outputDoxyFileIncludePath=("include", "t");

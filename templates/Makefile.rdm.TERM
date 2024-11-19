@@ -1,0 +1,1 @@
+print_executable_file("configure-rdm.pl", $Makefile_RDM_configure_header . $Makefile_RDM_configure);

@@ -1,0 +1,7 @@
+if ($DIR ne "...") {
+    my $myDIRPATH;
+    $_= $DIRPATH;
+    s/\//\\/g;
+    $myDIRPATH= $_;
+    $output_DIRS .= "$myDIRPATH\n";
+}

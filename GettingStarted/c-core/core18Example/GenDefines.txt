@@ -1,0 +1,15 @@
+$DESCRIPTION="Simple example that shows how to encrypt and decrypt a database";
+
+$LINKLIBRARIES="
+    $TFS
+    $ENC
+    $RDM
+";
+
+$DEFINES="
+    LINK_" . uc $ENC . "
+";
+
+$COMPILE_LC_S_C="
+    core18Example
+";

@@ -1,0 +1,8 @@
+$LIBRARY="qaverify";
+
+$LINKLIBRARIES="
+";
+
+$PLATFORM_INC="
+    LINUX
+";

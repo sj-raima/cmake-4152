@@ -1,0 +1,19 @@
+$LIBRARY="rdm_legacy";
+
+$LINKLIBRARIES="
+    $RDM
+    $TX
+    $BASE
+    $PSP
+";
+
+$PUBLIC_HEADERS="
+    psptypes_legacy.h
+
+    rdm_legacy.h
+    rdmapi_legacy.h
+    rdmerr_legacy.h
+    rdmtypes_legacy.h
+    rdmtransporttypes_legacy.h
+    rdmrowidtypes_legacy.h
+";

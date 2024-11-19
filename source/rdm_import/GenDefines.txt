@@ -1,0 +1,16 @@
+$LIBRARY="rdm_import";
+
+$LINKLIBRARIES="
+    $TFS
+    $BASE
+    $PSP
+    $DDL
+    $RDM
+    import
+    $ENC
+    $SQL
+";
+
+$DEFINES="
+    $SQL_ENABLED
+";

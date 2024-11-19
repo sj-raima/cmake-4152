@@ -1,0 +1,7 @@
+$LINKLIBRARIES="
+    rdm_compile
+";
+
+$BUILDTOOL="t";
+
+$TOOL="rdm-compile";

@@ -1,0 +1,9 @@
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_CPP_LC_S_C="
+    dedup
+    deduph
+";

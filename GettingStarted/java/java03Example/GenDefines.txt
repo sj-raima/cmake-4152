@@ -1,0 +1,9 @@
+$DESCRIPTION="Hierarchy. Same as 02_java but with three tables";
+
+$PLATFORM_INC="
+    JAVA
+";
+
+$LINKLIBRARIES="
+  jdbc
+";

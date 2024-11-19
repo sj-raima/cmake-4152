@@ -1,0 +1,5 @@
+$LINKLIBRARIES="
+    rdm_copy
+";
+
+$TOOL="rdm-copy";

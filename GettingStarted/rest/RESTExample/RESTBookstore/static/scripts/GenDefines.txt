@@ -1,0 +1,6 @@
+$EXTRA_DIST="
+    bootstrap.js
+    jquery-1.10.2.js
+    modernizr-2.6.2.js
+    respond.js
+";

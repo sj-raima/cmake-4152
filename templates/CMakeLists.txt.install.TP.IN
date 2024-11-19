@@ -1,0 +1,222 @@
+if (projectInclude ("LINUX", "OSX", "WINDOWS", "JAVA")) {
+
+   if ($DIRPATH =~ m/GettingStarted/ && ($LANGUAGE eq "c" || $LANGUAGE eq "cpp" || $LANGUAGE eq "java") && $EXECUTABLE ne '') {
+      my $LAGUAGES;
+      my $CPLUSPLUS_STANDARD = '';
+      my $EXECUTE_PREFIX = $LANGUAGE eq "java" ? "java -jar " : "./";
+      if ($LANGUAGE eq "c") {
+          $LANGUAGES = 'C';
+      }
+      elsif ($LANGUAGE eq "cpp") {
+          $LANGUAGES = 'CXX';
+          $CPLUSPLUS_STANDARD="set (CMAKE_CXX_STANDARD 11)\n";
+      }
+      elsif ($LANGUAGE eq "java") {
+          $LANGUAGES = 'Java';
+      }
+      $output= '# ' . ${DESCRIPTION} . '
+#
+# Compile and run this example as follows:
+#
+#    $ mkdir cmake-build-debug
+#    $ cd cmake-build-debug
+#    $ cmake ..
+#    $ cmake --build .
+#    $ ' . ${EXECUTE_PREFIX} . $EXECUTABLE . '
+#    $
+#
+# For a cross compile, run the first cmake command (3rd line above) as follows:
+#
+#    $ cmake -DCMAKE_TOOLCHAIN_FILE=@CMAKE_INSTALL_PREFIX@/lib/<architecture>/cmake/RDM/toolchain.cmake ..
+#
+# For further details see:
+#
+#    @CMAKE_INSTALL_PREFIX@/share/RDM/docs/index.html#CMake
+#
+
+CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
+set(CMAKE_WARN_DEPRECATED OFF CACHE BOOL "")
+
+project (' . $EXECUTABLE . ' VERSION 0.99
+    DESCRIPTION "' . ${DESCRIPTION} . '"
+    LANGUAGES ' . $LANGUAGES . '
+)
+' . $CPLUSPLUS_STANDARD . '
+# Uncomment below to link static RDM libraries
+# (assuming static libraries have been installed):
+# set (RDM_STATIC on)
+find_package (RDM @@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@.@@PRODUCT_VERSION_PATCH@@
+    REQUIRED
+    PATHS
+        # Remove the path below if this example have been copied
+        # to another location:
+            "' . $TOPDIR . '/../../${RDM_TARGET}"
+        # Modify the path below if you have installed RDM elsewhere
+        # and first path does not work:
+            "@CMAKE_INSTALL_PREFIX@/${RDM_TARGET}"
+)
+
+include_directories (
+    ${CMAKE_CURRENT_BINARY_DIR}
+)
+
+';
+        my ${built_sources} = '';
+        foreach $gen_macro (keys (%GEN_MACRO_RULES)) {
+                foreach $macro (@{$gen_macro}) {
+                    $output.= "add_custom_command (\n";
+                    $output.= "    OUTPUT\n";
+                    foreach $argument ((@{$GEN_MACRO_RULES{$gen_macro}{outputH}}, @{$GEN_MACRO_RULES{$gen_macro}{outputC}})) {
+                    my ${arg}= "${argument}";
+                    ${arg} =~ s/\$\{base\}/${macro}/;
+                    ${built_sources}.= "    \${CMAKE_CURRENT_BINARY_DIR}/${arg}\n";
+                    $output.= "        \${CMAKE_CURRENT_BINARY_DIR}/${arg}\n";
+                }
+                foreach $argument (@{$GEN_MACRO_RULES{$gen_macro}{command}}) {
+                    my ${arg}= "${argument}";
+                    ${arg} =~ s/\$\{base\}/${macro}/;
+                        ${arg} =~ s/\$\{input_base\}/\${CMAKE_CURRENT_SOURCE_DIR}\/${macro}/;
+                        ${arg} =~ s/\$\{output_base\}/${macro}/;
+                        ${arg} =~ s/\$\{docroot\}/\./;
+                    ${arg} =~ s/^[-a-z_\/]*\///g;
+                    $output.= "    COMMAND RDM_DEVELOPMENT_TOOLS::${arg}\n";
+                }
+                $output.= "    DEPENDS \n";
+                foreach $argument (@{$GEN_MACRO_RULES{$gen_macro}{input}}) {
+                    my ${arg}= "${argument}";
+                    ${arg} =~ s/\$\{base\}/${macro}/;
+                    $output.= "        \${CMAKE_CURRENT_SOURCE_DIR}/${arg}\n";
+                }
+                foreach $argument (@{$GEN_MACRO_RULES{$gen_macro}{tool}}) {
+    	        my ${arg}= "${argument}";
+                    ${arg} =~ s/\$\{base\}/\$\{NAME\}/;
+                    $output.= "        RDM_DEVELOPMENT_TOOLS::${arg}\n";
+                }
+
+                my $myDESCRIPTION= "$GEN_MACRO_RULES{$gen_macro}{description}";
+                $myDESCRIPTION =~ s/\$\{base\}/${macro}/;
+                $output.= "    COMMENT \"$myDESCRIPTION\"\n";
+                $output.= ")\n";
+            }
+        }
+        $output.= "\n";
+        if ($LANGUAGE eq "java") {
+            $output.= "find_package(Java 1.8)\n";
+            $output.= "include(UseJava)\n";
+            $output.= "get_target_property(RDM_JDBC_JAR_FILE RDM::rdmjdbc JAR_FILE)\n";
+            # The following will give four slashes on Unix (assuming the path is an absolute path)
+            # which is fine since extra slashes will be ignored.
+            # On Windows we only get three slashes (assuming the path has a drive designator)
+            # which is required since Windows can have a network drive before the third slash.
+            $output.= "write_file (\${CMAKE_CURRENT_BINARY_DIR}/CLASS_PATH.txt \"Class-Path: file:///\${RDM_JDBC_JAR_FILE}\")\n";
+
+            $output.= "add_jar(${EXECUTABLE}\n";
+            $output.= "  ENTRY_POINT\n";
+            $output.= "    ${EXECUTABLE}_main\n";
+            $output.= "  MANIFEST\n";
+            $output.= "    \${CMAKE_CURRENT_BINARY_DIR}/CLASS_PATH.txt\n";
+            $output.= "  SOURCES\n";
+            $output.= "    ${EXECUTABLE}_main.$LANGUAGE\n";
+            foreach $file (@SRCFILES) {
+                $output.= "    $file\n";
+            }
+            $output.= ")\n";
+        }
+        else {
+            $output.= "add_executable ($EXECUTABLE\n";
+            $output.= "    ${EXECUTABLE}_main.$LANGUAGE\n";
+            foreach $file (@SRCFILES) {
+                $output.= "    $file\n";
+            }
+            $output.= "${built_sources})\n";
+        
+            $output.= "\n";
+            $output.= "target_link_libraries ($EXECUTABLE\n";
+            foreach $linklibrary (@LINKLIBRARIES) {
+                $output.= "    RDM::${linklibrary}\n";
+            }
+            $output.= ")\n";
+        }
+
+        if ($#TESTS >= 0) {
+            $output.= "\n";
+            $output.= "if (NOT CMAKE_CROSSCOMPILING)\n";
+            $output.= "    if (CMAKE_SYSTEM_NAME STREQUAL \"Windows\")\n";
+            $output.= "        set (PATH_SEP \";\")\n";
+            $output.= "    else ()\n";
+            $output.= "        set (PATH_SEP \":\")\n";
+            $output.= "    endif ()\n";
+            $output.= "    get_target_property (RDM_COMPILE_LOCATION RDM_DEVELOPMENT_TOOLS::rdm-compile LOCATION)\n";
+            $output.= "    get_filename_component (RDM_PATH \"\${RDM_COMPILE_LOCATION}\" DIRECTORY)\n";
+            $output.= "    enable_testing()\n";
+            foreach $test (@TESTS) {
+                if ($test =~ m/(.*)\.ps1$/) {
+                    $output.= "    find_program (PWSH pwsh)\n";
+                    $output.= "    if (NOT PWSH)\n";
+                    $output.= "        message (WARNING \"PowerShell (pwsh) was not found.  Please go to https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell to learn how to install it.\")\n";
+                    $output.= "    endif (NOT PWSH)\n";
+                    last;
+                }
+            }
+        }
+        foreach $test (@TESTS) {
+            if ($test =~ m/(.*)\.sh$/) {
+                $output.= "    if (CMAKE_SYSTEM_NAME STREQUAL \"Linux\" OR CMAKE_SYSTEM_NAME STREQUAL \"Darwin\")\n";
+                $output.= "        if (CMAKE_CONFIGURATION_TYPES)\n";
+                $output.= "            add_test (NAME ${1} CONFIGURATIONS Debug Release RelWithDebInfo MinSizeRel COMMAND sh \${CMAKE_CURRENT_SOURCE_DIR}/$test)\n";
+                $output.= "            set_tests_properties($1 PROPERTIES ENVIRONMENT_MODIFICATION \"PATH=path_list_append:\${RDM_PATH};PATH=path_list_append:\$<CONFIG>\")\n";
+                $output.= "        else ()\n";
+                $output.= "            add_test (NAME $1 COMMAND sh \${CMAKE_CURRENT_SOURCE_DIR}/$test)\n";
+                $output.= "            set_tests_properties($1 PROPERTIES ENVIRONMENT_MODIFICATION \"PATH=path_list_append:\${RDM_PATH};PATH=path_list_append:.\")\n";
+                $output.= "        endif ()\n";
+                $output.= "    endif ()\n";
+            }
+            elsif ($test =~ m/(.*)\.bat$/) {
+                $output.= "    if (CMAKE_SYSTEM_NAME STREQUAL \"Windows\")\n";
+                $output.= "        if (CMAKE_CONFIGURATION_TYPES)\n";
+                $output.= "            add_test (NAME ${1} CONFIGURATIONS Debug Release RelWithDebInfo MinSizeRel COMMAND \${CMAKE_CURRENT_SOURCE_DIR}/$test)\n";
+                $output.= "            set_tests_properties($1 PROPERTIES ENVIRONMENT_MODIFICATION \"PATH=path_list_append:\${RDM_PATH};PATH=path_list_append:\$<CONFIG>\")\n";
+                $output.= "        else ()\n";
+                $output.= "            add_test (NAME $1 COMMAND \${CMAKE_CURRENT_SOURCE_DIR}/$test)\n";
+                $output.= "            set_tests_properties($1 PROPERTIES ENVIRONMENT_MODIFICATION \"PATH=path_list_append:\${RDM_PATH};PATH=path_list_append:.\")\n";
+                $output.= "        endif ()\n";
+                $output.= "    endif ()\n";
+            }
+            elsif ($test =~ m/(.*)\.ps1$/) {
+                $output.= "    if (PWSH)\n";
+                $output.= "        if (CMAKE_CONFIGURATION_TYPES)\n";
+                $output.= "            add_test (NAME ${1} CONFIGURATIONS Debug Release RelWithDebInfo MinSizeRel COMMAND \${PWSH} \${CMAKE_CURRENT_SOURCE_DIR}/$test)\n";
+                $output.= "            set_tests_properties($1 PROPERTIES ENVIRONMENT_MODIFICATION \"PATH=path_list_append:\${RDM_PATH};PATH=path_list_append:\$<CONFIG>\")\n";
+                $output.= "        else ()\n";
+                $output.= "            add_test (NAME $1 COMMAND \${PWSH} \${CMAKE_CURRENT_SOURCE_DIR}/$test)\n";
+                $output.= "            set_tests_properties($1 PROPERTIES ENVIRONMENT_MODIFICATION \"PATH=path_list_append:\${RDM_PATH};PATH=path_list_append:.\")\n";
+                $output.= "        endif ()\n";
+                $output.= "    endif ()\n";
+            }
+            elsif ($test =~ m/(.*)\.pl$/) {
+                $output.= "    if (CMAKE_CONFIGURATION_TYPES)\n";
+                $output.= "        add_test (NAME ${1} CONFIGURATIONS Debug Release RelWithDebInfo MinSizeRel COMMAND perl \${CMAKE_CURRENT_SOURCE_DIR}/$test)\n";
+                $output.= "        set_tests_properties($1 PROPERTIES ENVIRONMENT_MODIFICATION \"PATH=path_list_append:\${RDM_PATH};PATH=path_list_append:\$<CONFIG>\")\n";
+                $output.= "    else ()\n";
+                $output.= "        add_test (NAME $1 COMMAND perl \${CMAKE_CURRENT_SOURCE_DIR}/$test)\n";
+                $output.= "        set_tests_properties($1 PROPERTIES ENVIRONMENT_MODIFICATION \"PATH=path_list_append:\${RDM_PATH};PATH=path_list_append:.\")\n";
+                $output.= "    endif ()\n";
+            }
+            elsif ($test =~ m/(.*)\.jar$/) {
+                $output.= "    if (CMAKE_CONFIGURATION_TYPES)\n";
+                $output.= "        add_test (NAME ${1} CONFIGURATIONS Debug Release RelWithDebInfo MinSizeRel COMMAND \${Java_JAVA_EXECUTABLE} -jar $test)\n";
+                $output.= "        set_tests_properties($1 PROPERTIES ENVIRONMENT_MODIFICATION \"PATH=path_list_append:\${RDM_PATH};PATH=path_list_append:\$<CONFIG>\")\n";
+                $output.= "    else ()\n";
+                $output.= "        add_test (NAME $1 COMMAND \${Java_JAVA_EXECUTABLE} -jar $test)\n";
+                $output.= "        set_tests_properties($1 PROPERTIES ENVIRONMENT_MODIFICATION \"PATH=path_list_append:\${RDM_PATH};PATH=path_list_append:.\")\n";
+                $output.= "    endif ()\n";
+            }
+            else {
+                $output.= "    add_test ($test $test \${EXCLUDEFEATURE})\n";
+            }
+        }
+        if ($#TESTS >= 0) {
+            $output.= "endif (NOT CMAKE_CROSSCOMPILING)\n";
+        }
+    }
+}

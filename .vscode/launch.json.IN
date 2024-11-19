@@ -1,0 +1,425 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        // rdm-sql
+        {
+            "name": "rdm-sql (cppdbg)",
+            "preLaunchTask": "build-rdm-sql",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.buildDirectory}/source/rdm-sql/${command:cmake.buildType}/rdm-sql",
+            "args": [
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}/source/rdm-sql/",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-command",
+                "order": 1
+            }
+        },
+
+        // rdm-compile
+        {
+            "name": "rdm-compile (cppdbg)",
+            "preLaunchTask": "build-rdm-compile",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.buildDirectory}/source/rdm-compile/${command:cmake.buildType}/rdm-compile",
+            "args": [
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}/source/rdm-compile/",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-command",
+                "order": 1
+            }
+        },
+
+        // rdm-create
+        {
+            "name": "rdm-create (cppdbg)",
+            "preLaunchTask": "build-rdm-create",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.buildDirectory}/source/rdm-create/${command:cmake.buildType}/rdm-create",
+            "args": [
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}/source/rdm-create/",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-command",
+                "order": 1
+            }
+        },
+
+        // rdm-tfs
+        {
+            "name": "rdm-tfs (cppdbg)",
+            "preLaunchTask": "build-rdm-tfs",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.buildDirectory}/source/rdm-tfs/${command:cmake.buildType}/rdm-tfs",
+            "args": [
+              "--listen=shm,tcp",
+              "--err-level=50"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}/source/rdm-tfs/",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-command",
+                "order": 1
+            }
+        },
+
+        // rdm-tfs where we only accept tcp connections
+        {
+            "name": "rdm-tfs-tcp (cppdbg)",
+            "preLaunchTask": "build-rdm-tfs",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.buildDirectory}/source/rdm-tfs/${command:cmake.buildType}/rdm-tfs",
+            "args": [
+              "--listen=tcp",
+              "--err-level=50"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}/source/rdm-tfs/",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-command",
+                "order": 1
+            }
+        },
+
+        // rdm-tfs where we only accept shm connections
+        {
+            "name": "rdm-tfs-shm (cppdbg)",
+            "preLaunchTask": "build-rdm-tfs",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.buildDirectory}/source/rdm-tfs/${command:cmake.buildType}/rdm-tfs",
+            "args": [
+              "--listen=shm",
+              "--err-level=50"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}/source/rdm-tfs/",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-command",
+                "order": 1
+            }
+        },
+
+        // rdm-tfs where we only accept shm-poll connections
+        {
+            "name": "rdm-tfs-shm-poll (cppdbg)",
+            "preLaunchTask": "build-rdm-tfs",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.buildDirectory}/source/rdm-tfs/${command:cmake.buildType}/rdm-tfs",
+            "args": [
+              "--listen=shm,shm-poll",
+              "--err-level=50"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}/source/rdm-tfs/",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-command",
+                "order": 1
+            }
+        },
+
+        // rdm-tfs where we only accept SSL encrypted connections
+        {
+            "name": "rdm-tfs-force-ssl (cppdbg)",
+            "preLaunchTask": "build-rdm-tfs",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.buildDirectory}/source/rdm-tfs/${command:cmake.buildType}/rdm-tfs",
+            "args": [
+              "--listen=shm,tcp",
+              "--force-ssl",
+              "--err-level=50"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}/source/rdm-tfs/",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-command",
+                "order": 1
+            }
+        },
+
+        // rdm-export
+        {
+            "name": "rdm-export (cppdbg)",
+            "preLaunchTask": "build-rdm-export",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.buildDirectory}/source/rdm-export/${command:cmake.buildType}/rdm-export",
+            "args": [
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}/source/rdm-export/",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-command",
+                "order": 1
+            }
+        },
+
+        // rdm-import
+        {
+            "name": "rdm-import (cppdbg)",
+            "preLaunchTask": "build-rdm-import",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.buildDirectory}/source/rdm-import/${command:cmake.buildType}/rdm-import",
+            "args": [
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}/source/rdm-import/",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-command",
+                "order": 1
+            }
+        },
+
+        // Running a test with no arguments
+        {
+            "name": "test-tfs (cppdbg)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-test",
+                "order": 1
+            }
+        },
+        // Running a test with tfs-local capabilities
+        {
+            "name": "test-tfs-local (cppdbg)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [
+              "--tfsl",
+              "--exclude-feature=GLOBAL_DBS"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-test",
+                "order": 1
+            }
+        },
+
+        // Running a test with rdm-client capabilities
+        {
+            "name": "test-rdm-client (cppdbg)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [
+              "--tfsm",
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-test",
+                "order": 1
+            }
+        },
+
+        // Running a test with tfs-client capabilities
+        {
+            "name": "test-tfs-client (cppdbg)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [
+              "--tfsr",
+              "--tfs=tfs://21553/"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-test",
+                "order": 1
+            }
+        },
+    
+        // Running a test with tfs-client capabilities over tcp
+        {
+            "name": "test-tfs-tcp (cppdbg)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [
+              "--tfsr",
+              "--tfs=tfs-tcp://localhost:21553/"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-test",
+                "order": 1
+            }
+        },    
+
+        // Running a test with tfs-client capabilities over shm
+        {
+            "name": "test-tfs-shm (cppdbg)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [
+              "--tfsr",
+              "--tfs=tfs-shm://21553/"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-test",
+                "order": 1
+            }
+        },
+
+        // Running a test with tfs-client capabilities over tcp over shm-poll
+        {
+            "name": "test-tfs-shm-poll (cppdbg)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [
+              "--tfsr",
+              "--tfs=tfs-shm-poll:///"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-test",
+                "order": 1
+            }
+        },
+
+        // Running a test with tfs-client capabilities using SSL
+        {
+            "name": "test-tfs-force-ssl (cppdbg)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [
+              "--force-ssl",
+              "--tfsr",
+              "--tfs=tfs://21553/"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-test",
+                "order": 1
+            }
+        },
+    
+        // Running a test with tfs-embed capabilities
+        {
+            "name": "test-tfs-embed (cppdbg)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [
+              "--tfst"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-test",
+                "order": 1
+            }
+        },
+
+        // Running a test with tfs-client with tfs listen capabilities
+        {
+            "name": "test-tfs-client-with-tfs-listen (cppdbg)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [
+              "--tfs-listen",
+              "--tfs",
+              "tfs-tcp://127.0.0.1:21553"
+              
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-test",
+                "order": 1
+            }
+        },
+
+        // rdm-console - require a separate build tree
+        {
+            "name": "rdm-console (cppdbg)",
+            "preLaunchTask": "build-rdm-console",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.buildDirectory}/../b-rdm-console-trace-no-os/source/internal_rdm-console/${command:cmake.buildType}/rdm-console",
+            "args": [
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.buildDirectory}/../b-rdm-console-trace-no-os/source/internal_rdm-console/",
+            "externalConsole": false,
+            "presentation": {
+                "hidden": false,
+                "group": "rdm-command",
+                "order": 1
+            }
+        },
+    ]
+}

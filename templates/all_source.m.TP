@@ -1,0 +1,17 @@
+if ($LIBRARY ne "" and $LANGUAGE eq "m") {
+    $output= "#ifdef " . uc(${LIBRARY}) . "_ALL_SOURCE\n";
+    $output.= "#define PSP_PRIVATE static\n";
+    foreach $srcfile (@SRCFILES) {
+        $output.= "#include \"$srcfile\"\n";
+    }
+    foreach $gen_macro (keys (%GEN_MACRO_RULES)) {
+        foreach $macro (@{$gen_macro}) {
+            foreach $argument (@{$GEN_MACRO_RULES{$gen_macro}{outputC}}) {
+                my ${arg}= "${argument}";
+                ${arg}=~ s/\$\{base\}/${macro}/;
+                $output.= "#include \"${arg}\"\n";
+            }
+        }
+    }
+    $output.= "#endif\n";
+}

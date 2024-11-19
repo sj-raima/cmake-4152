@@ -1,0 +1,23 @@
+
+          @@PRODUCT_NAME_LONG@@ Release  @@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@.@@PRODUCT_VERSION_PATCH@@ Build @@PRODUCT_VERSION_BUILD@@ - @@PRODUCT_INFO_DATE_MONTH@@/@@PRODUCT_INFO_DATE_DAY@@/@@PRODUCT_INFO_DATE_YEAR@@
+
+
+1 - What's New
+--------------------------------------------------------------------
+
+- High speed remote client
+- Struct/enum data type support
+- Autosar OS support
+- Autosar standard certification support
+- Enhanced SQL builder and browser support in REST Admin GUI
+- SSL connection support
+
+
+2 - Known Issues
+--------------------------------------------------------------------
+
+Area: Engine
+
+ 4948
+        Cascading deletes may report error
+

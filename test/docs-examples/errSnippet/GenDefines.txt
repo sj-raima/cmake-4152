@@ -1,0 +1,8 @@
+# We only need this for building tools for documentation on Windows
+$PLATFORM_INC="
+    WINDOWS
+";
+
+$LINKLIBRARIES="
+    $BASE
+";

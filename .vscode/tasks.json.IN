@@ -1,0 +1,162 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "configure-rdm-console",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+              "--preset", "rdm-console-trace-no-os"
+            ]
+        },
+        {
+            "label": "build-rdm-console",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "/home/sj/turin/b-rdm-console-trace-no-os",
+                "-t", "rdm-console",
+                "--config", "${command:cmake.buildType}"
+            ],
+            "dependsOn": "configure-rdm-console"
+        },
+        {
+            "label": "build-rdm-compile",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "${command:cmake.buildDirectory}",
+                "-t", "rdm-compile",
+                "--config", "${command:cmake.buildType}"
+            ]
+        },
+        {
+            "label": "build-rdm-copy",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "${command:cmake.buildDirectory}",
+                "-t", "rdm-copy",
+                "--config", "${command:cmake.buildType}"
+            ]
+        },
+        {
+            "label": "build-rdm-create",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "${command:cmake.buildDirectory}",
+                "-t", "rdm-create",
+                "--config", "${command:cmake.buildType}"
+            ]
+        },
+        {
+            "label": "build-rdm-export",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "${command:cmake.buildDirectory}",
+                "-t", "rdm-export",
+                "--config", "${command:cmake.buildType}"
+            ]
+        },
+        {
+            "label": "build-rdm-import",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "${command:cmake.buildDirectory}",
+                "-t", "rdm-import",
+                "--config", "${command:cmake.buildType}"
+            ]
+        },
+        {
+            "label": "build-rdm-sql",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "${command:cmake.buildDirectory}",
+                "-t", "rdm-sql",
+                "--config", "${command:cmake.buildType}"
+            ]
+        },
+        {
+            "label": "build-rdm-tfs",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "${command:cmake.buildDirectory}",
+                "-t", "rdm-tfs",
+                "--config", "${command:cmake.buildType}"
+            ]
+        },
+        {
+            "label": "build-rdm-regodbc",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "${command:cmake.buildDirectory}",
+                "-t", "rdm-regodbc",
+                "--config", "${command:cmake.buildType}"
+            ]
+        },
+        {
+            "label": "build-scm-test",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "${command:cmake.buildDirectory}",
+                "-t", "14perfTest",
+                "--config", "${command:cmake.buildType}"
+            ]
+        },
+        {
+            "label": "scm-test-copy",
+            "type": "shell",
+            "command": "scp-scm",
+            "args": [
+                "${command:cmake.launchTargetPath}"
+            ]
+        },
+        {
+            "label": "scm-rdm-tfs-copy",
+            "type": "shell",
+            "command": "scp-scm",
+            "args": [
+                "${command:cmake.buildDirectory}/source/rdm-tfs/${command:cmake.buildType}/rdm-tfs"
+            ],
+            "dependsOn": "build-rdm-tfs"
+        },
+        {
+            "label": "build-rdm-tfs",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "${command:cmake.buildDirectory}",
+                "-t", "rdm-tfs",
+                "--config", "${command:cmake.buildType}"
+            ]
+        },
+        {
+            "label": "scm-test-copy-gdbserver",
+            "type": "shell",
+            "command": "ssh",
+            "args": [
+                "root@scm",
+                "./gdbserver",
+                "localhost:9999",
+                "./${command:cmake.launchTargetFilename}",
+            ],
+            "dependsOn": "scm-test-copy"
+        },
+        {
+            "label": "scm-test-copy-gdbserver-sleep",
+            "type": "shell",
+            "command": "sleep",
+            "args": [
+                "2"
+            ],
+            "dependsOn": "scm-test-copy-gdbserver"
+        }
+    ]
+}

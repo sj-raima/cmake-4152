@@ -1,0 +1,20 @@
+$INCLUDES="
+    ../../../qaframe_tfs
+";
+
+$COMPILE_CPP_LC_S_E="
+    settrans_cascade_cyclic_graph
+    settrans_cascade_dag_and_restrict
+    settrans_cascade_dag_and_set_null
+    settrans_cascade_tree_and_restrict
+    settrans_cascade_tree_and_set_null
+";
+
+$LINKLIBRARIES="
+    qaframe_tfs
+    $SQL
+";
+
+$DEFINES="
+    $SQL_ENABLED
+";

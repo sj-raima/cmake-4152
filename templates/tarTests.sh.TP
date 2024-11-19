@@ -1,0 +1,24 @@
+if (projectInclude ("LINUX", "OSX", "IOS", "ANDROID", "QNX", "INTEGRITY", "VXWORKS", "VXWORKS_RTP")) {
+    foreach $file (@EXTRA_DIST) {
+        ${tarTests_files}.= " \\\n    ${DIRPATH}/$file";
+    }
+
+    ${tarTests_files}.= " \\\n    ${DIRPATH}/check.sh";
+
+    # Tests
+    if ($#TESTS >= 0) {
+        foreach $test (@TESTS) {
+            if ($test =~ m/(.*)\.sh$/) {
+                ${tarTests_files}.= " \\\n    ${DIRPATH}/$1.sh";
+            }
+            elsif ($test =~ m/(.*)\.pl$/) {
+                ${tarTests_files}.= " \\\n    ${DIRPATH}/$1.pl";
+            }
+            elsif ($test =~ m/(.*)\.bat$/) {
+            }
+            else {
+                ${tarTests_files}.= " \\\n    \$1/${DIRPATH}/$test";
+            }
+        }
+    }
+}

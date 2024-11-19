@@ -1,0 +1,2 @@
+print_file("tarTests.sh", "#!/bin/sh
+tar --format=ustar --ignore-failed-read -cf \${1}-tests.tar${tarTests_files}");

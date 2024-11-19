@@ -1,0 +1,96 @@
+$Doxyfile_common = "
+FILE_PATTERNS          = *.h \\
+                         *.c \\
+                         *.cpp \\
+                         *.cc \\
+                         *.md \\
+EXCLUDE_PATTERNS       = \\
+                         include/sql*.h
+RECURSIVE              = NO
+USE_MDFILE_AS_MAINPAGE = 
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = YES
+OPTIMIZE_OUTPUT_FOR_C  = YES
+AUTOLINK_SUPPORT       = YES
+EXTRACT_STATIC         = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_ALL            = YES
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = NO
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+MAX_DOT_GRAPH_DEPTH    = 5
+DOT_GRAPH_MAX_NODES    = 2000
+DOT_IMAGE_FORMAT       = svg
+WARN_FORMAT            = \"\$file(\$line): \$text\"
+GENERATE_LATEX         = NO
+EXCLUDE_SYMBOLS        =";
+
+if ($RELEASE_OBJ) {
+$Doxyfile_common .= " \\
+                         EXTERNAL_FCN \\
+                         RDM_EXPORT \\
+                         RDM_IMPORT \\
+                         PSP_PRIVATE \\
+                         RDM_PUBLIC_CLASS";
+}
+$Doxyfile_common .= "
+PREDEFINED             = RDM_DOXYGEN
+EXAMPLE_PATH           = . \\
+                         ./include
+ALIASES                = \\
+                         \"association_rules_db=\\par Cursor Association Rules\\n                          - If \\a pCursor points to an ::RDM_CURSOR with a value of NULL then a new cursor will be allocated and associated with \\a db.\\n                                                  - If \\a pCursor points to an ::RDM_CURSOR that has been allocated, it is associated with \\a db but may not yet be associated with a set of rows.\\n                                              - If \\a pCursor points to a ::RDM_CURSOR that is associated with an ::RDM_DB other than \\a db then an error will be returned.\\n                                                 - If \\a pCursor points to a ::RDM_CURSOR that has been previously used and held a set of rows from a different table then memory may need to be reallocated to handle the new set of rows. If you are interacting with more than one set of tables it can be more efficient to use multiple ::RDM_CURSOR than to share a single ::RDM_CURSOR.\" \\
+                         \"association_rules_cursor{1}=\\par Cursor Association Rules\\n- If \\a pCursor points to NULL then a new cursor will be allocated and associated with the same ::RDM_DB as \\1.\\n                                           - If \\a pCursor points to an ::RDM_CURSOR that has been allocated, but not associated with an ::RDM_DB then the ::RDM_CURSOR will be associated with the same ::RDM_DB as \\1.\\n                                                 - If \\a pCursor points to an ::RDM_CURSOR that is associated with an ::RDM_DB other than the ::RDM_DB associated with \\1 then an error will be returned.\\n                                              - If \\a pCursor points to a ::RDM_CURSOR that has been previously used and held a set of rows from a different table then memory may need to be reallocated to handle the new set of rows. If you are interacting with more than one set of tables it can be more efficient to use multiple ::RDM_CURSOR than to share a single ::RDM_CURSOR.\" \\
+                         \"retval{1}=\\retval \\1 \\copydetails \\1\" \\
+                         \"c{1}=<tt>\\1</tt>\" \\
+                         \"optdef{2}=\\par Default Value \\n\\n If the \\c{\\1} option is not defined, the default value of \\c{\\2} is used. \\n\\n\\par Example \\n    \\code \\1=\\2\\endcode\" \\
+                         \"lib{1}=lib_\\1. Linker option:\\n<pre><code>    -lrdm\\1</code></pre>\" \\
+                         \"reserved{1}=<b>\\1</b>\" \\
+                         \"html{2}=<a href=\\\"\\2\\\" target=\\\"_blank\\\">\\1</a>\"
+";
+
+$outputDoxyFileIncludePath= "";
+foreach $include (keys %outputDoxyFileIncludePath) {
+    $outputDoxyFileIncludePath.=" \\\n                         \@PROJECT_SOURCE_DIR\@/$include";
+}
+
+print_writeable_file("Doxyfile.CMake.in", "PROJECT_NAME           = \"\@CMAKE_PROJECT_NAME\@\"
+PROJECT_NUMBER         = \@PROJECT_VERSION_MAJOR\@.\@PROJECT_VERSION_MINOR\@
+STRIP_FROM_PATH        = \@PROJECT_SOURCE_DIR\@ \\
+                         \@PROJECT_BINARY_DIR\@
+INPUT                  = \@PROJECT_SOURCE_DIR\@/mainpage.md ${outputDoxyFileDirectoriesCMake}
+INCLUDE_PATH           = $outputDoxyFileIncludePath
+$Doxyfile_common
+HAVE_DOT               = \@DOXYGEN_DOT_FOUND\@
+DOT_PATH               = \@DOXYGEN_DOT_PATH\@
+EXTERNAL_SEARCH_ID     = RDM-\@PROJECT_VERSION_MAJOR\@.\@PROJECT_VERSION_MINOR\@
+");
+
+$outputDoxyFileIncludePath= "";
+foreach $include (keys %outputDoxyFileIncludePath) {
+    $outputDoxyFileIncludePath.=" \\\n                         \@top_srcdir\@/$include";
+}
+
+print_writeable_file("Doxyfile.in", "PROJECT_NAME           = \"@@PRODUCT_NAME_SHORT@@ (@@PRODUCT_NAME_CODE@@)\"
+PROJECT_NUMBER         = @@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@.@@PRODUCT_VERSION_PATCH@@
+STRIP_FROM_PATH        = \@top_srcdir\@
+INPUT                  = \@top_srcdir\@/mainpage.md ${outputDoxyFileDirectoriesConfigure}
+INCLUDE_PATH           = $outputDoxyFileIncludePath
+$Doxyfile_common
+HAVE_DOT               = \@HAVE_DOT\@
+EXTERNAL_SEARCH_ID     = RDM-@@PROJECT_VERSION_MAJOR@@.@@PROJECT_VERSION_MINOR@@
+");
+
+$outputDoxyFileIncludePath= "";
+foreach $include (keys %outputDoxyFileIncludePath) {
+    $outputDoxyFileIncludePath.=" \\\n                         $include";
+}
+
+print_writeable_file("Doxyfile", "PROJECT_NAME           = \"@@PRODUCT_NAME_SHORT@@ (@@PRODUCT_NAME_CODE@@)\"
+PROJECT_NUMBER         = @@PRODUCT_VERSION_MAJOR@@.@@PRODUCT_VERSION_MINOR@@.@@PRODUCT_VERSION_PATCH@@
+INPUT                  = mainpage.md ${outputDoxyFileDirectories}
+INCLUDE_PATH           = $outputDoxyFileIncludePath
+$Doxyfile_common
+HAVE_DOT               = YES
+EXTERNAL_SEARCH_ID     = RDM-@@PROJECT_VERSION_MAJOR@@.@@PROJECT_VERSION_MINOR@@
+");

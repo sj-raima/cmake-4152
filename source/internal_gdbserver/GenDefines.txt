@@ -1,0 +1,8 @@
+$LIBRARY="gdbserver";
+
+$LINKLIBRARIES="
+";
+
+$PLATFORM_INC="
+    LINUX
+";

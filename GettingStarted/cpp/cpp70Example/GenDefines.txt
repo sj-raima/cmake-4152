@@ -1,0 +1,12 @@
+$LINKLIBRARIES="
+    $TFS
+    $RDM
+";
+
+$COMPILE_CPP_LC_S_C="
+    cpp70
+";
+
+$PLATFORM_EXCL="
+    INTEGRITY
+";

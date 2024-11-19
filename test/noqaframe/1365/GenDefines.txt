@@ -1,0 +1,7 @@
+$LINKLIBRARIES="
+    cppapi
+    cpp$TFS
+";
+$DDLP_CPP_API_LC_C="
+    test
+";

@@ -1,0 +1,34 @@
+$DESCRIPTION="Example database: Antiquarian Bookshop Database";
+
+$DEPENDENCIES="
+  rdm-import
+  rdm-sql
+";
+
+$EXTRA_DIST="
+    bookshop.sdl
+    BOOKSHOP.sql
+
+    queries.sql
+    n_oldest_authors.sql
+    var_refs.sql
+    cflow.sql
+    add_wayne.sql
+    my_sqrt.sql
+    begin_trans.sql
+    simple_variables.sql
+    authors_decade.sql
+    add_gen_sub.sql
+    showcase.sql
+    bio_match.sql
+    bio_match_all.sql
+    nested_handler.sql
+    new_acctmgr.sql
+    gr_than_avg.sql
+    simple_queries.sql
+    column_expressions.sql
+    conditional_queries.sql
+    retrieve_data_from_multiple_tables.sql
+    searched_delete.sql
+    searched_update.sql
+";

@@ -1,0 +1,9 @@
+$SUBDIRS="
+    RESTBookstore
+";
+
+$EXTRA_DIST="
+    config.py
+    requirements.txt
+    runserver.py
+";    

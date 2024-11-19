@@ -1,0 +1,16 @@
+$EMBED="
+    needfile.txt
+";
+
+$INCLUDES="
+    ../rutil
+";
+
+$LINKLIBRARIES="
+    qaframe_rdbc
+    rutil
+";
+
+$COMPILE_C="
+    rdbc_perf
+";

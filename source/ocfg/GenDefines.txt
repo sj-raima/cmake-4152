@@ -1,0 +1,19 @@
+$LIBRARY="ocfg";
+
+$LINKLIBRARIES="
+    psp
+    base
+";
+
+$DEFINES="
+    RDM_ODBC_CFG
+";
+
+$SYSLIBS="
+    os_drv_syslibs
+";
+
+$PLATFORM_INC="
+    WINDOWS
+";
+
