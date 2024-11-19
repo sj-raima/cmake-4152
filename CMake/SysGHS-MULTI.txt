@@ -1,0 +1,7 @@
+if (${CMAKE_SYSTEM_NAME} STREQUAL GHS-MULTI)
+  # These are specific to Green Hills INTEGRITY
+  SET (RDM_EXCEPTIONS "--exceptions")
+  SET (RDM_NO_EXCEPTIONS "--no_exceptions")
+  SET (RDM_RTTI "--rtti")
+  SET (RDM_NO_RTTI "--no_rtti")
+endif ()

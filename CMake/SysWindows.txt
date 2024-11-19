@@ -1,0 +1,32 @@
+# RDM
+#
+# Copyright (c) 2010 Raima Inc.,  All rights reserved.
+#
+# Use of this software, whether in source code format, or in executable,
+# binary object code form, is governed by the Raima LICENSE which
+# is fully described in the LICENSE.TXT file, included within this
+# distribution of files.
+
+#
+# Windows
+#
+
+# These are specific to Windows
+  set (WINDOWS on)
+  set (RDM_DLL_DIR "bin")
+  set (RDM_LIB_PREFIX "")
+  set (RDM_LIB_SUFFIX ".lib")
+  set (RDM_DLL_SUFFIX ".dll")
+  set (RDM_EXE_SUFFIX ".exe")
+  set (RDM_LINK_INTERFACE_LANGUAGES "C;RC")
+  SET (RDM_EXCEPTIONS "/EHsc")
+  SET (RDM_NO_EXCEPTIONS "")
+  SET (RDM_RTTI "/GR")
+  SET (RDM_NO_RTTI "/GR-")
+
+  ADD_DEFINITIONS (-wd4996)
+  ADD_DEFINITIONS (-nologo)
+
+  set (CMAKE_DOTNET_TARGET_FRAMEWORK_VERSION "v4.7")
+  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /permissive-")
+

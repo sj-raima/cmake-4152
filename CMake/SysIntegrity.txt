@@ -1,0 +1,5 @@
+# These are specific to Green Hills INTEGRITY
+set (RDM_EXCEPTIONS "--exceptions")
+set (RDM_NO_EXCEPTIONS "--no_exceptions")
+set (RDM_RTTI "--rtti")
+set (RDM_NO_RTTI "--no_rtti")

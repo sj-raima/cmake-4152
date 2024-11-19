@@ -1,0 +1,5 @@
+# These are specific to QNX Neutrino
+set (RDM_EXCEPTIONS "--exceptions")
+set (RDM_NO_EXCEPTIONS "--no-exceptions")
+set (RDM_RTTI "--rtti")
+set (RDM_NO_RTTI "--no-rtti")

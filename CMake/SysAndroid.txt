@@ -1,0 +1,5 @@
+# We do not have a normal OS.  See toolchain.cmake located in target/*/ for details.
+set (RDM_EXCEPTIONS "-fexceptions")
+set (RDM_NO_EXCEPTIONS "-fno-exceptions")
+set (RDM_RTTI "-frtti")
+set (RDM_NO_RTTI "-fno-rtti")

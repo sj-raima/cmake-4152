@@ -1,0 +1,18 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 0
+  },
+  "include": [
+    "presets/windowsDev.json",
+    "presets/linuxDev.json",
+    "presets/macos.json",
+    "presets/qnx.json",
+    "presets/vxworks.json",
+    "presets/integrity.json",
+    "presets/androidDev.json",
+    "presets/noneDev.json"
+  ]
+}
